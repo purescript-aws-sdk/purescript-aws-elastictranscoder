@@ -60,7 +60,7 @@ Encode AccessDeniedException
 
 ``` purescript
 newtype Artwork
-  = Artwork { "InputKey" :: NullOrUndefined (WatermarkKey), "MaxWidth" :: NullOrUndefined (DigitsOrAuto), "MaxHeight" :: NullOrUndefined (DigitsOrAuto), "SizingPolicy" :: NullOrUndefined (SizingPolicy), "PaddingPolicy" :: NullOrUndefined (PaddingPolicy), "AlbumArtFormat" :: NullOrUndefined (JpgOrPng), "Encryption" :: NullOrUndefined (Encryption) }
+  = Artwork { "InputKey" :: Maybe (WatermarkKey), "MaxWidth" :: Maybe (DigitsOrAuto), "MaxHeight" :: Maybe (DigitsOrAuto), "SizingPolicy" :: Maybe (SizingPolicy), "PaddingPolicy" :: Maybe (PaddingPolicy), "AlbumArtFormat" :: Maybe (JpgOrPng), "Encryption" :: Maybe (Encryption) }
 ```
 
 <p>The file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20.</p> <p>To remove artwork or leave the artwork empty, you can either set <code>Artwork</code> to null, or set the <code>Merge Policy</code> to "Replace" and use an empty <code>Artwork</code> array.</p> <p>To pass through existing artwork unchanged, set the <code>Merge Policy</code> to "Prepend", "Append", or "Fallback", and use an empty <code>Artwork</code> array.</p>
@@ -85,7 +85,7 @@ Constructs Artwork from required parameters
 #### `newArtwork'`
 
 ``` purescript
-newArtwork' :: ({ "InputKey" :: NullOrUndefined (WatermarkKey), "MaxWidth" :: NullOrUndefined (DigitsOrAuto), "MaxHeight" :: NullOrUndefined (DigitsOrAuto), "SizingPolicy" :: NullOrUndefined (SizingPolicy), "PaddingPolicy" :: NullOrUndefined (PaddingPolicy), "AlbumArtFormat" :: NullOrUndefined (JpgOrPng), "Encryption" :: NullOrUndefined (Encryption) } -> { "InputKey" :: NullOrUndefined (WatermarkKey), "MaxWidth" :: NullOrUndefined (DigitsOrAuto), "MaxHeight" :: NullOrUndefined (DigitsOrAuto), "SizingPolicy" :: NullOrUndefined (SizingPolicy), "PaddingPolicy" :: NullOrUndefined (PaddingPolicy), "AlbumArtFormat" :: NullOrUndefined (JpgOrPng), "Encryption" :: NullOrUndefined (Encryption) }) -> Artwork
+newArtwork' :: ({ "InputKey" :: Maybe (WatermarkKey), "MaxWidth" :: Maybe (DigitsOrAuto), "MaxHeight" :: Maybe (DigitsOrAuto), "SizingPolicy" :: Maybe (SizingPolicy), "PaddingPolicy" :: Maybe (PaddingPolicy), "AlbumArtFormat" :: Maybe (JpgOrPng), "Encryption" :: Maybe (Encryption) } -> { "InputKey" :: Maybe (WatermarkKey), "MaxWidth" :: Maybe (DigitsOrAuto), "MaxHeight" :: Maybe (DigitsOrAuto), "SizingPolicy" :: Maybe (SizingPolicy), "PaddingPolicy" :: Maybe (PaddingPolicy), "AlbumArtFormat" :: Maybe (JpgOrPng), "Encryption" :: Maybe (Encryption) }) -> Artwork
 ```
 
 Constructs Artwork's fields from required parameters
@@ -222,7 +222,7 @@ Encode AudioCodec
 
 ``` purescript
 newtype AudioCodecOptions
-  = AudioCodecOptions { "Profile" :: NullOrUndefined (AudioCodecProfile), "BitDepth" :: NullOrUndefined (AudioBitDepth), "BitOrder" :: NullOrUndefined (AudioBitOrder), "Signed" :: NullOrUndefined (AudioSigned) }
+  = AudioCodecOptions { "Profile" :: Maybe (AudioCodecProfile), "BitDepth" :: Maybe (AudioBitDepth), "BitOrder" :: Maybe (AudioBitOrder), "Signed" :: Maybe (AudioSigned) }
 ```
 
 <p>Options associated with your audio codec.</p>
@@ -247,7 +247,7 @@ Constructs AudioCodecOptions from required parameters
 #### `newAudioCodecOptions'`
 
 ``` purescript
-newAudioCodecOptions' :: ({ "Profile" :: NullOrUndefined (AudioCodecProfile), "BitDepth" :: NullOrUndefined (AudioBitDepth), "BitOrder" :: NullOrUndefined (AudioBitOrder), "Signed" :: NullOrUndefined (AudioSigned) } -> { "Profile" :: NullOrUndefined (AudioCodecProfile), "BitDepth" :: NullOrUndefined (AudioBitDepth), "BitOrder" :: NullOrUndefined (AudioBitOrder), "Signed" :: NullOrUndefined (AudioSigned) }) -> AudioCodecOptions
+newAudioCodecOptions' :: ({ "Profile" :: Maybe (AudioCodecProfile), "BitDepth" :: Maybe (AudioBitDepth), "BitOrder" :: Maybe (AudioBitOrder), "Signed" :: Maybe (AudioSigned) } -> { "Profile" :: Maybe (AudioCodecProfile), "BitDepth" :: Maybe (AudioBitDepth), "BitOrder" :: Maybe (AudioBitOrder), "Signed" :: Maybe (AudioSigned) }) -> AudioCodecOptions
 ```
 
 Constructs AudioCodecOptions's fields from required parameters
@@ -288,7 +288,7 @@ Encode AudioPackingMode
 
 ``` purescript
 newtype AudioParameters
-  = AudioParameters { "Codec" :: NullOrUndefined (AudioCodec), "SampleRate" :: NullOrUndefined (AudioSampleRate), "BitRate" :: NullOrUndefined (AudioBitRate), "Channels" :: NullOrUndefined (AudioChannels), "AudioPackingMode" :: NullOrUndefined (AudioPackingMode), "CodecOptions" :: NullOrUndefined (AudioCodecOptions) }
+  = AudioParameters { "Codec" :: Maybe (AudioCodec), "SampleRate" :: Maybe (AudioSampleRate), "BitRate" :: Maybe (AudioBitRate), "Channels" :: Maybe (AudioChannels), "AudioPackingMode" :: Maybe (AudioPackingMode), "CodecOptions" :: Maybe (AudioCodecOptions) }
 ```
 
 <p>Parameters required for transcoding audio.</p>
@@ -313,7 +313,7 @@ Constructs AudioParameters from required parameters
 #### `newAudioParameters'`
 
 ``` purescript
-newAudioParameters' :: ({ "Codec" :: NullOrUndefined (AudioCodec), "SampleRate" :: NullOrUndefined (AudioSampleRate), "BitRate" :: NullOrUndefined (AudioBitRate), "Channels" :: NullOrUndefined (AudioChannels), "AudioPackingMode" :: NullOrUndefined (AudioPackingMode), "CodecOptions" :: NullOrUndefined (AudioCodecOptions) } -> { "Codec" :: NullOrUndefined (AudioCodec), "SampleRate" :: NullOrUndefined (AudioSampleRate), "BitRate" :: NullOrUndefined (AudioBitRate), "Channels" :: NullOrUndefined (AudioChannels), "AudioPackingMode" :: NullOrUndefined (AudioPackingMode), "CodecOptions" :: NullOrUndefined (AudioCodecOptions) }) -> AudioParameters
+newAudioParameters' :: ({ "Codec" :: Maybe (AudioCodec), "SampleRate" :: Maybe (AudioSampleRate), "BitRate" :: Maybe (AudioBitRate), "Channels" :: Maybe (AudioChannels), "AudioPackingMode" :: Maybe (AudioPackingMode), "CodecOptions" :: Maybe (AudioCodecOptions) } -> { "Codec" :: Maybe (AudioCodec), "SampleRate" :: Maybe (AudioSampleRate), "BitRate" :: Maybe (AudioBitRate), "Channels" :: Maybe (AudioChannels), "AudioPackingMode" :: Maybe (AudioPackingMode), "CodecOptions" :: Maybe (AudioCodecOptions) }) -> AudioParameters
 ```
 
 Constructs AudioParameters's fields from required parameters
@@ -438,7 +438,7 @@ Encode CancelJobResponse
 
 ``` purescript
 newtype CaptionFormat
-  = CaptionFormat { "Format" :: NullOrUndefined (CaptionFormatFormat), "Pattern" :: NullOrUndefined (CaptionFormatPattern), "Encryption" :: NullOrUndefined (Encryption) }
+  = CaptionFormat { "Format" :: Maybe (CaptionFormatFormat), "Pattern" :: Maybe (CaptionFormatPattern), "Encryption" :: Maybe (Encryption) }
 ```
 
 <p>The file format of the output captions. If you leave this value blank, Elastic Transcoder returns an error.</p>
@@ -463,7 +463,7 @@ Constructs CaptionFormat from required parameters
 #### `newCaptionFormat'`
 
 ``` purescript
-newCaptionFormat' :: ({ "Format" :: NullOrUndefined (CaptionFormatFormat), "Pattern" :: NullOrUndefined (CaptionFormatPattern), "Encryption" :: NullOrUndefined (Encryption) } -> { "Format" :: NullOrUndefined (CaptionFormatFormat), "Pattern" :: NullOrUndefined (CaptionFormatPattern), "Encryption" :: NullOrUndefined (Encryption) }) -> CaptionFormat
+newCaptionFormat' :: ({ "Format" :: Maybe (CaptionFormatFormat), "Pattern" :: Maybe (CaptionFormatPattern), "Encryption" :: Maybe (Encryption) } -> { "Format" :: Maybe (CaptionFormatFormat), "Pattern" :: Maybe (CaptionFormatPattern), "Encryption" :: Maybe (Encryption) }) -> CaptionFormat
 ```
 
 Constructs CaptionFormat's fields from required parameters
@@ -536,7 +536,7 @@ Encode CaptionMergePolicy
 
 ``` purescript
 newtype CaptionSource
-  = CaptionSource { "Key" :: NullOrUndefined (LongKey), "Language" :: NullOrUndefined (Key), "TimeOffset" :: NullOrUndefined (TimeOffset), "Label" :: NullOrUndefined (Name), "Encryption" :: NullOrUndefined (Encryption) }
+  = CaptionSource { "Key" :: Maybe (LongKey), "Language" :: Maybe (Key), "TimeOffset" :: Maybe (TimeOffset), "Label" :: Maybe (Name), "Encryption" :: Maybe (Encryption) }
 ```
 
 <p>A source file for the input sidecar captions used during the transcoding process.</p>
@@ -561,7 +561,7 @@ Constructs CaptionSource from required parameters
 #### `newCaptionSource'`
 
 ``` purescript
-newCaptionSource' :: ({ "Key" :: NullOrUndefined (LongKey), "Language" :: NullOrUndefined (Key), "TimeOffset" :: NullOrUndefined (TimeOffset), "Label" :: NullOrUndefined (Name), "Encryption" :: NullOrUndefined (Encryption) } -> { "Key" :: NullOrUndefined (LongKey), "Language" :: NullOrUndefined (Key), "TimeOffset" :: NullOrUndefined (TimeOffset), "Label" :: NullOrUndefined (Name), "Encryption" :: NullOrUndefined (Encryption) }) -> CaptionSource
+newCaptionSource' :: ({ "Key" :: Maybe (LongKey), "Language" :: Maybe (Key), "TimeOffset" :: Maybe (TimeOffset), "Label" :: Maybe (Name), "Encryption" :: Maybe (Encryption) } -> { "Key" :: Maybe (LongKey), "Language" :: Maybe (Key), "TimeOffset" :: Maybe (TimeOffset), "Label" :: Maybe (Name), "Encryption" :: Maybe (Encryption) }) -> CaptionSource
 ```
 
 Constructs CaptionSource's fields from required parameters
@@ -586,7 +586,7 @@ Encode CaptionSources
 
 ``` purescript
 newtype Captions
-  = Captions { "MergePolicy" :: NullOrUndefined (CaptionMergePolicy), "CaptionSources" :: NullOrUndefined (CaptionSources), "CaptionFormats" :: NullOrUndefined (CaptionFormats) }
+  = Captions { "MergePolicy" :: Maybe (CaptionMergePolicy), "CaptionSources" :: Maybe (CaptionSources), "CaptionFormats" :: Maybe (CaptionFormats) }
 ```
 
 <p>The captions to be created, if any.</p>
@@ -611,7 +611,7 @@ Constructs Captions from required parameters
 #### `newCaptions'`
 
 ``` purescript
-newCaptions' :: ({ "MergePolicy" :: NullOrUndefined (CaptionMergePolicy), "CaptionSources" :: NullOrUndefined (CaptionSources), "CaptionFormats" :: NullOrUndefined (CaptionFormats) } -> { "MergePolicy" :: NullOrUndefined (CaptionMergePolicy), "CaptionSources" :: NullOrUndefined (CaptionSources), "CaptionFormats" :: NullOrUndefined (CaptionFormats) }) -> Captions
+newCaptions' :: ({ "MergePolicy" :: Maybe (CaptionMergePolicy), "CaptionSources" :: Maybe (CaptionSources), "CaptionFormats" :: Maybe (CaptionFormats) } -> { "MergePolicy" :: Maybe (CaptionMergePolicy), "CaptionSources" :: Maybe (CaptionSources), "CaptionFormats" :: Maybe (CaptionFormats) }) -> Captions
 ```
 
 Constructs Captions's fields from required parameters
@@ -620,7 +620,7 @@ Constructs Captions's fields from required parameters
 
 ``` purescript
 newtype Clip
-  = Clip { "TimeSpan" :: NullOrUndefined (TimeSpan) }
+  = Clip { "TimeSpan" :: Maybe (TimeSpan) }
 ```
 
 <p>Settings for one clip in a composition. All jobs in a playlist must have the same clip settings.</p>
@@ -645,7 +645,7 @@ Constructs Clip from required parameters
 #### `newClip'`
 
 ``` purescript
-newClip' :: ({ "TimeSpan" :: NullOrUndefined (TimeSpan) } -> { "TimeSpan" :: NullOrUndefined (TimeSpan) }) -> Clip
+newClip' :: ({ "TimeSpan" :: Maybe (TimeSpan) } -> { "TimeSpan" :: Maybe (TimeSpan) }) -> Clip
 ```
 
 Constructs Clip's fields from required parameters
@@ -702,7 +702,7 @@ Encode Composition
 
 ``` purescript
 newtype CreateJobOutput
-  = CreateJobOutput { "Key" :: NullOrUndefined (Key), "ThumbnailPattern" :: NullOrUndefined (ThumbnailPattern), "ThumbnailEncryption" :: NullOrUndefined (Encryption), "Rotate" :: NullOrUndefined (Rotate), "PresetId" :: NullOrUndefined (Id), "SegmentDuration" :: NullOrUndefined (FloatString), "Watermarks" :: NullOrUndefined (JobWatermarks), "AlbumArt" :: NullOrUndefined (JobAlbumArt), "Composition" :: NullOrUndefined (Composition), "Captions" :: NullOrUndefined (Captions), "Encryption" :: NullOrUndefined (Encryption) }
+  = CreateJobOutput { "Key" :: Maybe (Key), "ThumbnailPattern" :: Maybe (ThumbnailPattern), "ThumbnailEncryption" :: Maybe (Encryption), "Rotate" :: Maybe (Rotate), "PresetId" :: Maybe (Id), "SegmentDuration" :: Maybe (FloatString), "Watermarks" :: Maybe (JobWatermarks), "AlbumArt" :: Maybe (JobAlbumArt), "Composition" :: Maybe (Composition), "Captions" :: Maybe (Captions), "Encryption" :: Maybe (Encryption) }
 ```
 
 <p>The <code>CreateJobOutput</code> structure.</p>
@@ -727,7 +727,7 @@ Constructs CreateJobOutput from required parameters
 #### `newCreateJobOutput'`
 
 ``` purescript
-newCreateJobOutput' :: ({ "Key" :: NullOrUndefined (Key), "ThumbnailPattern" :: NullOrUndefined (ThumbnailPattern), "ThumbnailEncryption" :: NullOrUndefined (Encryption), "Rotate" :: NullOrUndefined (Rotate), "PresetId" :: NullOrUndefined (Id), "SegmentDuration" :: NullOrUndefined (FloatString), "Watermarks" :: NullOrUndefined (JobWatermarks), "AlbumArt" :: NullOrUndefined (JobAlbumArt), "Composition" :: NullOrUndefined (Composition), "Captions" :: NullOrUndefined (Captions), "Encryption" :: NullOrUndefined (Encryption) } -> { "Key" :: NullOrUndefined (Key), "ThumbnailPattern" :: NullOrUndefined (ThumbnailPattern), "ThumbnailEncryption" :: NullOrUndefined (Encryption), "Rotate" :: NullOrUndefined (Rotate), "PresetId" :: NullOrUndefined (Id), "SegmentDuration" :: NullOrUndefined (FloatString), "Watermarks" :: NullOrUndefined (JobWatermarks), "AlbumArt" :: NullOrUndefined (JobAlbumArt), "Composition" :: NullOrUndefined (Composition), "Captions" :: NullOrUndefined (Captions), "Encryption" :: NullOrUndefined (Encryption) }) -> CreateJobOutput
+newCreateJobOutput' :: ({ "Key" :: Maybe (Key), "ThumbnailPattern" :: Maybe (ThumbnailPattern), "ThumbnailEncryption" :: Maybe (Encryption), "Rotate" :: Maybe (Rotate), "PresetId" :: Maybe (Id), "SegmentDuration" :: Maybe (FloatString), "Watermarks" :: Maybe (JobWatermarks), "AlbumArt" :: Maybe (JobAlbumArt), "Composition" :: Maybe (Composition), "Captions" :: Maybe (Captions), "Encryption" :: Maybe (Encryption) } -> { "Key" :: Maybe (Key), "ThumbnailPattern" :: Maybe (ThumbnailPattern), "ThumbnailEncryption" :: Maybe (Encryption), "Rotate" :: Maybe (Rotate), "PresetId" :: Maybe (Id), "SegmentDuration" :: Maybe (FloatString), "Watermarks" :: Maybe (JobWatermarks), "AlbumArt" :: Maybe (JobAlbumArt), "Composition" :: Maybe (Composition), "Captions" :: Maybe (Captions), "Encryption" :: Maybe (Encryption) }) -> CreateJobOutput
 ```
 
 Constructs CreateJobOutput's fields from required parameters
@@ -752,7 +752,7 @@ Encode CreateJobOutputs
 
 ``` purescript
 newtype CreateJobPlaylist
-  = CreateJobPlaylist { "Name" :: NullOrUndefined (Filename), "Format" :: NullOrUndefined (PlaylistFormat), "OutputKeys" :: NullOrUndefined (OutputKeys), "HlsContentProtection" :: NullOrUndefined (HlsContentProtection), "PlayReadyDrm" :: NullOrUndefined (PlayReadyDrm) }
+  = CreateJobPlaylist { "Name" :: Maybe (Filename), "Format" :: Maybe (PlaylistFormat), "OutputKeys" :: Maybe (OutputKeys), "HlsContentProtection" :: Maybe (HlsContentProtection), "PlayReadyDrm" :: Maybe (PlayReadyDrm) }
 ```
 
 <p>Information about the master playlist.</p>
@@ -777,7 +777,7 @@ Constructs CreateJobPlaylist from required parameters
 #### `newCreateJobPlaylist'`
 
 ``` purescript
-newCreateJobPlaylist' :: ({ "Name" :: NullOrUndefined (Filename), "Format" :: NullOrUndefined (PlaylistFormat), "OutputKeys" :: NullOrUndefined (OutputKeys), "HlsContentProtection" :: NullOrUndefined (HlsContentProtection), "PlayReadyDrm" :: NullOrUndefined (PlayReadyDrm) } -> { "Name" :: NullOrUndefined (Filename), "Format" :: NullOrUndefined (PlaylistFormat), "OutputKeys" :: NullOrUndefined (OutputKeys), "HlsContentProtection" :: NullOrUndefined (HlsContentProtection), "PlayReadyDrm" :: NullOrUndefined (PlayReadyDrm) }) -> CreateJobPlaylist
+newCreateJobPlaylist' :: ({ "Name" :: Maybe (Filename), "Format" :: Maybe (PlaylistFormat), "OutputKeys" :: Maybe (OutputKeys), "HlsContentProtection" :: Maybe (HlsContentProtection), "PlayReadyDrm" :: Maybe (PlayReadyDrm) } -> { "Name" :: Maybe (Filename), "Format" :: Maybe (PlaylistFormat), "OutputKeys" :: Maybe (OutputKeys), "HlsContentProtection" :: Maybe (HlsContentProtection), "PlayReadyDrm" :: Maybe (PlayReadyDrm) }) -> CreateJobPlaylist
 ```
 
 Constructs CreateJobPlaylist's fields from required parameters
@@ -802,7 +802,7 @@ Encode CreateJobPlaylists
 
 ``` purescript
 newtype CreateJobRequest
-  = CreateJobRequest { "PipelineId" :: Id, "Input" :: NullOrUndefined (JobInput), "Inputs" :: NullOrUndefined (JobInputs), "Output" :: NullOrUndefined (CreateJobOutput), "Outputs" :: NullOrUndefined (CreateJobOutputs), "OutputKeyPrefix" :: NullOrUndefined (Key), "Playlists" :: NullOrUndefined (CreateJobPlaylists), "UserMetadata" :: NullOrUndefined (UserMetadata) }
+  = CreateJobRequest { "PipelineId" :: Id, "Input" :: Maybe (JobInput), "Inputs" :: Maybe (JobInputs), "Output" :: Maybe (CreateJobOutput), "Outputs" :: Maybe (CreateJobOutputs), "OutputKeyPrefix" :: Maybe (Key), "Playlists" :: Maybe (CreateJobPlaylists), "UserMetadata" :: Maybe (UserMetadata) }
 ```
 
 <p>The <code>CreateJobRequest</code> structure.</p>
@@ -827,7 +827,7 @@ Constructs CreateJobRequest from required parameters
 #### `newCreateJobRequest'`
 
 ``` purescript
-newCreateJobRequest' :: Id -> ({ "PipelineId" :: Id, "Input" :: NullOrUndefined (JobInput), "Inputs" :: NullOrUndefined (JobInputs), "Output" :: NullOrUndefined (CreateJobOutput), "Outputs" :: NullOrUndefined (CreateJobOutputs), "OutputKeyPrefix" :: NullOrUndefined (Key), "Playlists" :: NullOrUndefined (CreateJobPlaylists), "UserMetadata" :: NullOrUndefined (UserMetadata) } -> { "PipelineId" :: Id, "Input" :: NullOrUndefined (JobInput), "Inputs" :: NullOrUndefined (JobInputs), "Output" :: NullOrUndefined (CreateJobOutput), "Outputs" :: NullOrUndefined (CreateJobOutputs), "OutputKeyPrefix" :: NullOrUndefined (Key), "Playlists" :: NullOrUndefined (CreateJobPlaylists), "UserMetadata" :: NullOrUndefined (UserMetadata) }) -> CreateJobRequest
+newCreateJobRequest' :: Id -> ({ "PipelineId" :: Id, "Input" :: Maybe (JobInput), "Inputs" :: Maybe (JobInputs), "Output" :: Maybe (CreateJobOutput), "Outputs" :: Maybe (CreateJobOutputs), "OutputKeyPrefix" :: Maybe (Key), "Playlists" :: Maybe (CreateJobPlaylists), "UserMetadata" :: Maybe (UserMetadata) } -> { "PipelineId" :: Id, "Input" :: Maybe (JobInput), "Inputs" :: Maybe (JobInputs), "Output" :: Maybe (CreateJobOutput), "Outputs" :: Maybe (CreateJobOutputs), "OutputKeyPrefix" :: Maybe (Key), "Playlists" :: Maybe (CreateJobPlaylists), "UserMetadata" :: Maybe (UserMetadata) }) -> CreateJobRequest
 ```
 
 Constructs CreateJobRequest's fields from required parameters
@@ -836,7 +836,7 @@ Constructs CreateJobRequest's fields from required parameters
 
 ``` purescript
 newtype CreateJobResponse
-  = CreateJobResponse { "Job" :: NullOrUndefined (Job) }
+  = CreateJobResponse { "Job" :: Maybe (Job) }
 ```
 
 <p>The CreateJobResponse structure.</p>
@@ -861,7 +861,7 @@ Constructs CreateJobResponse from required parameters
 #### `newCreateJobResponse'`
 
 ``` purescript
-newCreateJobResponse' :: ({ "Job" :: NullOrUndefined (Job) } -> { "Job" :: NullOrUndefined (Job) }) -> CreateJobResponse
+newCreateJobResponse' :: ({ "Job" :: Maybe (Job) } -> { "Job" :: Maybe (Job) }) -> CreateJobResponse
 ```
 
 Constructs CreateJobResponse's fields from required parameters
@@ -870,7 +870,7 @@ Constructs CreateJobResponse's fields from required parameters
 
 ``` purescript
 newtype CreatePipelineRequest
-  = CreatePipelineRequest { "Name" :: Name, "InputBucket" :: BucketName, "OutputBucket" :: NullOrUndefined (BucketName), "Role" :: Role, "AwsKmsKeyArn" :: NullOrUndefined (KeyArn), "Notifications" :: NullOrUndefined (Notifications), "ContentConfig" :: NullOrUndefined (PipelineOutputConfig), "ThumbnailConfig" :: NullOrUndefined (PipelineOutputConfig) }
+  = CreatePipelineRequest { "Name" :: Name, "InputBucket" :: BucketName, "OutputBucket" :: Maybe (BucketName), "Role" :: Role, "AwsKmsKeyArn" :: Maybe (KeyArn), "Notifications" :: Maybe (Notifications), "ContentConfig" :: Maybe (PipelineOutputConfig), "ThumbnailConfig" :: Maybe (PipelineOutputConfig) }
 ```
 
 <p>The <code>CreatePipelineRequest</code> structure.</p>
@@ -895,7 +895,7 @@ Constructs CreatePipelineRequest from required parameters
 #### `newCreatePipelineRequest'`
 
 ``` purescript
-newCreatePipelineRequest' :: BucketName -> Name -> Role -> ({ "Name" :: Name, "InputBucket" :: BucketName, "OutputBucket" :: NullOrUndefined (BucketName), "Role" :: Role, "AwsKmsKeyArn" :: NullOrUndefined (KeyArn), "Notifications" :: NullOrUndefined (Notifications), "ContentConfig" :: NullOrUndefined (PipelineOutputConfig), "ThumbnailConfig" :: NullOrUndefined (PipelineOutputConfig) } -> { "Name" :: Name, "InputBucket" :: BucketName, "OutputBucket" :: NullOrUndefined (BucketName), "Role" :: Role, "AwsKmsKeyArn" :: NullOrUndefined (KeyArn), "Notifications" :: NullOrUndefined (Notifications), "ContentConfig" :: NullOrUndefined (PipelineOutputConfig), "ThumbnailConfig" :: NullOrUndefined (PipelineOutputConfig) }) -> CreatePipelineRequest
+newCreatePipelineRequest' :: BucketName -> Name -> Role -> ({ "Name" :: Name, "InputBucket" :: BucketName, "OutputBucket" :: Maybe (BucketName), "Role" :: Role, "AwsKmsKeyArn" :: Maybe (KeyArn), "Notifications" :: Maybe (Notifications), "ContentConfig" :: Maybe (PipelineOutputConfig), "ThumbnailConfig" :: Maybe (PipelineOutputConfig) } -> { "Name" :: Name, "InputBucket" :: BucketName, "OutputBucket" :: Maybe (BucketName), "Role" :: Role, "AwsKmsKeyArn" :: Maybe (KeyArn), "Notifications" :: Maybe (Notifications), "ContentConfig" :: Maybe (PipelineOutputConfig), "ThumbnailConfig" :: Maybe (PipelineOutputConfig) }) -> CreatePipelineRequest
 ```
 
 Constructs CreatePipelineRequest's fields from required parameters
@@ -904,7 +904,7 @@ Constructs CreatePipelineRequest's fields from required parameters
 
 ``` purescript
 newtype CreatePipelineResponse
-  = CreatePipelineResponse { "Pipeline" :: NullOrUndefined (Pipeline), "Warnings" :: NullOrUndefined (Warnings) }
+  = CreatePipelineResponse { "Pipeline" :: Maybe (Pipeline), "Warnings" :: Maybe (Warnings) }
 ```
 
 <p>When you create a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
@@ -929,7 +929,7 @@ Constructs CreatePipelineResponse from required parameters
 #### `newCreatePipelineResponse'`
 
 ``` purescript
-newCreatePipelineResponse' :: ({ "Pipeline" :: NullOrUndefined (Pipeline), "Warnings" :: NullOrUndefined (Warnings) } -> { "Pipeline" :: NullOrUndefined (Pipeline), "Warnings" :: NullOrUndefined (Warnings) }) -> CreatePipelineResponse
+newCreatePipelineResponse' :: ({ "Pipeline" :: Maybe (Pipeline), "Warnings" :: Maybe (Warnings) } -> { "Pipeline" :: Maybe (Pipeline), "Warnings" :: Maybe (Warnings) }) -> CreatePipelineResponse
 ```
 
 Constructs CreatePipelineResponse's fields from required parameters
@@ -938,7 +938,7 @@ Constructs CreatePipelineResponse's fields from required parameters
 
 ``` purescript
 newtype CreatePresetRequest
-  = CreatePresetRequest { "Name" :: Name, "Description" :: NullOrUndefined (Description), "Container" :: PresetContainer, "Video" :: NullOrUndefined (VideoParameters), "Audio" :: NullOrUndefined (AudioParameters), "Thumbnails" :: NullOrUndefined (Thumbnails) }
+  = CreatePresetRequest { "Name" :: Name, "Description" :: Maybe (Description), "Container" :: PresetContainer, "Video" :: Maybe (VideoParameters), "Audio" :: Maybe (AudioParameters), "Thumbnails" :: Maybe (Thumbnails) }
 ```
 
 <p>The <code>CreatePresetRequest</code> structure.</p>
@@ -963,7 +963,7 @@ Constructs CreatePresetRequest from required parameters
 #### `newCreatePresetRequest'`
 
 ``` purescript
-newCreatePresetRequest' :: PresetContainer -> Name -> ({ "Name" :: Name, "Description" :: NullOrUndefined (Description), "Container" :: PresetContainer, "Video" :: NullOrUndefined (VideoParameters), "Audio" :: NullOrUndefined (AudioParameters), "Thumbnails" :: NullOrUndefined (Thumbnails) } -> { "Name" :: Name, "Description" :: NullOrUndefined (Description), "Container" :: PresetContainer, "Video" :: NullOrUndefined (VideoParameters), "Audio" :: NullOrUndefined (AudioParameters), "Thumbnails" :: NullOrUndefined (Thumbnails) }) -> CreatePresetRequest
+newCreatePresetRequest' :: PresetContainer -> Name -> ({ "Name" :: Name, "Description" :: Maybe (Description), "Container" :: PresetContainer, "Video" :: Maybe (VideoParameters), "Audio" :: Maybe (AudioParameters), "Thumbnails" :: Maybe (Thumbnails) } -> { "Name" :: Name, "Description" :: Maybe (Description), "Container" :: PresetContainer, "Video" :: Maybe (VideoParameters), "Audio" :: Maybe (AudioParameters), "Thumbnails" :: Maybe (Thumbnails) }) -> CreatePresetRequest
 ```
 
 Constructs CreatePresetRequest's fields from required parameters
@@ -972,7 +972,7 @@ Constructs CreatePresetRequest's fields from required parameters
 
 ``` purescript
 newtype CreatePresetResponse
-  = CreatePresetResponse { "Preset" :: NullOrUndefined (Preset), "Warning" :: NullOrUndefined (String) }
+  = CreatePresetResponse { "Preset" :: Maybe (Preset), "Warning" :: Maybe (String) }
 ```
 
 <p>The <code>CreatePresetResponse</code> structure.</p>
@@ -997,7 +997,7 @@ Constructs CreatePresetResponse from required parameters
 #### `newCreatePresetResponse'`
 
 ``` purescript
-newCreatePresetResponse' :: ({ "Preset" :: NullOrUndefined (Preset), "Warning" :: NullOrUndefined (String) } -> { "Preset" :: NullOrUndefined (Preset), "Warning" :: NullOrUndefined (String) }) -> CreatePresetResponse
+newCreatePresetResponse' :: ({ "Preset" :: Maybe (Preset), "Warning" :: Maybe (String) } -> { "Preset" :: Maybe (Preset), "Warning" :: Maybe (String) }) -> CreatePresetResponse
 ```
 
 Constructs CreatePresetResponse's fields from required parameters
@@ -1126,7 +1126,7 @@ Encode Description
 
 ``` purescript
 newtype DetectedProperties
-  = DetectedProperties { "Width" :: NullOrUndefined (NullableInteger), "Height" :: NullOrUndefined (NullableInteger), "FrameRate" :: NullOrUndefined (FloatString), "FileSize" :: NullOrUndefined (NullableLong), "DurationMillis" :: NullOrUndefined (NullableLong) }
+  = DetectedProperties { "Width" :: Maybe (NullableInteger), "Height" :: Maybe (NullableInteger), "FrameRate" :: Maybe (FloatString), "FileSize" :: Maybe (NullableLong), "DurationMillis" :: Maybe (NullableLong) }
 ```
 
 <p>The detected properties of the input file. Elastic Transcoder identifies these values from the input file.</p>
@@ -1151,7 +1151,7 @@ Constructs DetectedProperties from required parameters
 #### `newDetectedProperties'`
 
 ``` purescript
-newDetectedProperties' :: ({ "Width" :: NullOrUndefined (NullableInteger), "Height" :: NullOrUndefined (NullableInteger), "FrameRate" :: NullOrUndefined (FloatString), "FileSize" :: NullOrUndefined (NullableLong), "DurationMillis" :: NullOrUndefined (NullableLong) } -> { "Width" :: NullOrUndefined (NullableInteger), "Height" :: NullOrUndefined (NullableInteger), "FrameRate" :: NullOrUndefined (FloatString), "FileSize" :: NullOrUndefined (NullableLong), "DurationMillis" :: NullOrUndefined (NullableLong) }) -> DetectedProperties
+newDetectedProperties' :: ({ "Width" :: Maybe (NullableInteger), "Height" :: Maybe (NullableInteger), "FrameRate" :: Maybe (FloatString), "FileSize" :: Maybe (NullableLong), "DurationMillis" :: Maybe (NullableLong) } -> { "Width" :: Maybe (NullableInteger), "Height" :: Maybe (NullableInteger), "FrameRate" :: Maybe (FloatString), "FileSize" :: Maybe (NullableLong), "DurationMillis" :: Maybe (NullableLong) }) -> DetectedProperties
 ```
 
 Constructs DetectedProperties's fields from required parameters
@@ -1192,7 +1192,7 @@ Encode DigitsOrAuto
 
 ``` purescript
 newtype Encryption
-  = Encryption { "Mode" :: NullOrUndefined (EncryptionMode), "Key" :: NullOrUndefined (Base64EncodedString), "KeyMd5" :: NullOrUndefined (Base64EncodedString), "InitializationVector" :: NullOrUndefined (ZeroTo255String) }
+  = Encryption { "Mode" :: Maybe (EncryptionMode), "Key" :: Maybe (Base64EncodedString), "KeyMd5" :: Maybe (Base64EncodedString), "InitializationVector" :: Maybe (ZeroTo255String) }
 ```
 
 <p>The encryption settings, if any, that are used for decrypting your input files or encrypting your output files. If your input file is encrypted, you must specify the mode that Elastic Transcoder uses to decrypt your file, otherwise you must specify the mode you want Elastic Transcoder to use to encrypt your output files.</p>
@@ -1217,7 +1217,7 @@ Constructs Encryption from required parameters
 #### `newEncryption'`
 
 ``` purescript
-newEncryption' :: ({ "Mode" :: NullOrUndefined (EncryptionMode), "Key" :: NullOrUndefined (Base64EncodedString), "KeyMd5" :: NullOrUndefined (Base64EncodedString), "InitializationVector" :: NullOrUndefined (ZeroTo255String) } -> { "Mode" :: NullOrUndefined (EncryptionMode), "Key" :: NullOrUndefined (Base64EncodedString), "KeyMd5" :: NullOrUndefined (Base64EncodedString), "InitializationVector" :: NullOrUndefined (ZeroTo255String) }) -> Encryption
+newEncryption' :: ({ "Mode" :: Maybe (EncryptionMode), "Key" :: Maybe (Base64EncodedString), "KeyMd5" :: Maybe (Base64EncodedString), "InitializationVector" :: Maybe (ZeroTo255String) } -> { "Mode" :: Maybe (EncryptionMode), "Key" :: Maybe (Base64EncodedString), "KeyMd5" :: Maybe (Base64EncodedString), "InitializationVector" :: Maybe (ZeroTo255String) }) -> Encryption
 ```
 
 Constructs Encryption's fields from required parameters
@@ -1354,7 +1354,7 @@ Encode GranteeType
 
 ``` purescript
 newtype HlsContentProtection
-  = HlsContentProtection { "Method" :: NullOrUndefined (HlsContentProtectionMethod), "Key" :: NullOrUndefined (Base64EncodedString), "KeyMd5" :: NullOrUndefined (Base64EncodedString), "InitializationVector" :: NullOrUndefined (ZeroTo255String), "LicenseAcquisitionUrl" :: NullOrUndefined (ZeroTo512String), "KeyStoragePolicy" :: NullOrUndefined (KeyStoragePolicy) }
+  = HlsContentProtection { "Method" :: Maybe (HlsContentProtectionMethod), "Key" :: Maybe (Base64EncodedString), "KeyMd5" :: Maybe (Base64EncodedString), "InitializationVector" :: Maybe (ZeroTo255String), "LicenseAcquisitionUrl" :: Maybe (ZeroTo512String), "KeyStoragePolicy" :: Maybe (KeyStoragePolicy) }
 ```
 
 <p>The HLS content protection settings, if any, that you want Elastic Transcoder to apply to your output files.</p>
@@ -1379,7 +1379,7 @@ Constructs HlsContentProtection from required parameters
 #### `newHlsContentProtection'`
 
 ``` purescript
-newHlsContentProtection' :: ({ "Method" :: NullOrUndefined (HlsContentProtectionMethod), "Key" :: NullOrUndefined (Base64EncodedString), "KeyMd5" :: NullOrUndefined (Base64EncodedString), "InitializationVector" :: NullOrUndefined (ZeroTo255String), "LicenseAcquisitionUrl" :: NullOrUndefined (ZeroTo512String), "KeyStoragePolicy" :: NullOrUndefined (KeyStoragePolicy) } -> { "Method" :: NullOrUndefined (HlsContentProtectionMethod), "Key" :: NullOrUndefined (Base64EncodedString), "KeyMd5" :: NullOrUndefined (Base64EncodedString), "InitializationVector" :: NullOrUndefined (ZeroTo255String), "LicenseAcquisitionUrl" :: NullOrUndefined (ZeroTo512String), "KeyStoragePolicy" :: NullOrUndefined (KeyStoragePolicy) }) -> HlsContentProtection
+newHlsContentProtection' :: ({ "Method" :: Maybe (HlsContentProtectionMethod), "Key" :: Maybe (Base64EncodedString), "KeyMd5" :: Maybe (Base64EncodedString), "InitializationVector" :: Maybe (ZeroTo255String), "LicenseAcquisitionUrl" :: Maybe (ZeroTo512String), "KeyStoragePolicy" :: Maybe (KeyStoragePolicy) } -> { "Method" :: Maybe (HlsContentProtectionMethod), "Key" :: Maybe (Base64EncodedString), "KeyMd5" :: Maybe (Base64EncodedString), "InitializationVector" :: Maybe (ZeroTo255String), "LicenseAcquisitionUrl" :: Maybe (ZeroTo512String), "KeyStoragePolicy" :: Maybe (KeyStoragePolicy) }) -> HlsContentProtection
 ```
 
 Constructs HlsContentProtection's fields from required parameters
@@ -1452,7 +1452,7 @@ Encode IncompatibleVersionException
 
 ``` purescript
 newtype InputCaptions
-  = InputCaptions { "MergePolicy" :: NullOrUndefined (CaptionMergePolicy), "CaptionSources" :: NullOrUndefined (CaptionSources) }
+  = InputCaptions { "MergePolicy" :: Maybe (CaptionMergePolicy), "CaptionSources" :: Maybe (CaptionSources) }
 ```
 
 <p>The captions to be created, if any.</p>
@@ -1477,7 +1477,7 @@ Constructs InputCaptions from required parameters
 #### `newInputCaptions'`
 
 ``` purescript
-newInputCaptions' :: ({ "MergePolicy" :: NullOrUndefined (CaptionMergePolicy), "CaptionSources" :: NullOrUndefined (CaptionSources) } -> { "MergePolicy" :: NullOrUndefined (CaptionMergePolicy), "CaptionSources" :: NullOrUndefined (CaptionSources) }) -> InputCaptions
+newInputCaptions' :: ({ "MergePolicy" :: Maybe (CaptionMergePolicy), "CaptionSources" :: Maybe (CaptionSources) } -> { "MergePolicy" :: Maybe (CaptionMergePolicy), "CaptionSources" :: Maybe (CaptionSources) }) -> InputCaptions
 ```
 
 Constructs InputCaptions's fields from required parameters
@@ -1520,7 +1520,7 @@ Encode InternalServiceException
 
 ``` purescript
 newtype Job
-  = Job { "Id" :: NullOrUndefined (Id), "Arn" :: NullOrUndefined (String), "PipelineId" :: NullOrUndefined (Id), "Input" :: NullOrUndefined (JobInput), "Inputs" :: NullOrUndefined (JobInputs), "Output" :: NullOrUndefined (JobOutput), "Outputs" :: NullOrUndefined (JobOutputs), "OutputKeyPrefix" :: NullOrUndefined (Key), "Playlists" :: NullOrUndefined (Playlists), "Status" :: NullOrUndefined (JobStatus), "UserMetadata" :: NullOrUndefined (UserMetadata), "Timing" :: NullOrUndefined (Timing) }
+  = Job { "Id" :: Maybe (Id), "Arn" :: Maybe (String), "PipelineId" :: Maybe (Id), "Input" :: Maybe (JobInput), "Inputs" :: Maybe (JobInputs), "Output" :: Maybe (JobOutput), "Outputs" :: Maybe (JobOutputs), "OutputKeyPrefix" :: Maybe (Key), "Playlists" :: Maybe (Playlists), "Status" :: Maybe (JobStatus), "UserMetadata" :: Maybe (UserMetadata), "Timing" :: Maybe (Timing) }
 ```
 
 <p>A section of the response body that provides information about the job that is created.</p>
@@ -1545,7 +1545,7 @@ Constructs Job from required parameters
 #### `newJob'`
 
 ``` purescript
-newJob' :: ({ "Id" :: NullOrUndefined (Id), "Arn" :: NullOrUndefined (String), "PipelineId" :: NullOrUndefined (Id), "Input" :: NullOrUndefined (JobInput), "Inputs" :: NullOrUndefined (JobInputs), "Output" :: NullOrUndefined (JobOutput), "Outputs" :: NullOrUndefined (JobOutputs), "OutputKeyPrefix" :: NullOrUndefined (Key), "Playlists" :: NullOrUndefined (Playlists), "Status" :: NullOrUndefined (JobStatus), "UserMetadata" :: NullOrUndefined (UserMetadata), "Timing" :: NullOrUndefined (Timing) } -> { "Id" :: NullOrUndefined (Id), "Arn" :: NullOrUndefined (String), "PipelineId" :: NullOrUndefined (Id), "Input" :: NullOrUndefined (JobInput), "Inputs" :: NullOrUndefined (JobInputs), "Output" :: NullOrUndefined (JobOutput), "Outputs" :: NullOrUndefined (JobOutputs), "OutputKeyPrefix" :: NullOrUndefined (Key), "Playlists" :: NullOrUndefined (Playlists), "Status" :: NullOrUndefined (JobStatus), "UserMetadata" :: NullOrUndefined (UserMetadata), "Timing" :: NullOrUndefined (Timing) }) -> Job
+newJob' :: ({ "Id" :: Maybe (Id), "Arn" :: Maybe (String), "PipelineId" :: Maybe (Id), "Input" :: Maybe (JobInput), "Inputs" :: Maybe (JobInputs), "Output" :: Maybe (JobOutput), "Outputs" :: Maybe (JobOutputs), "OutputKeyPrefix" :: Maybe (Key), "Playlists" :: Maybe (Playlists), "Status" :: Maybe (JobStatus), "UserMetadata" :: Maybe (UserMetadata), "Timing" :: Maybe (Timing) } -> { "Id" :: Maybe (Id), "Arn" :: Maybe (String), "PipelineId" :: Maybe (Id), "Input" :: Maybe (JobInput), "Inputs" :: Maybe (JobInputs), "Output" :: Maybe (JobOutput), "Outputs" :: Maybe (JobOutputs), "OutputKeyPrefix" :: Maybe (Key), "Playlists" :: Maybe (Playlists), "Status" :: Maybe (JobStatus), "UserMetadata" :: Maybe (UserMetadata), "Timing" :: Maybe (Timing) }) -> Job
 ```
 
 Constructs Job's fields from required parameters
@@ -1554,7 +1554,7 @@ Constructs Job's fields from required parameters
 
 ``` purescript
 newtype JobAlbumArt
-  = JobAlbumArt { "MergePolicy" :: NullOrUndefined (MergePolicy), "Artwork" :: NullOrUndefined (Artworks) }
+  = JobAlbumArt { "MergePolicy" :: Maybe (MergePolicy), "Artwork" :: Maybe (Artworks) }
 ```
 
 <p>The .jpg or .png file associated with an audio file.</p>
@@ -1579,7 +1579,7 @@ Constructs JobAlbumArt from required parameters
 #### `newJobAlbumArt'`
 
 ``` purescript
-newJobAlbumArt' :: ({ "MergePolicy" :: NullOrUndefined (MergePolicy), "Artwork" :: NullOrUndefined (Artworks) } -> { "MergePolicy" :: NullOrUndefined (MergePolicy), "Artwork" :: NullOrUndefined (Artworks) }) -> JobAlbumArt
+newJobAlbumArt' :: ({ "MergePolicy" :: Maybe (MergePolicy), "Artwork" :: Maybe (Artworks) } -> { "MergePolicy" :: Maybe (MergePolicy), "Artwork" :: Maybe (Artworks) }) -> JobAlbumArt
 ```
 
 Constructs JobAlbumArt's fields from required parameters
@@ -1604,7 +1604,7 @@ Encode JobContainer
 
 ``` purescript
 newtype JobInput
-  = JobInput { "Key" :: NullOrUndefined (LongKey), "FrameRate" :: NullOrUndefined (FrameRate), "Resolution" :: NullOrUndefined (Resolution), "AspectRatio" :: NullOrUndefined (AspectRatio), "Interlaced" :: NullOrUndefined (Interlaced), "Container" :: NullOrUndefined (JobContainer), "Encryption" :: NullOrUndefined (Encryption), "TimeSpan" :: NullOrUndefined (TimeSpan), "InputCaptions" :: NullOrUndefined (InputCaptions), "DetectedProperties" :: NullOrUndefined (DetectedProperties) }
+  = JobInput { "Key" :: Maybe (LongKey), "FrameRate" :: Maybe (FrameRate), "Resolution" :: Maybe (Resolution), "AspectRatio" :: Maybe (AspectRatio), "Interlaced" :: Maybe (Interlaced), "Container" :: Maybe (JobContainer), "Encryption" :: Maybe (Encryption), "TimeSpan" :: Maybe (TimeSpan), "InputCaptions" :: Maybe (InputCaptions), "DetectedProperties" :: Maybe (DetectedProperties) }
 ```
 
 <p>Information about the file that you're transcoding.</p>
@@ -1629,7 +1629,7 @@ Constructs JobInput from required parameters
 #### `newJobInput'`
 
 ``` purescript
-newJobInput' :: ({ "Key" :: NullOrUndefined (LongKey), "FrameRate" :: NullOrUndefined (FrameRate), "Resolution" :: NullOrUndefined (Resolution), "AspectRatio" :: NullOrUndefined (AspectRatio), "Interlaced" :: NullOrUndefined (Interlaced), "Container" :: NullOrUndefined (JobContainer), "Encryption" :: NullOrUndefined (Encryption), "TimeSpan" :: NullOrUndefined (TimeSpan), "InputCaptions" :: NullOrUndefined (InputCaptions), "DetectedProperties" :: NullOrUndefined (DetectedProperties) } -> { "Key" :: NullOrUndefined (LongKey), "FrameRate" :: NullOrUndefined (FrameRate), "Resolution" :: NullOrUndefined (Resolution), "AspectRatio" :: NullOrUndefined (AspectRatio), "Interlaced" :: NullOrUndefined (Interlaced), "Container" :: NullOrUndefined (JobContainer), "Encryption" :: NullOrUndefined (Encryption), "TimeSpan" :: NullOrUndefined (TimeSpan), "InputCaptions" :: NullOrUndefined (InputCaptions), "DetectedProperties" :: NullOrUndefined (DetectedProperties) }) -> JobInput
+newJobInput' :: ({ "Key" :: Maybe (LongKey), "FrameRate" :: Maybe (FrameRate), "Resolution" :: Maybe (Resolution), "AspectRatio" :: Maybe (AspectRatio), "Interlaced" :: Maybe (Interlaced), "Container" :: Maybe (JobContainer), "Encryption" :: Maybe (Encryption), "TimeSpan" :: Maybe (TimeSpan), "InputCaptions" :: Maybe (InputCaptions), "DetectedProperties" :: Maybe (DetectedProperties) } -> { "Key" :: Maybe (LongKey), "FrameRate" :: Maybe (FrameRate), "Resolution" :: Maybe (Resolution), "AspectRatio" :: Maybe (AspectRatio), "Interlaced" :: Maybe (Interlaced), "Container" :: Maybe (JobContainer), "Encryption" :: Maybe (Encryption), "TimeSpan" :: Maybe (TimeSpan), "InputCaptions" :: Maybe (InputCaptions), "DetectedProperties" :: Maybe (DetectedProperties) }) -> JobInput
 ```
 
 Constructs JobInput's fields from required parameters
@@ -1654,7 +1654,7 @@ Encode JobInputs
 
 ``` purescript
 newtype JobOutput
-  = JobOutput { "Id" :: NullOrUndefined (String), "Key" :: NullOrUndefined (Key), "ThumbnailPattern" :: NullOrUndefined (ThumbnailPattern), "ThumbnailEncryption" :: NullOrUndefined (Encryption), "Rotate" :: NullOrUndefined (Rotate), "PresetId" :: NullOrUndefined (Id), "SegmentDuration" :: NullOrUndefined (FloatString), "Status" :: NullOrUndefined (JobStatus), "StatusDetail" :: NullOrUndefined (Description), "Duration" :: NullOrUndefined (NullableLong), "Width" :: NullOrUndefined (NullableInteger), "Height" :: NullOrUndefined (NullableInteger), "FrameRate" :: NullOrUndefined (FloatString), "FileSize" :: NullOrUndefined (NullableLong), "DurationMillis" :: NullOrUndefined (NullableLong), "Watermarks" :: NullOrUndefined (JobWatermarks), "AlbumArt" :: NullOrUndefined (JobAlbumArt), "Composition" :: NullOrUndefined (Composition), "Captions" :: NullOrUndefined (Captions), "Encryption" :: NullOrUndefined (Encryption), "AppliedColorSpaceConversion" :: NullOrUndefined (String) }
+  = JobOutput { "Id" :: Maybe (String), "Key" :: Maybe (Key), "ThumbnailPattern" :: Maybe (ThumbnailPattern), "ThumbnailEncryption" :: Maybe (Encryption), "Rotate" :: Maybe (Rotate), "PresetId" :: Maybe (Id), "SegmentDuration" :: Maybe (FloatString), "Status" :: Maybe (JobStatus), "StatusDetail" :: Maybe (Description), "Duration" :: Maybe (NullableLong), "Width" :: Maybe (NullableInteger), "Height" :: Maybe (NullableInteger), "FrameRate" :: Maybe (FloatString), "FileSize" :: Maybe (NullableLong), "DurationMillis" :: Maybe (NullableLong), "Watermarks" :: Maybe (JobWatermarks), "AlbumArt" :: Maybe (JobAlbumArt), "Composition" :: Maybe (Composition), "Captions" :: Maybe (Captions), "Encryption" :: Maybe (Encryption), "AppliedColorSpaceConversion" :: Maybe (String) }
 ```
 
 <important> <p>Outputs recommended instead.</p> </important> <p>If you specified one output for a job, information about that output. If you specified multiple outputs for a job, the <code>Output</code> object lists information about the first output. This duplicates the information that is listed for the first output in the <code>Outputs</code> object.</p>
@@ -1679,7 +1679,7 @@ Constructs JobOutput from required parameters
 #### `newJobOutput'`
 
 ``` purescript
-newJobOutput' :: ({ "Id" :: NullOrUndefined (String), "Key" :: NullOrUndefined (Key), "ThumbnailPattern" :: NullOrUndefined (ThumbnailPattern), "ThumbnailEncryption" :: NullOrUndefined (Encryption), "Rotate" :: NullOrUndefined (Rotate), "PresetId" :: NullOrUndefined (Id), "SegmentDuration" :: NullOrUndefined (FloatString), "Status" :: NullOrUndefined (JobStatus), "StatusDetail" :: NullOrUndefined (Description), "Duration" :: NullOrUndefined (NullableLong), "Width" :: NullOrUndefined (NullableInteger), "Height" :: NullOrUndefined (NullableInteger), "FrameRate" :: NullOrUndefined (FloatString), "FileSize" :: NullOrUndefined (NullableLong), "DurationMillis" :: NullOrUndefined (NullableLong), "Watermarks" :: NullOrUndefined (JobWatermarks), "AlbumArt" :: NullOrUndefined (JobAlbumArt), "Composition" :: NullOrUndefined (Composition), "Captions" :: NullOrUndefined (Captions), "Encryption" :: NullOrUndefined (Encryption), "AppliedColorSpaceConversion" :: NullOrUndefined (String) } -> { "Id" :: NullOrUndefined (String), "Key" :: NullOrUndefined (Key), "ThumbnailPattern" :: NullOrUndefined (ThumbnailPattern), "ThumbnailEncryption" :: NullOrUndefined (Encryption), "Rotate" :: NullOrUndefined (Rotate), "PresetId" :: NullOrUndefined (Id), "SegmentDuration" :: NullOrUndefined (FloatString), "Status" :: NullOrUndefined (JobStatus), "StatusDetail" :: NullOrUndefined (Description), "Duration" :: NullOrUndefined (NullableLong), "Width" :: NullOrUndefined (NullableInteger), "Height" :: NullOrUndefined (NullableInteger), "FrameRate" :: NullOrUndefined (FloatString), "FileSize" :: NullOrUndefined (NullableLong), "DurationMillis" :: NullOrUndefined (NullableLong), "Watermarks" :: NullOrUndefined (JobWatermarks), "AlbumArt" :: NullOrUndefined (JobAlbumArt), "Composition" :: NullOrUndefined (Composition), "Captions" :: NullOrUndefined (Captions), "Encryption" :: NullOrUndefined (Encryption), "AppliedColorSpaceConversion" :: NullOrUndefined (String) }) -> JobOutput
+newJobOutput' :: ({ "Id" :: Maybe (String), "Key" :: Maybe (Key), "ThumbnailPattern" :: Maybe (ThumbnailPattern), "ThumbnailEncryption" :: Maybe (Encryption), "Rotate" :: Maybe (Rotate), "PresetId" :: Maybe (Id), "SegmentDuration" :: Maybe (FloatString), "Status" :: Maybe (JobStatus), "StatusDetail" :: Maybe (Description), "Duration" :: Maybe (NullableLong), "Width" :: Maybe (NullableInteger), "Height" :: Maybe (NullableInteger), "FrameRate" :: Maybe (FloatString), "FileSize" :: Maybe (NullableLong), "DurationMillis" :: Maybe (NullableLong), "Watermarks" :: Maybe (JobWatermarks), "AlbumArt" :: Maybe (JobAlbumArt), "Composition" :: Maybe (Composition), "Captions" :: Maybe (Captions), "Encryption" :: Maybe (Encryption), "AppliedColorSpaceConversion" :: Maybe (String) } -> { "Id" :: Maybe (String), "Key" :: Maybe (Key), "ThumbnailPattern" :: Maybe (ThumbnailPattern), "ThumbnailEncryption" :: Maybe (Encryption), "Rotate" :: Maybe (Rotate), "PresetId" :: Maybe (Id), "SegmentDuration" :: Maybe (FloatString), "Status" :: Maybe (JobStatus), "StatusDetail" :: Maybe (Description), "Duration" :: Maybe (NullableLong), "Width" :: Maybe (NullableInteger), "Height" :: Maybe (NullableInteger), "FrameRate" :: Maybe (FloatString), "FileSize" :: Maybe (NullableLong), "DurationMillis" :: Maybe (NullableLong), "Watermarks" :: Maybe (JobWatermarks), "AlbumArt" :: Maybe (JobAlbumArt), "Composition" :: Maybe (Composition), "Captions" :: Maybe (Captions), "Encryption" :: Maybe (Encryption), "AppliedColorSpaceConversion" :: Maybe (String) }) -> JobOutput
 ```
 
 Constructs JobOutput's fields from required parameters
@@ -1720,7 +1720,7 @@ Encode JobStatus
 
 ``` purescript
 newtype JobWatermark
-  = JobWatermark { "PresetWatermarkId" :: NullOrUndefined (PresetWatermarkId), "InputKey" :: NullOrUndefined (WatermarkKey), "Encryption" :: NullOrUndefined (Encryption) }
+  = JobWatermark { "PresetWatermarkId" :: Maybe (PresetWatermarkId), "InputKey" :: Maybe (WatermarkKey), "Encryption" :: Maybe (Encryption) }
 ```
 
 <p>Watermarks can be in .png or .jpg format. If you want to display a watermark that is not rectangular, use the .png format, which supports transparency.</p>
@@ -1745,7 +1745,7 @@ Constructs JobWatermark from required parameters
 #### `newJobWatermark'`
 
 ``` purescript
-newJobWatermark' :: ({ "PresetWatermarkId" :: NullOrUndefined (PresetWatermarkId), "InputKey" :: NullOrUndefined (WatermarkKey), "Encryption" :: NullOrUndefined (Encryption) } -> { "PresetWatermarkId" :: NullOrUndefined (PresetWatermarkId), "InputKey" :: NullOrUndefined (WatermarkKey), "Encryption" :: NullOrUndefined (Encryption) }) -> JobWatermark
+newJobWatermark' :: ({ "PresetWatermarkId" :: Maybe (PresetWatermarkId), "InputKey" :: Maybe (WatermarkKey), "Encryption" :: Maybe (Encryption) } -> { "PresetWatermarkId" :: Maybe (PresetWatermarkId), "InputKey" :: Maybe (WatermarkKey), "Encryption" :: Maybe (Encryption) }) -> JobWatermark
 ```
 
 Constructs JobWatermark's fields from required parameters
@@ -1900,7 +1900,7 @@ Encode LimitExceededException
 
 ``` purescript
 newtype ListJobsByPipelineRequest
-  = ListJobsByPipelineRequest { "PipelineId" :: Id, "Ascending" :: NullOrUndefined (Ascending), "PageToken" :: NullOrUndefined (Id) }
+  = ListJobsByPipelineRequest { "PipelineId" :: Id, "Ascending" :: Maybe (Ascending), "PageToken" :: Maybe (Id) }
 ```
 
 <p>The <code>ListJobsByPipelineRequest</code> structure.</p>
@@ -1925,7 +1925,7 @@ Constructs ListJobsByPipelineRequest from required parameters
 #### `newListJobsByPipelineRequest'`
 
 ``` purescript
-newListJobsByPipelineRequest' :: Id -> ({ "PipelineId" :: Id, "Ascending" :: NullOrUndefined (Ascending), "PageToken" :: NullOrUndefined (Id) } -> { "PipelineId" :: Id, "Ascending" :: NullOrUndefined (Ascending), "PageToken" :: NullOrUndefined (Id) }) -> ListJobsByPipelineRequest
+newListJobsByPipelineRequest' :: Id -> ({ "PipelineId" :: Id, "Ascending" :: Maybe (Ascending), "PageToken" :: Maybe (Id) } -> { "PipelineId" :: Id, "Ascending" :: Maybe (Ascending), "PageToken" :: Maybe (Id) }) -> ListJobsByPipelineRequest
 ```
 
 Constructs ListJobsByPipelineRequest's fields from required parameters
@@ -1934,7 +1934,7 @@ Constructs ListJobsByPipelineRequest's fields from required parameters
 
 ``` purescript
 newtype ListJobsByPipelineResponse
-  = ListJobsByPipelineResponse { "Jobs" :: NullOrUndefined (Jobs), "NextPageToken" :: NullOrUndefined (Id) }
+  = ListJobsByPipelineResponse { "Jobs" :: Maybe (Jobs), "NextPageToken" :: Maybe (Id) }
 ```
 
 <p>The <code>ListJobsByPipelineResponse</code> structure.</p>
@@ -1959,7 +1959,7 @@ Constructs ListJobsByPipelineResponse from required parameters
 #### `newListJobsByPipelineResponse'`
 
 ``` purescript
-newListJobsByPipelineResponse' :: ({ "Jobs" :: NullOrUndefined (Jobs), "NextPageToken" :: NullOrUndefined (Id) } -> { "Jobs" :: NullOrUndefined (Jobs), "NextPageToken" :: NullOrUndefined (Id) }) -> ListJobsByPipelineResponse
+newListJobsByPipelineResponse' :: ({ "Jobs" :: Maybe (Jobs), "NextPageToken" :: Maybe (Id) } -> { "Jobs" :: Maybe (Jobs), "NextPageToken" :: Maybe (Id) }) -> ListJobsByPipelineResponse
 ```
 
 Constructs ListJobsByPipelineResponse's fields from required parameters
@@ -1968,7 +1968,7 @@ Constructs ListJobsByPipelineResponse's fields from required parameters
 
 ``` purescript
 newtype ListJobsByStatusRequest
-  = ListJobsByStatusRequest { "Status" :: JobStatus, "Ascending" :: NullOrUndefined (Ascending), "PageToken" :: NullOrUndefined (Id) }
+  = ListJobsByStatusRequest { "Status" :: JobStatus, "Ascending" :: Maybe (Ascending), "PageToken" :: Maybe (Id) }
 ```
 
 <p>The <code>ListJobsByStatusRequest</code> structure.</p>
@@ -1993,7 +1993,7 @@ Constructs ListJobsByStatusRequest from required parameters
 #### `newListJobsByStatusRequest'`
 
 ``` purescript
-newListJobsByStatusRequest' :: JobStatus -> ({ "Status" :: JobStatus, "Ascending" :: NullOrUndefined (Ascending), "PageToken" :: NullOrUndefined (Id) } -> { "Status" :: JobStatus, "Ascending" :: NullOrUndefined (Ascending), "PageToken" :: NullOrUndefined (Id) }) -> ListJobsByStatusRequest
+newListJobsByStatusRequest' :: JobStatus -> ({ "Status" :: JobStatus, "Ascending" :: Maybe (Ascending), "PageToken" :: Maybe (Id) } -> { "Status" :: JobStatus, "Ascending" :: Maybe (Ascending), "PageToken" :: Maybe (Id) }) -> ListJobsByStatusRequest
 ```
 
 Constructs ListJobsByStatusRequest's fields from required parameters
@@ -2002,7 +2002,7 @@ Constructs ListJobsByStatusRequest's fields from required parameters
 
 ``` purescript
 newtype ListJobsByStatusResponse
-  = ListJobsByStatusResponse { "Jobs" :: NullOrUndefined (Jobs), "NextPageToken" :: NullOrUndefined (Id) }
+  = ListJobsByStatusResponse { "Jobs" :: Maybe (Jobs), "NextPageToken" :: Maybe (Id) }
 ```
 
 <p> The <code>ListJobsByStatusResponse</code> structure. </p>
@@ -2027,7 +2027,7 @@ Constructs ListJobsByStatusResponse from required parameters
 #### `newListJobsByStatusResponse'`
 
 ``` purescript
-newListJobsByStatusResponse' :: ({ "Jobs" :: NullOrUndefined (Jobs), "NextPageToken" :: NullOrUndefined (Id) } -> { "Jobs" :: NullOrUndefined (Jobs), "NextPageToken" :: NullOrUndefined (Id) }) -> ListJobsByStatusResponse
+newListJobsByStatusResponse' :: ({ "Jobs" :: Maybe (Jobs), "NextPageToken" :: Maybe (Id) } -> { "Jobs" :: Maybe (Jobs), "NextPageToken" :: Maybe (Id) }) -> ListJobsByStatusResponse
 ```
 
 Constructs ListJobsByStatusResponse's fields from required parameters
@@ -2036,7 +2036,7 @@ Constructs ListJobsByStatusResponse's fields from required parameters
 
 ``` purescript
 newtype ListPipelinesRequest
-  = ListPipelinesRequest { "Ascending" :: NullOrUndefined (Ascending), "PageToken" :: NullOrUndefined (Id) }
+  = ListPipelinesRequest { "Ascending" :: Maybe (Ascending), "PageToken" :: Maybe (Id) }
 ```
 
 <p>The <code>ListPipelineRequest</code> structure.</p>
@@ -2061,7 +2061,7 @@ Constructs ListPipelinesRequest from required parameters
 #### `newListPipelinesRequest'`
 
 ``` purescript
-newListPipelinesRequest' :: ({ "Ascending" :: NullOrUndefined (Ascending), "PageToken" :: NullOrUndefined (Id) } -> { "Ascending" :: NullOrUndefined (Ascending), "PageToken" :: NullOrUndefined (Id) }) -> ListPipelinesRequest
+newListPipelinesRequest' :: ({ "Ascending" :: Maybe (Ascending), "PageToken" :: Maybe (Id) } -> { "Ascending" :: Maybe (Ascending), "PageToken" :: Maybe (Id) }) -> ListPipelinesRequest
 ```
 
 Constructs ListPipelinesRequest's fields from required parameters
@@ -2070,7 +2070,7 @@ Constructs ListPipelinesRequest's fields from required parameters
 
 ``` purescript
 newtype ListPipelinesResponse
-  = ListPipelinesResponse { "Pipelines" :: NullOrUndefined (Pipelines), "NextPageToken" :: NullOrUndefined (Id) }
+  = ListPipelinesResponse { "Pipelines" :: Maybe (Pipelines), "NextPageToken" :: Maybe (Id) }
 ```
 
 <p>A list of the pipelines associated with the current AWS account.</p>
@@ -2095,7 +2095,7 @@ Constructs ListPipelinesResponse from required parameters
 #### `newListPipelinesResponse'`
 
 ``` purescript
-newListPipelinesResponse' :: ({ "Pipelines" :: NullOrUndefined (Pipelines), "NextPageToken" :: NullOrUndefined (Id) } -> { "Pipelines" :: NullOrUndefined (Pipelines), "NextPageToken" :: NullOrUndefined (Id) }) -> ListPipelinesResponse
+newListPipelinesResponse' :: ({ "Pipelines" :: Maybe (Pipelines), "NextPageToken" :: Maybe (Id) } -> { "Pipelines" :: Maybe (Pipelines), "NextPageToken" :: Maybe (Id) }) -> ListPipelinesResponse
 ```
 
 Constructs ListPipelinesResponse's fields from required parameters
@@ -2104,7 +2104,7 @@ Constructs ListPipelinesResponse's fields from required parameters
 
 ``` purescript
 newtype ListPresetsRequest
-  = ListPresetsRequest { "Ascending" :: NullOrUndefined (Ascending), "PageToken" :: NullOrUndefined (Id) }
+  = ListPresetsRequest { "Ascending" :: Maybe (Ascending), "PageToken" :: Maybe (Id) }
 ```
 
 <p>The <code>ListPresetsRequest</code> structure.</p>
@@ -2129,7 +2129,7 @@ Constructs ListPresetsRequest from required parameters
 #### `newListPresetsRequest'`
 
 ``` purescript
-newListPresetsRequest' :: ({ "Ascending" :: NullOrUndefined (Ascending), "PageToken" :: NullOrUndefined (Id) } -> { "Ascending" :: NullOrUndefined (Ascending), "PageToken" :: NullOrUndefined (Id) }) -> ListPresetsRequest
+newListPresetsRequest' :: ({ "Ascending" :: Maybe (Ascending), "PageToken" :: Maybe (Id) } -> { "Ascending" :: Maybe (Ascending), "PageToken" :: Maybe (Id) }) -> ListPresetsRequest
 ```
 
 Constructs ListPresetsRequest's fields from required parameters
@@ -2138,7 +2138,7 @@ Constructs ListPresetsRequest's fields from required parameters
 
 ``` purescript
 newtype ListPresetsResponse
-  = ListPresetsResponse { "Presets" :: NullOrUndefined (Presets), "NextPageToken" :: NullOrUndefined (Id) }
+  = ListPresetsResponse { "Presets" :: Maybe (Presets), "NextPageToken" :: Maybe (Id) }
 ```
 
 <p>The <code>ListPresetsResponse</code> structure.</p>
@@ -2163,7 +2163,7 @@ Constructs ListPresetsResponse from required parameters
 #### `newListPresetsResponse'`
 
 ``` purescript
-newListPresetsResponse' :: ({ "Presets" :: NullOrUndefined (Presets), "NextPageToken" :: NullOrUndefined (Id) } -> { "Presets" :: NullOrUndefined (Presets), "NextPageToken" :: NullOrUndefined (Id) }) -> ListPresetsResponse
+newListPresetsResponse' :: ({ "Presets" :: Maybe (Presets), "NextPageToken" :: Maybe (Id) } -> { "Presets" :: Maybe (Presets), "NextPageToken" :: Maybe (Id) }) -> ListPresetsResponse
 ```
 
 Constructs ListPresetsResponse's fields from required parameters
@@ -2252,7 +2252,7 @@ Encode NonEmptyBase64EncodedString
 
 ``` purescript
 newtype Notifications
-  = Notifications { "Progressing" :: NullOrUndefined (SnsTopic), "Completed" :: NullOrUndefined (SnsTopic), "Warning" :: NullOrUndefined (SnsTopic), "Error" :: NullOrUndefined (SnsTopic) }
+  = Notifications { "Progressing" :: Maybe (SnsTopic), "Completed" :: Maybe (SnsTopic), "Warning" :: Maybe (SnsTopic), "Error" :: Maybe (SnsTopic) }
 ```
 
 <p>The Amazon Simple Notification Service (Amazon SNS) topic or topics to notify in order to report job status.</p> <important> <p>To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.</p> </important>
@@ -2277,7 +2277,7 @@ Constructs Notifications from required parameters
 #### `newNotifications'`
 
 ``` purescript
-newNotifications' :: ({ "Progressing" :: NullOrUndefined (SnsTopic), "Completed" :: NullOrUndefined (SnsTopic), "Warning" :: NullOrUndefined (SnsTopic), "Error" :: NullOrUndefined (SnsTopic) } -> { "Progressing" :: NullOrUndefined (SnsTopic), "Completed" :: NullOrUndefined (SnsTopic), "Warning" :: NullOrUndefined (SnsTopic), "Error" :: NullOrUndefined (SnsTopic) }) -> Notifications
+newNotifications' :: ({ "Progressing" :: Maybe (SnsTopic), "Completed" :: Maybe (SnsTopic), "Warning" :: Maybe (SnsTopic), "Error" :: Maybe (SnsTopic) } -> { "Progressing" :: Maybe (SnsTopic), "Completed" :: Maybe (SnsTopic), "Warning" :: Maybe (SnsTopic), "Error" :: Maybe (SnsTopic) }) -> Notifications
 ```
 
 Constructs Notifications's fields from required parameters
@@ -2382,7 +2382,7 @@ Encode PaddingPolicy
 
 ``` purescript
 newtype Permission
-  = Permission { "GranteeType" :: NullOrUndefined (GranteeType), "Grantee" :: NullOrUndefined (Grantee), "Access" :: NullOrUndefined (AccessControls) }
+  = Permission { "GranteeType" :: Maybe (GranteeType), "Grantee" :: Maybe (Grantee), "Access" :: Maybe (AccessControls) }
 ```
 
 <p>The <code>Permission</code> structure.</p>
@@ -2407,7 +2407,7 @@ Constructs Permission from required parameters
 #### `newPermission'`
 
 ``` purescript
-newPermission' :: ({ "GranteeType" :: NullOrUndefined (GranteeType), "Grantee" :: NullOrUndefined (Grantee), "Access" :: NullOrUndefined (AccessControls) } -> { "GranteeType" :: NullOrUndefined (GranteeType), "Grantee" :: NullOrUndefined (Grantee), "Access" :: NullOrUndefined (AccessControls) }) -> Permission
+newPermission' :: ({ "GranteeType" :: Maybe (GranteeType), "Grantee" :: Maybe (Grantee), "Access" :: Maybe (AccessControls) } -> { "GranteeType" :: Maybe (GranteeType), "Grantee" :: Maybe (Grantee), "Access" :: Maybe (AccessControls) }) -> Permission
 ```
 
 Constructs Permission's fields from required parameters
@@ -2432,7 +2432,7 @@ Encode Permissions
 
 ``` purescript
 newtype Pipeline
-  = Pipeline { "Id" :: NullOrUndefined (Id), "Arn" :: NullOrUndefined (String), "Name" :: NullOrUndefined (Name), "Status" :: NullOrUndefined (PipelineStatus), "InputBucket" :: NullOrUndefined (BucketName), "OutputBucket" :: NullOrUndefined (BucketName), "Role" :: NullOrUndefined (Role), "AwsKmsKeyArn" :: NullOrUndefined (KeyArn), "Notifications" :: NullOrUndefined (Notifications), "ContentConfig" :: NullOrUndefined (PipelineOutputConfig), "ThumbnailConfig" :: NullOrUndefined (PipelineOutputConfig) }
+  = Pipeline { "Id" :: Maybe (Id), "Arn" :: Maybe (String), "Name" :: Maybe (Name), "Status" :: Maybe (PipelineStatus), "InputBucket" :: Maybe (BucketName), "OutputBucket" :: Maybe (BucketName), "Role" :: Maybe (Role), "AwsKmsKeyArn" :: Maybe (KeyArn), "Notifications" :: Maybe (Notifications), "ContentConfig" :: Maybe (PipelineOutputConfig), "ThumbnailConfig" :: Maybe (PipelineOutputConfig) }
 ```
 
 <p>The pipeline (queue) that is used to manage jobs.</p>
@@ -2457,7 +2457,7 @@ Constructs Pipeline from required parameters
 #### `newPipeline'`
 
 ``` purescript
-newPipeline' :: ({ "Id" :: NullOrUndefined (Id), "Arn" :: NullOrUndefined (String), "Name" :: NullOrUndefined (Name), "Status" :: NullOrUndefined (PipelineStatus), "InputBucket" :: NullOrUndefined (BucketName), "OutputBucket" :: NullOrUndefined (BucketName), "Role" :: NullOrUndefined (Role), "AwsKmsKeyArn" :: NullOrUndefined (KeyArn), "Notifications" :: NullOrUndefined (Notifications), "ContentConfig" :: NullOrUndefined (PipelineOutputConfig), "ThumbnailConfig" :: NullOrUndefined (PipelineOutputConfig) } -> { "Id" :: NullOrUndefined (Id), "Arn" :: NullOrUndefined (String), "Name" :: NullOrUndefined (Name), "Status" :: NullOrUndefined (PipelineStatus), "InputBucket" :: NullOrUndefined (BucketName), "OutputBucket" :: NullOrUndefined (BucketName), "Role" :: NullOrUndefined (Role), "AwsKmsKeyArn" :: NullOrUndefined (KeyArn), "Notifications" :: NullOrUndefined (Notifications), "ContentConfig" :: NullOrUndefined (PipelineOutputConfig), "ThumbnailConfig" :: NullOrUndefined (PipelineOutputConfig) }) -> Pipeline
+newPipeline' :: ({ "Id" :: Maybe (Id), "Arn" :: Maybe (String), "Name" :: Maybe (Name), "Status" :: Maybe (PipelineStatus), "InputBucket" :: Maybe (BucketName), "OutputBucket" :: Maybe (BucketName), "Role" :: Maybe (Role), "AwsKmsKeyArn" :: Maybe (KeyArn), "Notifications" :: Maybe (Notifications), "ContentConfig" :: Maybe (PipelineOutputConfig), "ThumbnailConfig" :: Maybe (PipelineOutputConfig) } -> { "Id" :: Maybe (Id), "Arn" :: Maybe (String), "Name" :: Maybe (Name), "Status" :: Maybe (PipelineStatus), "InputBucket" :: Maybe (BucketName), "OutputBucket" :: Maybe (BucketName), "Role" :: Maybe (Role), "AwsKmsKeyArn" :: Maybe (KeyArn), "Notifications" :: Maybe (Notifications), "ContentConfig" :: Maybe (PipelineOutputConfig), "ThumbnailConfig" :: Maybe (PipelineOutputConfig) }) -> Pipeline
 ```
 
 Constructs Pipeline's fields from required parameters
@@ -2466,7 +2466,7 @@ Constructs Pipeline's fields from required parameters
 
 ``` purescript
 newtype PipelineOutputConfig
-  = PipelineOutputConfig { "Bucket" :: NullOrUndefined (BucketName), "StorageClass" :: NullOrUndefined (StorageClass), "Permissions" :: NullOrUndefined (Permissions) }
+  = PipelineOutputConfig { "Bucket" :: Maybe (BucketName), "StorageClass" :: Maybe (StorageClass), "Permissions" :: Maybe (Permissions) }
 ```
 
 <p>The <code>PipelineOutputConfig</code> structure.</p>
@@ -2491,7 +2491,7 @@ Constructs PipelineOutputConfig from required parameters
 #### `newPipelineOutputConfig'`
 
 ``` purescript
-newPipelineOutputConfig' :: ({ "Bucket" :: NullOrUndefined (BucketName), "StorageClass" :: NullOrUndefined (StorageClass), "Permissions" :: NullOrUndefined (Permissions) } -> { "Bucket" :: NullOrUndefined (BucketName), "StorageClass" :: NullOrUndefined (StorageClass), "Permissions" :: NullOrUndefined (Permissions) }) -> PipelineOutputConfig
+newPipelineOutputConfig' :: ({ "Bucket" :: Maybe (BucketName), "StorageClass" :: Maybe (StorageClass), "Permissions" :: Maybe (Permissions) } -> { "Bucket" :: Maybe (BucketName), "StorageClass" :: Maybe (StorageClass), "Permissions" :: Maybe (Permissions) }) -> PipelineOutputConfig
 ```
 
 Constructs PipelineOutputConfig's fields from required parameters
@@ -2548,7 +2548,7 @@ Encode PixelsOrPercent
 
 ``` purescript
 newtype PlayReadyDrm
-  = PlayReadyDrm { "Format" :: NullOrUndefined (PlayReadyDrmFormatString), "Key" :: NullOrUndefined (NonEmptyBase64EncodedString), "KeyMd5" :: NullOrUndefined (NonEmptyBase64EncodedString), "KeyId" :: NullOrUndefined (KeyIdGuid), "InitializationVector" :: NullOrUndefined (ZeroTo255String), "LicenseAcquisitionUrl" :: NullOrUndefined (OneTo512String) }
+  = PlayReadyDrm { "Format" :: Maybe (PlayReadyDrmFormatString), "Key" :: Maybe (NonEmptyBase64EncodedString), "KeyMd5" :: Maybe (NonEmptyBase64EncodedString), "KeyId" :: Maybe (KeyIdGuid), "InitializationVector" :: Maybe (ZeroTo255String), "LicenseAcquisitionUrl" :: Maybe (OneTo512String) }
 ```
 
 <p>The PlayReady DRM settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.</p> <p>PlayReady DRM encrypts your media files using <code>AES-CTR</code> encryption.</p> <p>If you use DRM for an <code>HLSv3</code> playlist, your outputs must have a master playlist.</p>
@@ -2573,7 +2573,7 @@ Constructs PlayReadyDrm from required parameters
 #### `newPlayReadyDrm'`
 
 ``` purescript
-newPlayReadyDrm' :: ({ "Format" :: NullOrUndefined (PlayReadyDrmFormatString), "Key" :: NullOrUndefined (NonEmptyBase64EncodedString), "KeyMd5" :: NullOrUndefined (NonEmptyBase64EncodedString), "KeyId" :: NullOrUndefined (KeyIdGuid), "InitializationVector" :: NullOrUndefined (ZeroTo255String), "LicenseAcquisitionUrl" :: NullOrUndefined (OneTo512String) } -> { "Format" :: NullOrUndefined (PlayReadyDrmFormatString), "Key" :: NullOrUndefined (NonEmptyBase64EncodedString), "KeyMd5" :: NullOrUndefined (NonEmptyBase64EncodedString), "KeyId" :: NullOrUndefined (KeyIdGuid), "InitializationVector" :: NullOrUndefined (ZeroTo255String), "LicenseAcquisitionUrl" :: NullOrUndefined (OneTo512String) }) -> PlayReadyDrm
+newPlayReadyDrm' :: ({ "Format" :: Maybe (PlayReadyDrmFormatString), "Key" :: Maybe (NonEmptyBase64EncodedString), "KeyMd5" :: Maybe (NonEmptyBase64EncodedString), "KeyId" :: Maybe (KeyIdGuid), "InitializationVector" :: Maybe (ZeroTo255String), "LicenseAcquisitionUrl" :: Maybe (OneTo512String) } -> { "Format" :: Maybe (PlayReadyDrmFormatString), "Key" :: Maybe (NonEmptyBase64EncodedString), "KeyMd5" :: Maybe (NonEmptyBase64EncodedString), "KeyId" :: Maybe (KeyIdGuid), "InitializationVector" :: Maybe (ZeroTo255String), "LicenseAcquisitionUrl" :: Maybe (OneTo512String) }) -> PlayReadyDrm
 ```
 
 Constructs PlayReadyDrm's fields from required parameters
@@ -2598,7 +2598,7 @@ Encode PlayReadyDrmFormatString
 
 ``` purescript
 newtype Playlist
-  = Playlist { "Name" :: NullOrUndefined (Filename), "Format" :: NullOrUndefined (PlaylistFormat), "OutputKeys" :: NullOrUndefined (OutputKeys), "HlsContentProtection" :: NullOrUndefined (HlsContentProtection), "PlayReadyDrm" :: NullOrUndefined (PlayReadyDrm), "Status" :: NullOrUndefined (JobStatus), "StatusDetail" :: NullOrUndefined (Description) }
+  = Playlist { "Name" :: Maybe (Filename), "Format" :: Maybe (PlaylistFormat), "OutputKeys" :: Maybe (OutputKeys), "HlsContentProtection" :: Maybe (HlsContentProtection), "PlayReadyDrm" :: Maybe (PlayReadyDrm), "Status" :: Maybe (JobStatus), "StatusDetail" :: Maybe (Description) }
 ```
 
 <p> Use Only for Fragmented MP4 or MPEG-TS Outputs. If you specify a preset for which the value of Container is <code>fmp4</code> (Fragmented MP4) or <code>ts</code> (MPEG-TS), Playlists contains information about the master playlists that you want Elastic Transcoder to create. We recommend that you create only one master playlist per output format. The maximum number of master playlists in a job is 30. </p>
@@ -2623,7 +2623,7 @@ Constructs Playlist from required parameters
 #### `newPlaylist'`
 
 ``` purescript
-newPlaylist' :: ({ "Name" :: NullOrUndefined (Filename), "Format" :: NullOrUndefined (PlaylistFormat), "OutputKeys" :: NullOrUndefined (OutputKeys), "HlsContentProtection" :: NullOrUndefined (HlsContentProtection), "PlayReadyDrm" :: NullOrUndefined (PlayReadyDrm), "Status" :: NullOrUndefined (JobStatus), "StatusDetail" :: NullOrUndefined (Description) } -> { "Name" :: NullOrUndefined (Filename), "Format" :: NullOrUndefined (PlaylistFormat), "OutputKeys" :: NullOrUndefined (OutputKeys), "HlsContentProtection" :: NullOrUndefined (HlsContentProtection), "PlayReadyDrm" :: NullOrUndefined (PlayReadyDrm), "Status" :: NullOrUndefined (JobStatus), "StatusDetail" :: NullOrUndefined (Description) }) -> Playlist
+newPlaylist' :: ({ "Name" :: Maybe (Filename), "Format" :: Maybe (PlaylistFormat), "OutputKeys" :: Maybe (OutputKeys), "HlsContentProtection" :: Maybe (HlsContentProtection), "PlayReadyDrm" :: Maybe (PlayReadyDrm), "Status" :: Maybe (JobStatus), "StatusDetail" :: Maybe (Description) } -> { "Name" :: Maybe (Filename), "Format" :: Maybe (PlaylistFormat), "OutputKeys" :: Maybe (OutputKeys), "HlsContentProtection" :: Maybe (HlsContentProtection), "PlayReadyDrm" :: Maybe (PlayReadyDrm), "Status" :: Maybe (JobStatus), "StatusDetail" :: Maybe (Description) }) -> Playlist
 ```
 
 Constructs Playlist's fields from required parameters
@@ -2664,7 +2664,7 @@ Encode Playlists
 
 ``` purescript
 newtype Preset
-  = Preset { "Id" :: NullOrUndefined (Id), "Arn" :: NullOrUndefined (String), "Name" :: NullOrUndefined (Name), "Description" :: NullOrUndefined (Description), "Container" :: NullOrUndefined (PresetContainer), "Audio" :: NullOrUndefined (AudioParameters), "Video" :: NullOrUndefined (VideoParameters), "Thumbnails" :: NullOrUndefined (Thumbnails), "Type" :: NullOrUndefined (PresetType) }
+  = Preset { "Id" :: Maybe (Id), "Arn" :: Maybe (String), "Name" :: Maybe (Name), "Description" :: Maybe (Description), "Container" :: Maybe (PresetContainer), "Audio" :: Maybe (AudioParameters), "Video" :: Maybe (VideoParameters), "Thumbnails" :: Maybe (Thumbnails), "Type" :: Maybe (PresetType) }
 ```
 
 <p>Presets are templates that contain most of the settings for transcoding media files from one format to another. Elastic Transcoder includes some default presets for common formats, for example, several iPod and iPhone versions. You can also create your own presets for formats that aren't included among the default presets. You specify which preset you want to use when you create a job.</p>
@@ -2689,7 +2689,7 @@ Constructs Preset from required parameters
 #### `newPreset'`
 
 ``` purescript
-newPreset' :: ({ "Id" :: NullOrUndefined (Id), "Arn" :: NullOrUndefined (String), "Name" :: NullOrUndefined (Name), "Description" :: NullOrUndefined (Description), "Container" :: NullOrUndefined (PresetContainer), "Audio" :: NullOrUndefined (AudioParameters), "Video" :: NullOrUndefined (VideoParameters), "Thumbnails" :: NullOrUndefined (Thumbnails), "Type" :: NullOrUndefined (PresetType) } -> { "Id" :: NullOrUndefined (Id), "Arn" :: NullOrUndefined (String), "Name" :: NullOrUndefined (Name), "Description" :: NullOrUndefined (Description), "Container" :: NullOrUndefined (PresetContainer), "Audio" :: NullOrUndefined (AudioParameters), "Video" :: NullOrUndefined (VideoParameters), "Thumbnails" :: NullOrUndefined (Thumbnails), "Type" :: NullOrUndefined (PresetType) }) -> Preset
+newPreset' :: ({ "Id" :: Maybe (Id), "Arn" :: Maybe (String), "Name" :: Maybe (Name), "Description" :: Maybe (Description), "Container" :: Maybe (PresetContainer), "Audio" :: Maybe (AudioParameters), "Video" :: Maybe (VideoParameters), "Thumbnails" :: Maybe (Thumbnails), "Type" :: Maybe (PresetType) } -> { "Id" :: Maybe (Id), "Arn" :: Maybe (String), "Name" :: Maybe (Name), "Description" :: Maybe (Description), "Container" :: Maybe (PresetContainer), "Audio" :: Maybe (AudioParameters), "Video" :: Maybe (VideoParameters), "Thumbnails" :: Maybe (Thumbnails), "Type" :: Maybe (PresetType) }) -> Preset
 ```
 
 Constructs Preset's fields from required parameters
@@ -2730,7 +2730,7 @@ Encode PresetType
 
 ``` purescript
 newtype PresetWatermark
-  = PresetWatermark { "Id" :: NullOrUndefined (PresetWatermarkId), "MaxWidth" :: NullOrUndefined (PixelsOrPercent), "MaxHeight" :: NullOrUndefined (PixelsOrPercent), "SizingPolicy" :: NullOrUndefined (WatermarkSizingPolicy), "HorizontalAlign" :: NullOrUndefined (HorizontalAlign), "HorizontalOffset" :: NullOrUndefined (PixelsOrPercent), "VerticalAlign" :: NullOrUndefined (VerticalAlign), "VerticalOffset" :: NullOrUndefined (PixelsOrPercent), "Opacity" :: NullOrUndefined (Opacity), "Target" :: NullOrUndefined (Target) }
+  = PresetWatermark { "Id" :: Maybe (PresetWatermarkId), "MaxWidth" :: Maybe (PixelsOrPercent), "MaxHeight" :: Maybe (PixelsOrPercent), "SizingPolicy" :: Maybe (WatermarkSizingPolicy), "HorizontalAlign" :: Maybe (HorizontalAlign), "HorizontalOffset" :: Maybe (PixelsOrPercent), "VerticalAlign" :: Maybe (VerticalAlign), "VerticalOffset" :: Maybe (PixelsOrPercent), "Opacity" :: Maybe (Opacity), "Target" :: Maybe (Target) }
 ```
 
 <p>Settings for the size, location, and opacity of graphics that you want Elastic Transcoder to overlay over videos that are transcoded using this preset. You can specify settings for up to four watermarks. Watermarks appear in the specified size and location, and with the specified opacity for the duration of the transcoded video.</p> <p>Watermarks can be in .png or .jpg format. If you want to display a watermark that is not rectangular, use the .png format, which supports transparency.</p> <p>When you create a job that uses this preset, you specify the .png or .jpg graphics that you want Elastic Transcoder to include in the transcoded videos. You can specify fewer graphics in the job than you specify watermark settings in the preset, which allows you to use the same preset for up to four watermarks that have different dimensions.</p>
@@ -2755,7 +2755,7 @@ Constructs PresetWatermark from required parameters
 #### `newPresetWatermark'`
 
 ``` purescript
-newPresetWatermark' :: ({ "Id" :: NullOrUndefined (PresetWatermarkId), "MaxWidth" :: NullOrUndefined (PixelsOrPercent), "MaxHeight" :: NullOrUndefined (PixelsOrPercent), "SizingPolicy" :: NullOrUndefined (WatermarkSizingPolicy), "HorizontalAlign" :: NullOrUndefined (HorizontalAlign), "HorizontalOffset" :: NullOrUndefined (PixelsOrPercent), "VerticalAlign" :: NullOrUndefined (VerticalAlign), "VerticalOffset" :: NullOrUndefined (PixelsOrPercent), "Opacity" :: NullOrUndefined (Opacity), "Target" :: NullOrUndefined (Target) } -> { "Id" :: NullOrUndefined (PresetWatermarkId), "MaxWidth" :: NullOrUndefined (PixelsOrPercent), "MaxHeight" :: NullOrUndefined (PixelsOrPercent), "SizingPolicy" :: NullOrUndefined (WatermarkSizingPolicy), "HorizontalAlign" :: NullOrUndefined (HorizontalAlign), "HorizontalOffset" :: NullOrUndefined (PixelsOrPercent), "VerticalAlign" :: NullOrUndefined (VerticalAlign), "VerticalOffset" :: NullOrUndefined (PixelsOrPercent), "Opacity" :: NullOrUndefined (Opacity), "Target" :: NullOrUndefined (Target) }) -> PresetWatermark
+newPresetWatermark' :: ({ "Id" :: Maybe (PresetWatermarkId), "MaxWidth" :: Maybe (PixelsOrPercent), "MaxHeight" :: Maybe (PixelsOrPercent), "SizingPolicy" :: Maybe (WatermarkSizingPolicy), "HorizontalAlign" :: Maybe (HorizontalAlign), "HorizontalOffset" :: Maybe (PixelsOrPercent), "VerticalAlign" :: Maybe (VerticalAlign), "VerticalOffset" :: Maybe (PixelsOrPercent), "Opacity" :: Maybe (Opacity), "Target" :: Maybe (Target) } -> { "Id" :: Maybe (PresetWatermarkId), "MaxWidth" :: Maybe (PixelsOrPercent), "MaxHeight" :: Maybe (PixelsOrPercent), "SizingPolicy" :: Maybe (WatermarkSizingPolicy), "HorizontalAlign" :: Maybe (HorizontalAlign), "HorizontalOffset" :: Maybe (PixelsOrPercent), "VerticalAlign" :: Maybe (VerticalAlign), "VerticalOffset" :: Maybe (PixelsOrPercent), "Opacity" :: Maybe (Opacity), "Target" :: Maybe (Target) }) -> PresetWatermark
 ```
 
 Constructs PresetWatermark's fields from required parameters
@@ -2846,7 +2846,7 @@ Constructs ReadJobRequest's fields from required parameters
 
 ``` purescript
 newtype ReadJobResponse
-  = ReadJobResponse { "Job" :: NullOrUndefined (Job) }
+  = ReadJobResponse { "Job" :: Maybe (Job) }
 ```
 
 <p>The <code>ReadJobResponse</code> structure.</p>
@@ -2871,7 +2871,7 @@ Constructs ReadJobResponse from required parameters
 #### `newReadJobResponse'`
 
 ``` purescript
-newReadJobResponse' :: ({ "Job" :: NullOrUndefined (Job) } -> { "Job" :: NullOrUndefined (Job) }) -> ReadJobResponse
+newReadJobResponse' :: ({ "Job" :: Maybe (Job) } -> { "Job" :: Maybe (Job) }) -> ReadJobResponse
 ```
 
 Constructs ReadJobResponse's fields from required parameters
@@ -2914,7 +2914,7 @@ Constructs ReadPipelineRequest's fields from required parameters
 
 ``` purescript
 newtype ReadPipelineResponse
-  = ReadPipelineResponse { "Pipeline" :: NullOrUndefined (Pipeline), "Warnings" :: NullOrUndefined (Warnings) }
+  = ReadPipelineResponse { "Pipeline" :: Maybe (Pipeline), "Warnings" :: Maybe (Warnings) }
 ```
 
 <p>The <code>ReadPipelineResponse</code> structure.</p>
@@ -2939,7 +2939,7 @@ Constructs ReadPipelineResponse from required parameters
 #### `newReadPipelineResponse'`
 
 ``` purescript
-newReadPipelineResponse' :: ({ "Pipeline" :: NullOrUndefined (Pipeline), "Warnings" :: NullOrUndefined (Warnings) } -> { "Pipeline" :: NullOrUndefined (Pipeline), "Warnings" :: NullOrUndefined (Warnings) }) -> ReadPipelineResponse
+newReadPipelineResponse' :: ({ "Pipeline" :: Maybe (Pipeline), "Warnings" :: Maybe (Warnings) } -> { "Pipeline" :: Maybe (Pipeline), "Warnings" :: Maybe (Warnings) }) -> ReadPipelineResponse
 ```
 
 Constructs ReadPipelineResponse's fields from required parameters
@@ -2982,7 +2982,7 @@ Constructs ReadPresetRequest's fields from required parameters
 
 ``` purescript
 newtype ReadPresetResponse
-  = ReadPresetResponse { "Preset" :: NullOrUndefined (Preset) }
+  = ReadPresetResponse { "Preset" :: Maybe (Preset) }
 ```
 
 <p>The <code>ReadPresetResponse</code> structure.</p>
@@ -3007,7 +3007,7 @@ Constructs ReadPresetResponse from required parameters
 #### `newReadPresetResponse'`
 
 ``` purescript
-newReadPresetResponse' :: ({ "Preset" :: NullOrUndefined (Preset) } -> { "Preset" :: NullOrUndefined (Preset) }) -> ReadPresetResponse
+newReadPresetResponse' :: ({ "Preset" :: Maybe (Preset) } -> { "Preset" :: Maybe (Preset) }) -> ReadPresetResponse
 ```
 
 Constructs ReadPresetResponse's fields from required parameters
@@ -3230,7 +3230,7 @@ Constructs TestRoleRequest's fields from required parameters
 
 ``` purescript
 newtype TestRoleResponse
-  = TestRoleResponse { "Success" :: NullOrUndefined (Success), "Messages" :: NullOrUndefined (ExceptionMessages) }
+  = TestRoleResponse { "Success" :: Maybe (Success), "Messages" :: Maybe (ExceptionMessages) }
 ```
 
 <p>The <code>TestRoleResponse</code> structure.</p>
@@ -3255,7 +3255,7 @@ Constructs TestRoleResponse from required parameters
 #### `newTestRoleResponse'`
 
 ``` purescript
-newTestRoleResponse' :: ({ "Success" :: NullOrUndefined (Success), "Messages" :: NullOrUndefined (ExceptionMessages) } -> { "Success" :: NullOrUndefined (Success), "Messages" :: NullOrUndefined (ExceptionMessages) }) -> TestRoleResponse
+newTestRoleResponse' :: ({ "Success" :: Maybe (Success), "Messages" :: Maybe (ExceptionMessages) } -> { "Success" :: Maybe (Success), "Messages" :: Maybe (ExceptionMessages) }) -> TestRoleResponse
 ```
 
 Constructs TestRoleResponse's fields from required parameters
@@ -3296,7 +3296,7 @@ Encode ThumbnailResolution
 
 ``` purescript
 newtype Thumbnails
-  = Thumbnails { "Format" :: NullOrUndefined (JpgOrPng), "Interval" :: NullOrUndefined (Digits), "Resolution" :: NullOrUndefined (ThumbnailResolution), "AspectRatio" :: NullOrUndefined (AspectRatio), "MaxWidth" :: NullOrUndefined (DigitsOrAuto), "MaxHeight" :: NullOrUndefined (DigitsOrAuto), "SizingPolicy" :: NullOrUndefined (SizingPolicy), "PaddingPolicy" :: NullOrUndefined (PaddingPolicy) }
+  = Thumbnails { "Format" :: Maybe (JpgOrPng), "Interval" :: Maybe (Digits), "Resolution" :: Maybe (ThumbnailResolution), "AspectRatio" :: Maybe (AspectRatio), "MaxWidth" :: Maybe (DigitsOrAuto), "MaxHeight" :: Maybe (DigitsOrAuto), "SizingPolicy" :: Maybe (SizingPolicy), "PaddingPolicy" :: Maybe (PaddingPolicy) }
 ```
 
 <p>Thumbnails for videos.</p>
@@ -3321,7 +3321,7 @@ Constructs Thumbnails from required parameters
 #### `newThumbnails'`
 
 ``` purescript
-newThumbnails' :: ({ "Format" :: NullOrUndefined (JpgOrPng), "Interval" :: NullOrUndefined (Digits), "Resolution" :: NullOrUndefined (ThumbnailResolution), "AspectRatio" :: NullOrUndefined (AspectRatio), "MaxWidth" :: NullOrUndefined (DigitsOrAuto), "MaxHeight" :: NullOrUndefined (DigitsOrAuto), "SizingPolicy" :: NullOrUndefined (SizingPolicy), "PaddingPolicy" :: NullOrUndefined (PaddingPolicy) } -> { "Format" :: NullOrUndefined (JpgOrPng), "Interval" :: NullOrUndefined (Digits), "Resolution" :: NullOrUndefined (ThumbnailResolution), "AspectRatio" :: NullOrUndefined (AspectRatio), "MaxWidth" :: NullOrUndefined (DigitsOrAuto), "MaxHeight" :: NullOrUndefined (DigitsOrAuto), "SizingPolicy" :: NullOrUndefined (SizingPolicy), "PaddingPolicy" :: NullOrUndefined (PaddingPolicy) }) -> Thumbnails
+newThumbnails' :: ({ "Format" :: Maybe (JpgOrPng), "Interval" :: Maybe (Digits), "Resolution" :: Maybe (ThumbnailResolution), "AspectRatio" :: Maybe (AspectRatio), "MaxWidth" :: Maybe (DigitsOrAuto), "MaxHeight" :: Maybe (DigitsOrAuto), "SizingPolicy" :: Maybe (SizingPolicy), "PaddingPolicy" :: Maybe (PaddingPolicy) } -> { "Format" :: Maybe (JpgOrPng), "Interval" :: Maybe (Digits), "Resolution" :: Maybe (ThumbnailResolution), "AspectRatio" :: Maybe (AspectRatio), "MaxWidth" :: Maybe (DigitsOrAuto), "MaxHeight" :: Maybe (DigitsOrAuto), "SizingPolicy" :: Maybe (SizingPolicy), "PaddingPolicy" :: Maybe (PaddingPolicy) }) -> Thumbnails
 ```
 
 Constructs Thumbnails's fields from required parameters
@@ -3362,7 +3362,7 @@ Encode TimeOffset
 
 ``` purescript
 newtype TimeSpan
-  = TimeSpan { "StartTime" :: NullOrUndefined (Time), "Duration" :: NullOrUndefined (Time) }
+  = TimeSpan { "StartTime" :: Maybe (Time), "Duration" :: Maybe (Time) }
 ```
 
 <p>Settings that determine when a clip begins and how long it lasts.</p>
@@ -3387,7 +3387,7 @@ Constructs TimeSpan from required parameters
 #### `newTimeSpan'`
 
 ``` purescript
-newTimeSpan' :: ({ "StartTime" :: NullOrUndefined (Time), "Duration" :: NullOrUndefined (Time) } -> { "StartTime" :: NullOrUndefined (Time), "Duration" :: NullOrUndefined (Time) }) -> TimeSpan
+newTimeSpan' :: ({ "StartTime" :: Maybe (Time), "Duration" :: Maybe (Time) } -> { "StartTime" :: Maybe (Time), "Duration" :: Maybe (Time) }) -> TimeSpan
 ```
 
 Constructs TimeSpan's fields from required parameters
@@ -3396,7 +3396,7 @@ Constructs TimeSpan's fields from required parameters
 
 ``` purescript
 newtype Timing
-  = Timing { "SubmitTimeMillis" :: NullOrUndefined (NullableLong), "StartTimeMillis" :: NullOrUndefined (NullableLong), "FinishTimeMillis" :: NullOrUndefined (NullableLong) }
+  = Timing { "SubmitTimeMillis" :: Maybe (NullableLong), "StartTimeMillis" :: Maybe (NullableLong), "FinishTimeMillis" :: Maybe (NullableLong) }
 ```
 
 <p>Details about the timing of a job.</p>
@@ -3421,7 +3421,7 @@ Constructs Timing from required parameters
 #### `newTiming'`
 
 ``` purescript
-newTiming' :: ({ "SubmitTimeMillis" :: NullOrUndefined (NullableLong), "StartTimeMillis" :: NullOrUndefined (NullableLong), "FinishTimeMillis" :: NullOrUndefined (NullableLong) } -> { "SubmitTimeMillis" :: NullOrUndefined (NullableLong), "StartTimeMillis" :: NullOrUndefined (NullableLong), "FinishTimeMillis" :: NullOrUndefined (NullableLong) }) -> Timing
+newTiming' :: ({ "SubmitTimeMillis" :: Maybe (NullableLong), "StartTimeMillis" :: Maybe (NullableLong), "FinishTimeMillis" :: Maybe (NullableLong) } -> { "SubmitTimeMillis" :: Maybe (NullableLong), "StartTimeMillis" :: Maybe (NullableLong), "FinishTimeMillis" :: Maybe (NullableLong) }) -> Timing
 ```
 
 Constructs Timing's fields from required parameters
@@ -3464,7 +3464,7 @@ Constructs UpdatePipelineNotificationsRequest's fields from required parameters
 
 ``` purescript
 newtype UpdatePipelineNotificationsResponse
-  = UpdatePipelineNotificationsResponse { "Pipeline" :: NullOrUndefined (Pipeline) }
+  = UpdatePipelineNotificationsResponse { "Pipeline" :: Maybe (Pipeline) }
 ```
 
 <p>The <code>UpdatePipelineNotificationsResponse</code> structure.</p>
@@ -3489,7 +3489,7 @@ Constructs UpdatePipelineNotificationsResponse from required parameters
 #### `newUpdatePipelineNotificationsResponse'`
 
 ``` purescript
-newUpdatePipelineNotificationsResponse' :: ({ "Pipeline" :: NullOrUndefined (Pipeline) } -> { "Pipeline" :: NullOrUndefined (Pipeline) }) -> UpdatePipelineNotificationsResponse
+newUpdatePipelineNotificationsResponse' :: ({ "Pipeline" :: Maybe (Pipeline) } -> { "Pipeline" :: Maybe (Pipeline) }) -> UpdatePipelineNotificationsResponse
 ```
 
 Constructs UpdatePipelineNotificationsResponse's fields from required parameters
@@ -3498,7 +3498,7 @@ Constructs UpdatePipelineNotificationsResponse's fields from required parameters
 
 ``` purescript
 newtype UpdatePipelineRequest
-  = UpdatePipelineRequest { "Id" :: Id, "Name" :: NullOrUndefined (Name), "InputBucket" :: NullOrUndefined (BucketName), "Role" :: NullOrUndefined (Role), "AwsKmsKeyArn" :: NullOrUndefined (KeyArn), "Notifications" :: NullOrUndefined (Notifications), "ContentConfig" :: NullOrUndefined (PipelineOutputConfig), "ThumbnailConfig" :: NullOrUndefined (PipelineOutputConfig) }
+  = UpdatePipelineRequest { "Id" :: Id, "Name" :: Maybe (Name), "InputBucket" :: Maybe (BucketName), "Role" :: Maybe (Role), "AwsKmsKeyArn" :: Maybe (KeyArn), "Notifications" :: Maybe (Notifications), "ContentConfig" :: Maybe (PipelineOutputConfig), "ThumbnailConfig" :: Maybe (PipelineOutputConfig) }
 ```
 
 <p>The <code>UpdatePipelineRequest</code> structure.</p>
@@ -3523,7 +3523,7 @@ Constructs UpdatePipelineRequest from required parameters
 #### `newUpdatePipelineRequest'`
 
 ``` purescript
-newUpdatePipelineRequest' :: Id -> ({ "Id" :: Id, "Name" :: NullOrUndefined (Name), "InputBucket" :: NullOrUndefined (BucketName), "Role" :: NullOrUndefined (Role), "AwsKmsKeyArn" :: NullOrUndefined (KeyArn), "Notifications" :: NullOrUndefined (Notifications), "ContentConfig" :: NullOrUndefined (PipelineOutputConfig), "ThumbnailConfig" :: NullOrUndefined (PipelineOutputConfig) } -> { "Id" :: Id, "Name" :: NullOrUndefined (Name), "InputBucket" :: NullOrUndefined (BucketName), "Role" :: NullOrUndefined (Role), "AwsKmsKeyArn" :: NullOrUndefined (KeyArn), "Notifications" :: NullOrUndefined (Notifications), "ContentConfig" :: NullOrUndefined (PipelineOutputConfig), "ThumbnailConfig" :: NullOrUndefined (PipelineOutputConfig) }) -> UpdatePipelineRequest
+newUpdatePipelineRequest' :: Id -> ({ "Id" :: Id, "Name" :: Maybe (Name), "InputBucket" :: Maybe (BucketName), "Role" :: Maybe (Role), "AwsKmsKeyArn" :: Maybe (KeyArn), "Notifications" :: Maybe (Notifications), "ContentConfig" :: Maybe (PipelineOutputConfig), "ThumbnailConfig" :: Maybe (PipelineOutputConfig) } -> { "Id" :: Id, "Name" :: Maybe (Name), "InputBucket" :: Maybe (BucketName), "Role" :: Maybe (Role), "AwsKmsKeyArn" :: Maybe (KeyArn), "Notifications" :: Maybe (Notifications), "ContentConfig" :: Maybe (PipelineOutputConfig), "ThumbnailConfig" :: Maybe (PipelineOutputConfig) }) -> UpdatePipelineRequest
 ```
 
 Constructs UpdatePipelineRequest's fields from required parameters
@@ -3532,7 +3532,7 @@ Constructs UpdatePipelineRequest's fields from required parameters
 
 ``` purescript
 newtype UpdatePipelineResponse
-  = UpdatePipelineResponse { "Pipeline" :: NullOrUndefined (Pipeline), "Warnings" :: NullOrUndefined (Warnings) }
+  = UpdatePipelineResponse { "Pipeline" :: Maybe (Pipeline), "Warnings" :: Maybe (Warnings) }
 ```
 
 <p>When you update a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
@@ -3557,7 +3557,7 @@ Constructs UpdatePipelineResponse from required parameters
 #### `newUpdatePipelineResponse'`
 
 ``` purescript
-newUpdatePipelineResponse' :: ({ "Pipeline" :: NullOrUndefined (Pipeline), "Warnings" :: NullOrUndefined (Warnings) } -> { "Pipeline" :: NullOrUndefined (Pipeline), "Warnings" :: NullOrUndefined (Warnings) }) -> UpdatePipelineResponse
+newUpdatePipelineResponse' :: ({ "Pipeline" :: Maybe (Pipeline), "Warnings" :: Maybe (Warnings) } -> { "Pipeline" :: Maybe (Pipeline), "Warnings" :: Maybe (Warnings) }) -> UpdatePipelineResponse
 ```
 
 Constructs UpdatePipelineResponse's fields from required parameters
@@ -3600,7 +3600,7 @@ Constructs UpdatePipelineStatusRequest's fields from required parameters
 
 ``` purescript
 newtype UpdatePipelineStatusResponse
-  = UpdatePipelineStatusResponse { "Pipeline" :: NullOrUndefined (Pipeline) }
+  = UpdatePipelineStatusResponse { "Pipeline" :: Maybe (Pipeline) }
 ```
 
 <p>When you update status for a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
@@ -3625,7 +3625,7 @@ Constructs UpdatePipelineStatusResponse from required parameters
 #### `newUpdatePipelineStatusResponse'`
 
 ``` purescript
-newUpdatePipelineStatusResponse' :: ({ "Pipeline" :: NullOrUndefined (Pipeline) } -> { "Pipeline" :: NullOrUndefined (Pipeline) }) -> UpdatePipelineStatusResponse
+newUpdatePipelineStatusResponse' :: ({ "Pipeline" :: Maybe (Pipeline) } -> { "Pipeline" :: Maybe (Pipeline) }) -> UpdatePipelineStatusResponse
 ```
 
 Constructs UpdatePipelineStatusResponse's fields from required parameters
@@ -3716,7 +3716,7 @@ Encode VideoCodec
 
 ``` purescript
 newtype VideoParameters
-  = VideoParameters { "Codec" :: NullOrUndefined (VideoCodec), "CodecOptions" :: NullOrUndefined (CodecOptions), "KeyframesMaxDist" :: NullOrUndefined (KeyframesMaxDist), "FixedGOP" :: NullOrUndefined (FixedGOP), "BitRate" :: NullOrUndefined (VideoBitRate), "FrameRate" :: NullOrUndefined (FrameRate), "MaxFrameRate" :: NullOrUndefined (MaxFrameRate), "Resolution" :: NullOrUndefined (Resolution), "AspectRatio" :: NullOrUndefined (AspectRatio), "MaxWidth" :: NullOrUndefined (DigitsOrAuto), "MaxHeight" :: NullOrUndefined (DigitsOrAuto), "DisplayAspectRatio" :: NullOrUndefined (AspectRatio), "SizingPolicy" :: NullOrUndefined (SizingPolicy), "PaddingPolicy" :: NullOrUndefined (PaddingPolicy), "Watermarks" :: NullOrUndefined (PresetWatermarks) }
+  = VideoParameters { "Codec" :: Maybe (VideoCodec), "CodecOptions" :: Maybe (CodecOptions), "KeyframesMaxDist" :: Maybe (KeyframesMaxDist), "FixedGOP" :: Maybe (FixedGOP), "BitRate" :: Maybe (VideoBitRate), "FrameRate" :: Maybe (FrameRate), "MaxFrameRate" :: Maybe (MaxFrameRate), "Resolution" :: Maybe (Resolution), "AspectRatio" :: Maybe (AspectRatio), "MaxWidth" :: Maybe (DigitsOrAuto), "MaxHeight" :: Maybe (DigitsOrAuto), "DisplayAspectRatio" :: Maybe (AspectRatio), "SizingPolicy" :: Maybe (SizingPolicy), "PaddingPolicy" :: Maybe (PaddingPolicy), "Watermarks" :: Maybe (PresetWatermarks) }
 ```
 
 <p>The <code>VideoParameters</code> structure.</p>
@@ -3741,7 +3741,7 @@ Constructs VideoParameters from required parameters
 #### `newVideoParameters'`
 
 ``` purescript
-newVideoParameters' :: ({ "Codec" :: NullOrUndefined (VideoCodec), "CodecOptions" :: NullOrUndefined (CodecOptions), "KeyframesMaxDist" :: NullOrUndefined (KeyframesMaxDist), "FixedGOP" :: NullOrUndefined (FixedGOP), "BitRate" :: NullOrUndefined (VideoBitRate), "FrameRate" :: NullOrUndefined (FrameRate), "MaxFrameRate" :: NullOrUndefined (MaxFrameRate), "Resolution" :: NullOrUndefined (Resolution), "AspectRatio" :: NullOrUndefined (AspectRatio), "MaxWidth" :: NullOrUndefined (DigitsOrAuto), "MaxHeight" :: NullOrUndefined (DigitsOrAuto), "DisplayAspectRatio" :: NullOrUndefined (AspectRatio), "SizingPolicy" :: NullOrUndefined (SizingPolicy), "PaddingPolicy" :: NullOrUndefined (PaddingPolicy), "Watermarks" :: NullOrUndefined (PresetWatermarks) } -> { "Codec" :: NullOrUndefined (VideoCodec), "CodecOptions" :: NullOrUndefined (CodecOptions), "KeyframesMaxDist" :: NullOrUndefined (KeyframesMaxDist), "FixedGOP" :: NullOrUndefined (FixedGOP), "BitRate" :: NullOrUndefined (VideoBitRate), "FrameRate" :: NullOrUndefined (FrameRate), "MaxFrameRate" :: NullOrUndefined (MaxFrameRate), "Resolution" :: NullOrUndefined (Resolution), "AspectRatio" :: NullOrUndefined (AspectRatio), "MaxWidth" :: NullOrUndefined (DigitsOrAuto), "MaxHeight" :: NullOrUndefined (DigitsOrAuto), "DisplayAspectRatio" :: NullOrUndefined (AspectRatio), "SizingPolicy" :: NullOrUndefined (SizingPolicy), "PaddingPolicy" :: NullOrUndefined (PaddingPolicy), "Watermarks" :: NullOrUndefined (PresetWatermarks) }) -> VideoParameters
+newVideoParameters' :: ({ "Codec" :: Maybe (VideoCodec), "CodecOptions" :: Maybe (CodecOptions), "KeyframesMaxDist" :: Maybe (KeyframesMaxDist), "FixedGOP" :: Maybe (FixedGOP), "BitRate" :: Maybe (VideoBitRate), "FrameRate" :: Maybe (FrameRate), "MaxFrameRate" :: Maybe (MaxFrameRate), "Resolution" :: Maybe (Resolution), "AspectRatio" :: Maybe (AspectRatio), "MaxWidth" :: Maybe (DigitsOrAuto), "MaxHeight" :: Maybe (DigitsOrAuto), "DisplayAspectRatio" :: Maybe (AspectRatio), "SizingPolicy" :: Maybe (SizingPolicy), "PaddingPolicy" :: Maybe (PaddingPolicy), "Watermarks" :: Maybe (PresetWatermarks) } -> { "Codec" :: Maybe (VideoCodec), "CodecOptions" :: Maybe (CodecOptions), "KeyframesMaxDist" :: Maybe (KeyframesMaxDist), "FixedGOP" :: Maybe (FixedGOP), "BitRate" :: Maybe (VideoBitRate), "FrameRate" :: Maybe (FrameRate), "MaxFrameRate" :: Maybe (MaxFrameRate), "Resolution" :: Maybe (Resolution), "AspectRatio" :: Maybe (AspectRatio), "MaxWidth" :: Maybe (DigitsOrAuto), "MaxHeight" :: Maybe (DigitsOrAuto), "DisplayAspectRatio" :: Maybe (AspectRatio), "SizingPolicy" :: Maybe (SizingPolicy), "PaddingPolicy" :: Maybe (PaddingPolicy), "Watermarks" :: Maybe (PresetWatermarks) }) -> VideoParameters
 ```
 
 Constructs VideoParameters's fields from required parameters
@@ -3750,7 +3750,7 @@ Constructs VideoParameters's fields from required parameters
 
 ``` purescript
 newtype Warning
-  = Warning { "Code" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }
+  = Warning { "Code" :: Maybe (String), "Message" :: Maybe (String) }
 ```
 
 <p>Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.</p> <p>Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.</p>
@@ -3775,7 +3775,7 @@ Constructs Warning from required parameters
 #### `newWarning'`
 
 ``` purescript
-newWarning' :: ({ "Code" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) } -> { "Code" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }) -> Warning
+newWarning' :: ({ "Code" :: Maybe (String), "Message" :: Maybe (String) } -> { "Code" :: Maybe (String), "Message" :: Maybe (String) }) -> Warning
 ```
 
 Constructs Warning's fields from required parameters

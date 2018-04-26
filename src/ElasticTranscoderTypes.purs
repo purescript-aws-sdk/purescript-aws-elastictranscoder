@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -48,13 +47,13 @@ instance encodeAccessDeniedException :: Encode AccessDeniedException where encod
 
 -- | <p>The file to be used as album art. There can be multiple artworks associated with an audio file, to a maximum of 20.</p> <p>To remove artwork or leave the artwork empty, you can either set <code>Artwork</code> to null, or set the <code>Merge Policy</code> to "Replace" and use an empty <code>Artwork</code> array.</p> <p>To pass through existing artwork unchanged, set the <code>Merge Policy</code> to "Prepend", "Append", or "Fallback", and use an empty <code>Artwork</code> array.</p>
 newtype Artwork = Artwork 
-  { "InputKey" :: NullOrUndefined (WatermarkKey)
-  , "MaxWidth" :: NullOrUndefined (DigitsOrAuto)
-  , "MaxHeight" :: NullOrUndefined (DigitsOrAuto)
-  , "SizingPolicy" :: NullOrUndefined (SizingPolicy)
-  , "PaddingPolicy" :: NullOrUndefined (PaddingPolicy)
-  , "AlbumArtFormat" :: NullOrUndefined (JpgOrPng)
-  , "Encryption" :: NullOrUndefined (Encryption)
+  { "InputKey" :: Maybe (WatermarkKey)
+  , "MaxWidth" :: Maybe (DigitsOrAuto)
+  , "MaxHeight" :: Maybe (DigitsOrAuto)
+  , "SizingPolicy" :: Maybe (SizingPolicy)
+  , "PaddingPolicy" :: Maybe (PaddingPolicy)
+  , "AlbumArtFormat" :: Maybe (JpgOrPng)
+  , "Encryption" :: Maybe (Encryption)
   }
 derive instance newtypeArtwork :: Newtype Artwork _
 derive instance repGenericArtwork :: Generic Artwork _
@@ -64,12 +63,12 @@ instance encodeArtwork :: Encode Artwork where encode = genericEncode options
 
 -- | Constructs Artwork from required parameters
 newArtwork :: Artwork
-newArtwork  = Artwork { "AlbumArtFormat": (NullOrUndefined Nothing), "Encryption": (NullOrUndefined Nothing), "InputKey": (NullOrUndefined Nothing), "MaxHeight": (NullOrUndefined Nothing), "MaxWidth": (NullOrUndefined Nothing), "PaddingPolicy": (NullOrUndefined Nothing), "SizingPolicy": (NullOrUndefined Nothing) }
+newArtwork  = Artwork { "AlbumArtFormat": Nothing, "Encryption": Nothing, "InputKey": Nothing, "MaxHeight": Nothing, "MaxWidth": Nothing, "PaddingPolicy": Nothing, "SizingPolicy": Nothing }
 
 -- | Constructs Artwork's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newArtwork' :: ( { "InputKey" :: NullOrUndefined (WatermarkKey) , "MaxWidth" :: NullOrUndefined (DigitsOrAuto) , "MaxHeight" :: NullOrUndefined (DigitsOrAuto) , "SizingPolicy" :: NullOrUndefined (SizingPolicy) , "PaddingPolicy" :: NullOrUndefined (PaddingPolicy) , "AlbumArtFormat" :: NullOrUndefined (JpgOrPng) , "Encryption" :: NullOrUndefined (Encryption) } -> {"InputKey" :: NullOrUndefined (WatermarkKey) , "MaxWidth" :: NullOrUndefined (DigitsOrAuto) , "MaxHeight" :: NullOrUndefined (DigitsOrAuto) , "SizingPolicy" :: NullOrUndefined (SizingPolicy) , "PaddingPolicy" :: NullOrUndefined (PaddingPolicy) , "AlbumArtFormat" :: NullOrUndefined (JpgOrPng) , "Encryption" :: NullOrUndefined (Encryption) } ) -> Artwork
-newArtwork'  customize = (Artwork <<< customize) { "AlbumArtFormat": (NullOrUndefined Nothing), "Encryption": (NullOrUndefined Nothing), "InputKey": (NullOrUndefined Nothing), "MaxHeight": (NullOrUndefined Nothing), "MaxWidth": (NullOrUndefined Nothing), "PaddingPolicy": (NullOrUndefined Nothing), "SizingPolicy": (NullOrUndefined Nothing) }
+newArtwork' :: ( { "InputKey" :: Maybe (WatermarkKey) , "MaxWidth" :: Maybe (DigitsOrAuto) , "MaxHeight" :: Maybe (DigitsOrAuto) , "SizingPolicy" :: Maybe (SizingPolicy) , "PaddingPolicy" :: Maybe (PaddingPolicy) , "AlbumArtFormat" :: Maybe (JpgOrPng) , "Encryption" :: Maybe (Encryption) } -> {"InputKey" :: Maybe (WatermarkKey) , "MaxWidth" :: Maybe (DigitsOrAuto) , "MaxHeight" :: Maybe (DigitsOrAuto) , "SizingPolicy" :: Maybe (SizingPolicy) , "PaddingPolicy" :: Maybe (PaddingPolicy) , "AlbumArtFormat" :: Maybe (JpgOrPng) , "Encryption" :: Maybe (Encryption) } ) -> Artwork
+newArtwork'  customize = (Artwork <<< customize) { "AlbumArtFormat": Nothing, "Encryption": Nothing, "InputKey": Nothing, "MaxHeight": Nothing, "MaxWidth": Nothing, "PaddingPolicy": Nothing, "SizingPolicy": Nothing }
 
 
 
@@ -147,10 +146,10 @@ instance encodeAudioCodec :: Encode AudioCodec where encode = genericEncode opti
 
 -- | <p>Options associated with your audio codec.</p>
 newtype AudioCodecOptions = AudioCodecOptions 
-  { "Profile" :: NullOrUndefined (AudioCodecProfile)
-  , "BitDepth" :: NullOrUndefined (AudioBitDepth)
-  , "BitOrder" :: NullOrUndefined (AudioBitOrder)
-  , "Signed" :: NullOrUndefined (AudioSigned)
+  { "Profile" :: Maybe (AudioCodecProfile)
+  , "BitDepth" :: Maybe (AudioBitDepth)
+  , "BitOrder" :: Maybe (AudioBitOrder)
+  , "Signed" :: Maybe (AudioSigned)
   }
 derive instance newtypeAudioCodecOptions :: Newtype AudioCodecOptions _
 derive instance repGenericAudioCodecOptions :: Generic AudioCodecOptions _
@@ -160,12 +159,12 @@ instance encodeAudioCodecOptions :: Encode AudioCodecOptions where encode = gene
 
 -- | Constructs AudioCodecOptions from required parameters
 newAudioCodecOptions :: AudioCodecOptions
-newAudioCodecOptions  = AudioCodecOptions { "BitDepth": (NullOrUndefined Nothing), "BitOrder": (NullOrUndefined Nothing), "Profile": (NullOrUndefined Nothing), "Signed": (NullOrUndefined Nothing) }
+newAudioCodecOptions  = AudioCodecOptions { "BitDepth": Nothing, "BitOrder": Nothing, "Profile": Nothing, "Signed": Nothing }
 
 -- | Constructs AudioCodecOptions's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAudioCodecOptions' :: ( { "Profile" :: NullOrUndefined (AudioCodecProfile) , "BitDepth" :: NullOrUndefined (AudioBitDepth) , "BitOrder" :: NullOrUndefined (AudioBitOrder) , "Signed" :: NullOrUndefined (AudioSigned) } -> {"Profile" :: NullOrUndefined (AudioCodecProfile) , "BitDepth" :: NullOrUndefined (AudioBitDepth) , "BitOrder" :: NullOrUndefined (AudioBitOrder) , "Signed" :: NullOrUndefined (AudioSigned) } ) -> AudioCodecOptions
-newAudioCodecOptions'  customize = (AudioCodecOptions <<< customize) { "BitDepth": (NullOrUndefined Nothing), "BitOrder": (NullOrUndefined Nothing), "Profile": (NullOrUndefined Nothing), "Signed": (NullOrUndefined Nothing) }
+newAudioCodecOptions' :: ( { "Profile" :: Maybe (AudioCodecProfile) , "BitDepth" :: Maybe (AudioBitDepth) , "BitOrder" :: Maybe (AudioBitOrder) , "Signed" :: Maybe (AudioSigned) } -> {"Profile" :: Maybe (AudioCodecProfile) , "BitDepth" :: Maybe (AudioBitDepth) , "BitOrder" :: Maybe (AudioBitOrder) , "Signed" :: Maybe (AudioSigned) } ) -> AudioCodecOptions
+newAudioCodecOptions'  customize = (AudioCodecOptions <<< customize) { "BitDepth": Nothing, "BitOrder": Nothing, "Profile": Nothing, "Signed": Nothing }
 
 
 
@@ -189,12 +188,12 @@ instance encodeAudioPackingMode :: Encode AudioPackingMode where encode = generi
 
 -- | <p>Parameters required for transcoding audio.</p>
 newtype AudioParameters = AudioParameters 
-  { "Codec" :: NullOrUndefined (AudioCodec)
-  , "SampleRate" :: NullOrUndefined (AudioSampleRate)
-  , "BitRate" :: NullOrUndefined (AudioBitRate)
-  , "Channels" :: NullOrUndefined (AudioChannels)
-  , "AudioPackingMode" :: NullOrUndefined (AudioPackingMode)
-  , "CodecOptions" :: NullOrUndefined (AudioCodecOptions)
+  { "Codec" :: Maybe (AudioCodec)
+  , "SampleRate" :: Maybe (AudioSampleRate)
+  , "BitRate" :: Maybe (AudioBitRate)
+  , "Channels" :: Maybe (AudioChannels)
+  , "AudioPackingMode" :: Maybe (AudioPackingMode)
+  , "CodecOptions" :: Maybe (AudioCodecOptions)
   }
 derive instance newtypeAudioParameters :: Newtype AudioParameters _
 derive instance repGenericAudioParameters :: Generic AudioParameters _
@@ -204,12 +203,12 @@ instance encodeAudioParameters :: Encode AudioParameters where encode = genericE
 
 -- | Constructs AudioParameters from required parameters
 newAudioParameters :: AudioParameters
-newAudioParameters  = AudioParameters { "AudioPackingMode": (NullOrUndefined Nothing), "BitRate": (NullOrUndefined Nothing), "Channels": (NullOrUndefined Nothing), "Codec": (NullOrUndefined Nothing), "CodecOptions": (NullOrUndefined Nothing), "SampleRate": (NullOrUndefined Nothing) }
+newAudioParameters  = AudioParameters { "AudioPackingMode": Nothing, "BitRate": Nothing, "Channels": Nothing, "Codec": Nothing, "CodecOptions": Nothing, "SampleRate": Nothing }
 
 -- | Constructs AudioParameters's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAudioParameters' :: ( { "Codec" :: NullOrUndefined (AudioCodec) , "SampleRate" :: NullOrUndefined (AudioSampleRate) , "BitRate" :: NullOrUndefined (AudioBitRate) , "Channels" :: NullOrUndefined (AudioChannels) , "AudioPackingMode" :: NullOrUndefined (AudioPackingMode) , "CodecOptions" :: NullOrUndefined (AudioCodecOptions) } -> {"Codec" :: NullOrUndefined (AudioCodec) , "SampleRate" :: NullOrUndefined (AudioSampleRate) , "BitRate" :: NullOrUndefined (AudioBitRate) , "Channels" :: NullOrUndefined (AudioChannels) , "AudioPackingMode" :: NullOrUndefined (AudioPackingMode) , "CodecOptions" :: NullOrUndefined (AudioCodecOptions) } ) -> AudioParameters
-newAudioParameters'  customize = (AudioParameters <<< customize) { "AudioPackingMode": (NullOrUndefined Nothing), "BitRate": (NullOrUndefined Nothing), "Channels": (NullOrUndefined Nothing), "Codec": (NullOrUndefined Nothing), "CodecOptions": (NullOrUndefined Nothing), "SampleRate": (NullOrUndefined Nothing) }
+newAudioParameters' :: ( { "Codec" :: Maybe (AudioCodec) , "SampleRate" :: Maybe (AudioSampleRate) , "BitRate" :: Maybe (AudioBitRate) , "Channels" :: Maybe (AudioChannels) , "AudioPackingMode" :: Maybe (AudioPackingMode) , "CodecOptions" :: Maybe (AudioCodecOptions) } -> {"Codec" :: Maybe (AudioCodec) , "SampleRate" :: Maybe (AudioSampleRate) , "BitRate" :: Maybe (AudioBitRate) , "Channels" :: Maybe (AudioChannels) , "AudioPackingMode" :: Maybe (AudioPackingMode) , "CodecOptions" :: Maybe (AudioCodecOptions) } ) -> AudioParameters
+newAudioParameters'  customize = (AudioParameters <<< customize) { "AudioPackingMode": Nothing, "BitRate": Nothing, "Channels": Nothing, "Codec": Nothing, "CodecOptions": Nothing, "SampleRate": Nothing }
 
 
 
@@ -282,9 +281,9 @@ instance encodeCancelJobResponse :: Encode CancelJobResponse where encode = gene
 
 -- | <p>The file format of the output captions. If you leave this value blank, Elastic Transcoder returns an error.</p>
 newtype CaptionFormat = CaptionFormat 
-  { "Format" :: NullOrUndefined (CaptionFormatFormat)
-  , "Pattern" :: NullOrUndefined (CaptionFormatPattern)
-  , "Encryption" :: NullOrUndefined (Encryption)
+  { "Format" :: Maybe (CaptionFormatFormat)
+  , "Pattern" :: Maybe (CaptionFormatPattern)
+  , "Encryption" :: Maybe (Encryption)
   }
 derive instance newtypeCaptionFormat :: Newtype CaptionFormat _
 derive instance repGenericCaptionFormat :: Generic CaptionFormat _
@@ -294,12 +293,12 @@ instance encodeCaptionFormat :: Encode CaptionFormat where encode = genericEncod
 
 -- | Constructs CaptionFormat from required parameters
 newCaptionFormat :: CaptionFormat
-newCaptionFormat  = CaptionFormat { "Encryption": (NullOrUndefined Nothing), "Format": (NullOrUndefined Nothing), "Pattern": (NullOrUndefined Nothing) }
+newCaptionFormat  = CaptionFormat { "Encryption": Nothing, "Format": Nothing, "Pattern": Nothing }
 
 -- | Constructs CaptionFormat's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCaptionFormat' :: ( { "Format" :: NullOrUndefined (CaptionFormatFormat) , "Pattern" :: NullOrUndefined (CaptionFormatPattern) , "Encryption" :: NullOrUndefined (Encryption) } -> {"Format" :: NullOrUndefined (CaptionFormatFormat) , "Pattern" :: NullOrUndefined (CaptionFormatPattern) , "Encryption" :: NullOrUndefined (Encryption) } ) -> CaptionFormat
-newCaptionFormat'  customize = (CaptionFormat <<< customize) { "Encryption": (NullOrUndefined Nothing), "Format": (NullOrUndefined Nothing), "Pattern": (NullOrUndefined Nothing) }
+newCaptionFormat' :: ( { "Format" :: Maybe (CaptionFormatFormat) , "Pattern" :: Maybe (CaptionFormatPattern) , "Encryption" :: Maybe (Encryption) } -> {"Format" :: Maybe (CaptionFormatFormat) , "Pattern" :: Maybe (CaptionFormatPattern) , "Encryption" :: Maybe (Encryption) } ) -> CaptionFormat
+newCaptionFormat'  customize = (CaptionFormat <<< customize) { "Encryption": Nothing, "Format": Nothing, "Pattern": Nothing }
 
 
 
@@ -341,11 +340,11 @@ instance encodeCaptionMergePolicy :: Encode CaptionMergePolicy where encode = ge
 
 -- | <p>A source file for the input sidecar captions used during the transcoding process.</p>
 newtype CaptionSource = CaptionSource 
-  { "Key" :: NullOrUndefined (LongKey)
-  , "Language" :: NullOrUndefined (Key)
-  , "TimeOffset" :: NullOrUndefined (TimeOffset)
-  , "Label" :: NullOrUndefined (Name)
-  , "Encryption" :: NullOrUndefined (Encryption)
+  { "Key" :: Maybe (LongKey)
+  , "Language" :: Maybe (Key)
+  , "TimeOffset" :: Maybe (TimeOffset)
+  , "Label" :: Maybe (Name)
+  , "Encryption" :: Maybe (Encryption)
   }
 derive instance newtypeCaptionSource :: Newtype CaptionSource _
 derive instance repGenericCaptionSource :: Generic CaptionSource _
@@ -355,12 +354,12 @@ instance encodeCaptionSource :: Encode CaptionSource where encode = genericEncod
 
 -- | Constructs CaptionSource from required parameters
 newCaptionSource :: CaptionSource
-newCaptionSource  = CaptionSource { "Encryption": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "Label": (NullOrUndefined Nothing), "Language": (NullOrUndefined Nothing), "TimeOffset": (NullOrUndefined Nothing) }
+newCaptionSource  = CaptionSource { "Encryption": Nothing, "Key": Nothing, "Label": Nothing, "Language": Nothing, "TimeOffset": Nothing }
 
 -- | Constructs CaptionSource's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCaptionSource' :: ( { "Key" :: NullOrUndefined (LongKey) , "Language" :: NullOrUndefined (Key) , "TimeOffset" :: NullOrUndefined (TimeOffset) , "Label" :: NullOrUndefined (Name) , "Encryption" :: NullOrUndefined (Encryption) } -> {"Key" :: NullOrUndefined (LongKey) , "Language" :: NullOrUndefined (Key) , "TimeOffset" :: NullOrUndefined (TimeOffset) , "Label" :: NullOrUndefined (Name) , "Encryption" :: NullOrUndefined (Encryption) } ) -> CaptionSource
-newCaptionSource'  customize = (CaptionSource <<< customize) { "Encryption": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "Label": (NullOrUndefined Nothing), "Language": (NullOrUndefined Nothing), "TimeOffset": (NullOrUndefined Nothing) }
+newCaptionSource' :: ( { "Key" :: Maybe (LongKey) , "Language" :: Maybe (Key) , "TimeOffset" :: Maybe (TimeOffset) , "Label" :: Maybe (Name) , "Encryption" :: Maybe (Encryption) } -> {"Key" :: Maybe (LongKey) , "Language" :: Maybe (Key) , "TimeOffset" :: Maybe (TimeOffset) , "Label" :: Maybe (Name) , "Encryption" :: Maybe (Encryption) } ) -> CaptionSource
+newCaptionSource'  customize = (CaptionSource <<< customize) { "Encryption": Nothing, "Key": Nothing, "Label": Nothing, "Language": Nothing, "TimeOffset": Nothing }
 
 
 
@@ -375,9 +374,9 @@ instance encodeCaptionSources :: Encode CaptionSources where encode = genericEnc
 
 -- | <p>The captions to be created, if any.</p>
 newtype Captions = Captions 
-  { "MergePolicy" :: NullOrUndefined (CaptionMergePolicy)
-  , "CaptionSources" :: NullOrUndefined (CaptionSources)
-  , "CaptionFormats" :: NullOrUndefined (CaptionFormats)
+  { "MergePolicy" :: Maybe (CaptionMergePolicy)
+  , "CaptionSources" :: Maybe (CaptionSources)
+  , "CaptionFormats" :: Maybe (CaptionFormats)
   }
 derive instance newtypeCaptions :: Newtype Captions _
 derive instance repGenericCaptions :: Generic Captions _
@@ -387,18 +386,18 @@ instance encodeCaptions :: Encode Captions where encode = genericEncode options
 
 -- | Constructs Captions from required parameters
 newCaptions :: Captions
-newCaptions  = Captions { "CaptionFormats": (NullOrUndefined Nothing), "CaptionSources": (NullOrUndefined Nothing), "MergePolicy": (NullOrUndefined Nothing) }
+newCaptions  = Captions { "CaptionFormats": Nothing, "CaptionSources": Nothing, "MergePolicy": Nothing }
 
 -- | Constructs Captions's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCaptions' :: ( { "MergePolicy" :: NullOrUndefined (CaptionMergePolicy) , "CaptionSources" :: NullOrUndefined (CaptionSources) , "CaptionFormats" :: NullOrUndefined (CaptionFormats) } -> {"MergePolicy" :: NullOrUndefined (CaptionMergePolicy) , "CaptionSources" :: NullOrUndefined (CaptionSources) , "CaptionFormats" :: NullOrUndefined (CaptionFormats) } ) -> Captions
-newCaptions'  customize = (Captions <<< customize) { "CaptionFormats": (NullOrUndefined Nothing), "CaptionSources": (NullOrUndefined Nothing), "MergePolicy": (NullOrUndefined Nothing) }
+newCaptions' :: ( { "MergePolicy" :: Maybe (CaptionMergePolicy) , "CaptionSources" :: Maybe (CaptionSources) , "CaptionFormats" :: Maybe (CaptionFormats) } -> {"MergePolicy" :: Maybe (CaptionMergePolicy) , "CaptionSources" :: Maybe (CaptionSources) , "CaptionFormats" :: Maybe (CaptionFormats) } ) -> Captions
+newCaptions'  customize = (Captions <<< customize) { "CaptionFormats": Nothing, "CaptionSources": Nothing, "MergePolicy": Nothing }
 
 
 
 -- | <p>Settings for one clip in a composition. All jobs in a playlist must have the same clip settings.</p>
 newtype Clip = Clip 
-  { "TimeSpan" :: NullOrUndefined (TimeSpan)
+  { "TimeSpan" :: Maybe (TimeSpan)
   }
 derive instance newtypeClip :: Newtype Clip _
 derive instance repGenericClip :: Generic Clip _
@@ -408,12 +407,12 @@ instance encodeClip :: Encode Clip where encode = genericEncode options
 
 -- | Constructs Clip from required parameters
 newClip :: Clip
-newClip  = Clip { "TimeSpan": (NullOrUndefined Nothing) }
+newClip  = Clip { "TimeSpan": Nothing }
 
 -- | Constructs Clip's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newClip' :: ( { "TimeSpan" :: NullOrUndefined (TimeSpan) } -> {"TimeSpan" :: NullOrUndefined (TimeSpan) } ) -> Clip
-newClip'  customize = (Clip <<< customize) { "TimeSpan": (NullOrUndefined Nothing) }
+newClip' :: ( { "TimeSpan" :: Maybe (TimeSpan) } -> {"TimeSpan" :: Maybe (TimeSpan) } ) -> Clip
+newClip'  customize = (Clip <<< customize) { "TimeSpan": Nothing }
 
 
 
@@ -446,17 +445,17 @@ instance encodeComposition :: Encode Composition where encode = genericEncode op
 
 -- | <p>The <code>CreateJobOutput</code> structure.</p>
 newtype CreateJobOutput = CreateJobOutput 
-  { "Key" :: NullOrUndefined (Key)
-  , "ThumbnailPattern" :: NullOrUndefined (ThumbnailPattern)
-  , "ThumbnailEncryption" :: NullOrUndefined (Encryption)
-  , "Rotate" :: NullOrUndefined (Rotate)
-  , "PresetId" :: NullOrUndefined (Id)
-  , "SegmentDuration" :: NullOrUndefined (FloatString)
-  , "Watermarks" :: NullOrUndefined (JobWatermarks)
-  , "AlbumArt" :: NullOrUndefined (JobAlbumArt)
-  , "Composition" :: NullOrUndefined (Composition)
-  , "Captions" :: NullOrUndefined (Captions)
-  , "Encryption" :: NullOrUndefined (Encryption)
+  { "Key" :: Maybe (Key)
+  , "ThumbnailPattern" :: Maybe (ThumbnailPattern)
+  , "ThumbnailEncryption" :: Maybe (Encryption)
+  , "Rotate" :: Maybe (Rotate)
+  , "PresetId" :: Maybe (Id)
+  , "SegmentDuration" :: Maybe (FloatString)
+  , "Watermarks" :: Maybe (JobWatermarks)
+  , "AlbumArt" :: Maybe (JobAlbumArt)
+  , "Composition" :: Maybe (Composition)
+  , "Captions" :: Maybe (Captions)
+  , "Encryption" :: Maybe (Encryption)
   }
 derive instance newtypeCreateJobOutput :: Newtype CreateJobOutput _
 derive instance repGenericCreateJobOutput :: Generic CreateJobOutput _
@@ -466,12 +465,12 @@ instance encodeCreateJobOutput :: Encode CreateJobOutput where encode = genericE
 
 -- | Constructs CreateJobOutput from required parameters
 newCreateJobOutput :: CreateJobOutput
-newCreateJobOutput  = CreateJobOutput { "AlbumArt": (NullOrUndefined Nothing), "Captions": (NullOrUndefined Nothing), "Composition": (NullOrUndefined Nothing), "Encryption": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "PresetId": (NullOrUndefined Nothing), "Rotate": (NullOrUndefined Nothing), "SegmentDuration": (NullOrUndefined Nothing), "ThumbnailEncryption": (NullOrUndefined Nothing), "ThumbnailPattern": (NullOrUndefined Nothing), "Watermarks": (NullOrUndefined Nothing) }
+newCreateJobOutput  = CreateJobOutput { "AlbumArt": Nothing, "Captions": Nothing, "Composition": Nothing, "Encryption": Nothing, "Key": Nothing, "PresetId": Nothing, "Rotate": Nothing, "SegmentDuration": Nothing, "ThumbnailEncryption": Nothing, "ThumbnailPattern": Nothing, "Watermarks": Nothing }
 
 -- | Constructs CreateJobOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateJobOutput' :: ( { "Key" :: NullOrUndefined (Key) , "ThumbnailPattern" :: NullOrUndefined (ThumbnailPattern) , "ThumbnailEncryption" :: NullOrUndefined (Encryption) , "Rotate" :: NullOrUndefined (Rotate) , "PresetId" :: NullOrUndefined (Id) , "SegmentDuration" :: NullOrUndefined (FloatString) , "Watermarks" :: NullOrUndefined (JobWatermarks) , "AlbumArt" :: NullOrUndefined (JobAlbumArt) , "Composition" :: NullOrUndefined (Composition) , "Captions" :: NullOrUndefined (Captions) , "Encryption" :: NullOrUndefined (Encryption) } -> {"Key" :: NullOrUndefined (Key) , "ThumbnailPattern" :: NullOrUndefined (ThumbnailPattern) , "ThumbnailEncryption" :: NullOrUndefined (Encryption) , "Rotate" :: NullOrUndefined (Rotate) , "PresetId" :: NullOrUndefined (Id) , "SegmentDuration" :: NullOrUndefined (FloatString) , "Watermarks" :: NullOrUndefined (JobWatermarks) , "AlbumArt" :: NullOrUndefined (JobAlbumArt) , "Composition" :: NullOrUndefined (Composition) , "Captions" :: NullOrUndefined (Captions) , "Encryption" :: NullOrUndefined (Encryption) } ) -> CreateJobOutput
-newCreateJobOutput'  customize = (CreateJobOutput <<< customize) { "AlbumArt": (NullOrUndefined Nothing), "Captions": (NullOrUndefined Nothing), "Composition": (NullOrUndefined Nothing), "Encryption": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "PresetId": (NullOrUndefined Nothing), "Rotate": (NullOrUndefined Nothing), "SegmentDuration": (NullOrUndefined Nothing), "ThumbnailEncryption": (NullOrUndefined Nothing), "ThumbnailPattern": (NullOrUndefined Nothing), "Watermarks": (NullOrUndefined Nothing) }
+newCreateJobOutput' :: ( { "Key" :: Maybe (Key) , "ThumbnailPattern" :: Maybe (ThumbnailPattern) , "ThumbnailEncryption" :: Maybe (Encryption) , "Rotate" :: Maybe (Rotate) , "PresetId" :: Maybe (Id) , "SegmentDuration" :: Maybe (FloatString) , "Watermarks" :: Maybe (JobWatermarks) , "AlbumArt" :: Maybe (JobAlbumArt) , "Composition" :: Maybe (Composition) , "Captions" :: Maybe (Captions) , "Encryption" :: Maybe (Encryption) } -> {"Key" :: Maybe (Key) , "ThumbnailPattern" :: Maybe (ThumbnailPattern) , "ThumbnailEncryption" :: Maybe (Encryption) , "Rotate" :: Maybe (Rotate) , "PresetId" :: Maybe (Id) , "SegmentDuration" :: Maybe (FloatString) , "Watermarks" :: Maybe (JobWatermarks) , "AlbumArt" :: Maybe (JobAlbumArt) , "Composition" :: Maybe (Composition) , "Captions" :: Maybe (Captions) , "Encryption" :: Maybe (Encryption) } ) -> CreateJobOutput
+newCreateJobOutput'  customize = (CreateJobOutput <<< customize) { "AlbumArt": Nothing, "Captions": Nothing, "Composition": Nothing, "Encryption": Nothing, "Key": Nothing, "PresetId": Nothing, "Rotate": Nothing, "SegmentDuration": Nothing, "ThumbnailEncryption": Nothing, "ThumbnailPattern": Nothing, "Watermarks": Nothing }
 
 
 
@@ -486,11 +485,11 @@ instance encodeCreateJobOutputs :: Encode CreateJobOutputs where encode = generi
 
 -- | <p>Information about the master playlist.</p>
 newtype CreateJobPlaylist = CreateJobPlaylist 
-  { "Name" :: NullOrUndefined (Filename)
-  , "Format" :: NullOrUndefined (PlaylistFormat)
-  , "OutputKeys" :: NullOrUndefined (OutputKeys)
-  , "HlsContentProtection" :: NullOrUndefined (HlsContentProtection)
-  , "PlayReadyDrm" :: NullOrUndefined (PlayReadyDrm)
+  { "Name" :: Maybe (Filename)
+  , "Format" :: Maybe (PlaylistFormat)
+  , "OutputKeys" :: Maybe (OutputKeys)
+  , "HlsContentProtection" :: Maybe (HlsContentProtection)
+  , "PlayReadyDrm" :: Maybe (PlayReadyDrm)
   }
 derive instance newtypeCreateJobPlaylist :: Newtype CreateJobPlaylist _
 derive instance repGenericCreateJobPlaylist :: Generic CreateJobPlaylist _
@@ -500,12 +499,12 @@ instance encodeCreateJobPlaylist :: Encode CreateJobPlaylist where encode = gene
 
 -- | Constructs CreateJobPlaylist from required parameters
 newCreateJobPlaylist :: CreateJobPlaylist
-newCreateJobPlaylist  = CreateJobPlaylist { "Format": (NullOrUndefined Nothing), "HlsContentProtection": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "OutputKeys": (NullOrUndefined Nothing), "PlayReadyDrm": (NullOrUndefined Nothing) }
+newCreateJobPlaylist  = CreateJobPlaylist { "Format": Nothing, "HlsContentProtection": Nothing, "Name": Nothing, "OutputKeys": Nothing, "PlayReadyDrm": Nothing }
 
 -- | Constructs CreateJobPlaylist's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateJobPlaylist' :: ( { "Name" :: NullOrUndefined (Filename) , "Format" :: NullOrUndefined (PlaylistFormat) , "OutputKeys" :: NullOrUndefined (OutputKeys) , "HlsContentProtection" :: NullOrUndefined (HlsContentProtection) , "PlayReadyDrm" :: NullOrUndefined (PlayReadyDrm) } -> {"Name" :: NullOrUndefined (Filename) , "Format" :: NullOrUndefined (PlaylistFormat) , "OutputKeys" :: NullOrUndefined (OutputKeys) , "HlsContentProtection" :: NullOrUndefined (HlsContentProtection) , "PlayReadyDrm" :: NullOrUndefined (PlayReadyDrm) } ) -> CreateJobPlaylist
-newCreateJobPlaylist'  customize = (CreateJobPlaylist <<< customize) { "Format": (NullOrUndefined Nothing), "HlsContentProtection": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "OutputKeys": (NullOrUndefined Nothing), "PlayReadyDrm": (NullOrUndefined Nothing) }
+newCreateJobPlaylist' :: ( { "Name" :: Maybe (Filename) , "Format" :: Maybe (PlaylistFormat) , "OutputKeys" :: Maybe (OutputKeys) , "HlsContentProtection" :: Maybe (HlsContentProtection) , "PlayReadyDrm" :: Maybe (PlayReadyDrm) } -> {"Name" :: Maybe (Filename) , "Format" :: Maybe (PlaylistFormat) , "OutputKeys" :: Maybe (OutputKeys) , "HlsContentProtection" :: Maybe (HlsContentProtection) , "PlayReadyDrm" :: Maybe (PlayReadyDrm) } ) -> CreateJobPlaylist
+newCreateJobPlaylist'  customize = (CreateJobPlaylist <<< customize) { "Format": Nothing, "HlsContentProtection": Nothing, "Name": Nothing, "OutputKeys": Nothing, "PlayReadyDrm": Nothing }
 
 
 
@@ -521,13 +520,13 @@ instance encodeCreateJobPlaylists :: Encode CreateJobPlaylists where encode = ge
 -- | <p>The <code>CreateJobRequest</code> structure.</p>
 newtype CreateJobRequest = CreateJobRequest 
   { "PipelineId" :: (Id)
-  , "Input" :: NullOrUndefined (JobInput)
-  , "Inputs" :: NullOrUndefined (JobInputs)
-  , "Output" :: NullOrUndefined (CreateJobOutput)
-  , "Outputs" :: NullOrUndefined (CreateJobOutputs)
-  , "OutputKeyPrefix" :: NullOrUndefined (Key)
-  , "Playlists" :: NullOrUndefined (CreateJobPlaylists)
-  , "UserMetadata" :: NullOrUndefined (UserMetadata)
+  , "Input" :: Maybe (JobInput)
+  , "Inputs" :: Maybe (JobInputs)
+  , "Output" :: Maybe (CreateJobOutput)
+  , "Outputs" :: Maybe (CreateJobOutputs)
+  , "OutputKeyPrefix" :: Maybe (Key)
+  , "Playlists" :: Maybe (CreateJobPlaylists)
+  , "UserMetadata" :: Maybe (UserMetadata)
   }
 derive instance newtypeCreateJobRequest :: Newtype CreateJobRequest _
 derive instance repGenericCreateJobRequest :: Generic CreateJobRequest _
@@ -537,18 +536,18 @@ instance encodeCreateJobRequest :: Encode CreateJobRequest where encode = generi
 
 -- | Constructs CreateJobRequest from required parameters
 newCreateJobRequest :: Id -> CreateJobRequest
-newCreateJobRequest _PipelineId = CreateJobRequest { "PipelineId": _PipelineId, "Input": (NullOrUndefined Nothing), "Inputs": (NullOrUndefined Nothing), "Output": (NullOrUndefined Nothing), "OutputKeyPrefix": (NullOrUndefined Nothing), "Outputs": (NullOrUndefined Nothing), "Playlists": (NullOrUndefined Nothing), "UserMetadata": (NullOrUndefined Nothing) }
+newCreateJobRequest _PipelineId = CreateJobRequest { "PipelineId": _PipelineId, "Input": Nothing, "Inputs": Nothing, "Output": Nothing, "OutputKeyPrefix": Nothing, "Outputs": Nothing, "Playlists": Nothing, "UserMetadata": Nothing }
 
 -- | Constructs CreateJobRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateJobRequest' :: Id -> ( { "PipelineId" :: (Id) , "Input" :: NullOrUndefined (JobInput) , "Inputs" :: NullOrUndefined (JobInputs) , "Output" :: NullOrUndefined (CreateJobOutput) , "Outputs" :: NullOrUndefined (CreateJobOutputs) , "OutputKeyPrefix" :: NullOrUndefined (Key) , "Playlists" :: NullOrUndefined (CreateJobPlaylists) , "UserMetadata" :: NullOrUndefined (UserMetadata) } -> {"PipelineId" :: (Id) , "Input" :: NullOrUndefined (JobInput) , "Inputs" :: NullOrUndefined (JobInputs) , "Output" :: NullOrUndefined (CreateJobOutput) , "Outputs" :: NullOrUndefined (CreateJobOutputs) , "OutputKeyPrefix" :: NullOrUndefined (Key) , "Playlists" :: NullOrUndefined (CreateJobPlaylists) , "UserMetadata" :: NullOrUndefined (UserMetadata) } ) -> CreateJobRequest
-newCreateJobRequest' _PipelineId customize = (CreateJobRequest <<< customize) { "PipelineId": _PipelineId, "Input": (NullOrUndefined Nothing), "Inputs": (NullOrUndefined Nothing), "Output": (NullOrUndefined Nothing), "OutputKeyPrefix": (NullOrUndefined Nothing), "Outputs": (NullOrUndefined Nothing), "Playlists": (NullOrUndefined Nothing), "UserMetadata": (NullOrUndefined Nothing) }
+newCreateJobRequest' :: Id -> ( { "PipelineId" :: (Id) , "Input" :: Maybe (JobInput) , "Inputs" :: Maybe (JobInputs) , "Output" :: Maybe (CreateJobOutput) , "Outputs" :: Maybe (CreateJobOutputs) , "OutputKeyPrefix" :: Maybe (Key) , "Playlists" :: Maybe (CreateJobPlaylists) , "UserMetadata" :: Maybe (UserMetadata) } -> {"PipelineId" :: (Id) , "Input" :: Maybe (JobInput) , "Inputs" :: Maybe (JobInputs) , "Output" :: Maybe (CreateJobOutput) , "Outputs" :: Maybe (CreateJobOutputs) , "OutputKeyPrefix" :: Maybe (Key) , "Playlists" :: Maybe (CreateJobPlaylists) , "UserMetadata" :: Maybe (UserMetadata) } ) -> CreateJobRequest
+newCreateJobRequest' _PipelineId customize = (CreateJobRequest <<< customize) { "PipelineId": _PipelineId, "Input": Nothing, "Inputs": Nothing, "Output": Nothing, "OutputKeyPrefix": Nothing, "Outputs": Nothing, "Playlists": Nothing, "UserMetadata": Nothing }
 
 
 
 -- | <p>The CreateJobResponse structure.</p>
 newtype CreateJobResponse = CreateJobResponse 
-  { "Job" :: NullOrUndefined (Job)
+  { "Job" :: Maybe (Job)
   }
 derive instance newtypeCreateJobResponse :: Newtype CreateJobResponse _
 derive instance repGenericCreateJobResponse :: Generic CreateJobResponse _
@@ -558,12 +557,12 @@ instance encodeCreateJobResponse :: Encode CreateJobResponse where encode = gene
 
 -- | Constructs CreateJobResponse from required parameters
 newCreateJobResponse :: CreateJobResponse
-newCreateJobResponse  = CreateJobResponse { "Job": (NullOrUndefined Nothing) }
+newCreateJobResponse  = CreateJobResponse { "Job": Nothing }
 
 -- | Constructs CreateJobResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateJobResponse' :: ( { "Job" :: NullOrUndefined (Job) } -> {"Job" :: NullOrUndefined (Job) } ) -> CreateJobResponse
-newCreateJobResponse'  customize = (CreateJobResponse <<< customize) { "Job": (NullOrUndefined Nothing) }
+newCreateJobResponse' :: ( { "Job" :: Maybe (Job) } -> {"Job" :: Maybe (Job) } ) -> CreateJobResponse
+newCreateJobResponse'  customize = (CreateJobResponse <<< customize) { "Job": Nothing }
 
 
 
@@ -571,12 +570,12 @@ newCreateJobResponse'  customize = (CreateJobResponse <<< customize) { "Job": (N
 newtype CreatePipelineRequest = CreatePipelineRequest 
   { "Name" :: (Name)
   , "InputBucket" :: (BucketName)
-  , "OutputBucket" :: NullOrUndefined (BucketName)
+  , "OutputBucket" :: Maybe (BucketName)
   , "Role" :: (Role)
-  , "AwsKmsKeyArn" :: NullOrUndefined (KeyArn)
-  , "Notifications" :: NullOrUndefined (Notifications)
-  , "ContentConfig" :: NullOrUndefined (PipelineOutputConfig)
-  , "ThumbnailConfig" :: NullOrUndefined (PipelineOutputConfig)
+  , "AwsKmsKeyArn" :: Maybe (KeyArn)
+  , "Notifications" :: Maybe (Notifications)
+  , "ContentConfig" :: Maybe (PipelineOutputConfig)
+  , "ThumbnailConfig" :: Maybe (PipelineOutputConfig)
   }
 derive instance newtypeCreatePipelineRequest :: Newtype CreatePipelineRequest _
 derive instance repGenericCreatePipelineRequest :: Generic CreatePipelineRequest _
@@ -586,19 +585,19 @@ instance encodeCreatePipelineRequest :: Encode CreatePipelineRequest where encod
 
 -- | Constructs CreatePipelineRequest from required parameters
 newCreatePipelineRequest :: BucketName -> Name -> Role -> CreatePipelineRequest
-newCreatePipelineRequest _InputBucket _Name _Role = CreatePipelineRequest { "InputBucket": _InputBucket, "Name": _Name, "Role": _Role, "AwsKmsKeyArn": (NullOrUndefined Nothing), "ContentConfig": (NullOrUndefined Nothing), "Notifications": (NullOrUndefined Nothing), "OutputBucket": (NullOrUndefined Nothing), "ThumbnailConfig": (NullOrUndefined Nothing) }
+newCreatePipelineRequest _InputBucket _Name _Role = CreatePipelineRequest { "InputBucket": _InputBucket, "Name": _Name, "Role": _Role, "AwsKmsKeyArn": Nothing, "ContentConfig": Nothing, "Notifications": Nothing, "OutputBucket": Nothing, "ThumbnailConfig": Nothing }
 
 -- | Constructs CreatePipelineRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreatePipelineRequest' :: BucketName -> Name -> Role -> ( { "Name" :: (Name) , "InputBucket" :: (BucketName) , "OutputBucket" :: NullOrUndefined (BucketName) , "Role" :: (Role) , "AwsKmsKeyArn" :: NullOrUndefined (KeyArn) , "Notifications" :: NullOrUndefined (Notifications) , "ContentConfig" :: NullOrUndefined (PipelineOutputConfig) , "ThumbnailConfig" :: NullOrUndefined (PipelineOutputConfig) } -> {"Name" :: (Name) , "InputBucket" :: (BucketName) , "OutputBucket" :: NullOrUndefined (BucketName) , "Role" :: (Role) , "AwsKmsKeyArn" :: NullOrUndefined (KeyArn) , "Notifications" :: NullOrUndefined (Notifications) , "ContentConfig" :: NullOrUndefined (PipelineOutputConfig) , "ThumbnailConfig" :: NullOrUndefined (PipelineOutputConfig) } ) -> CreatePipelineRequest
-newCreatePipelineRequest' _InputBucket _Name _Role customize = (CreatePipelineRequest <<< customize) { "InputBucket": _InputBucket, "Name": _Name, "Role": _Role, "AwsKmsKeyArn": (NullOrUndefined Nothing), "ContentConfig": (NullOrUndefined Nothing), "Notifications": (NullOrUndefined Nothing), "OutputBucket": (NullOrUndefined Nothing), "ThumbnailConfig": (NullOrUndefined Nothing) }
+newCreatePipelineRequest' :: BucketName -> Name -> Role -> ( { "Name" :: (Name) , "InputBucket" :: (BucketName) , "OutputBucket" :: Maybe (BucketName) , "Role" :: (Role) , "AwsKmsKeyArn" :: Maybe (KeyArn) , "Notifications" :: Maybe (Notifications) , "ContentConfig" :: Maybe (PipelineOutputConfig) , "ThumbnailConfig" :: Maybe (PipelineOutputConfig) } -> {"Name" :: (Name) , "InputBucket" :: (BucketName) , "OutputBucket" :: Maybe (BucketName) , "Role" :: (Role) , "AwsKmsKeyArn" :: Maybe (KeyArn) , "Notifications" :: Maybe (Notifications) , "ContentConfig" :: Maybe (PipelineOutputConfig) , "ThumbnailConfig" :: Maybe (PipelineOutputConfig) } ) -> CreatePipelineRequest
+newCreatePipelineRequest' _InputBucket _Name _Role customize = (CreatePipelineRequest <<< customize) { "InputBucket": _InputBucket, "Name": _Name, "Role": _Role, "AwsKmsKeyArn": Nothing, "ContentConfig": Nothing, "Notifications": Nothing, "OutputBucket": Nothing, "ThumbnailConfig": Nothing }
 
 
 
 -- | <p>When you create a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
 newtype CreatePipelineResponse = CreatePipelineResponse 
-  { "Pipeline" :: NullOrUndefined (Pipeline)
-  , "Warnings" :: NullOrUndefined (Warnings)
+  { "Pipeline" :: Maybe (Pipeline)
+  , "Warnings" :: Maybe (Warnings)
   }
 derive instance newtypeCreatePipelineResponse :: Newtype CreatePipelineResponse _
 derive instance repGenericCreatePipelineResponse :: Generic CreatePipelineResponse _
@@ -608,23 +607,23 @@ instance encodeCreatePipelineResponse :: Encode CreatePipelineResponse where enc
 
 -- | Constructs CreatePipelineResponse from required parameters
 newCreatePipelineResponse :: CreatePipelineResponse
-newCreatePipelineResponse  = CreatePipelineResponse { "Pipeline": (NullOrUndefined Nothing), "Warnings": (NullOrUndefined Nothing) }
+newCreatePipelineResponse  = CreatePipelineResponse { "Pipeline": Nothing, "Warnings": Nothing }
 
 -- | Constructs CreatePipelineResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreatePipelineResponse' :: ( { "Pipeline" :: NullOrUndefined (Pipeline) , "Warnings" :: NullOrUndefined (Warnings) } -> {"Pipeline" :: NullOrUndefined (Pipeline) , "Warnings" :: NullOrUndefined (Warnings) } ) -> CreatePipelineResponse
-newCreatePipelineResponse'  customize = (CreatePipelineResponse <<< customize) { "Pipeline": (NullOrUndefined Nothing), "Warnings": (NullOrUndefined Nothing) }
+newCreatePipelineResponse' :: ( { "Pipeline" :: Maybe (Pipeline) , "Warnings" :: Maybe (Warnings) } -> {"Pipeline" :: Maybe (Pipeline) , "Warnings" :: Maybe (Warnings) } ) -> CreatePipelineResponse
+newCreatePipelineResponse'  customize = (CreatePipelineResponse <<< customize) { "Pipeline": Nothing, "Warnings": Nothing }
 
 
 
 -- | <p>The <code>CreatePresetRequest</code> structure.</p>
 newtype CreatePresetRequest = CreatePresetRequest 
   { "Name" :: (Name)
-  , "Description" :: NullOrUndefined (Description)
+  , "Description" :: Maybe (Description)
   , "Container" :: (PresetContainer)
-  , "Video" :: NullOrUndefined (VideoParameters)
-  , "Audio" :: NullOrUndefined (AudioParameters)
-  , "Thumbnails" :: NullOrUndefined (Thumbnails)
+  , "Video" :: Maybe (VideoParameters)
+  , "Audio" :: Maybe (AudioParameters)
+  , "Thumbnails" :: Maybe (Thumbnails)
   }
 derive instance newtypeCreatePresetRequest :: Newtype CreatePresetRequest _
 derive instance repGenericCreatePresetRequest :: Generic CreatePresetRequest _
@@ -634,19 +633,19 @@ instance encodeCreatePresetRequest :: Encode CreatePresetRequest where encode = 
 
 -- | Constructs CreatePresetRequest from required parameters
 newCreatePresetRequest :: PresetContainer -> Name -> CreatePresetRequest
-newCreatePresetRequest _Container _Name = CreatePresetRequest { "Container": _Container, "Name": _Name, "Audio": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "Thumbnails": (NullOrUndefined Nothing), "Video": (NullOrUndefined Nothing) }
+newCreatePresetRequest _Container _Name = CreatePresetRequest { "Container": _Container, "Name": _Name, "Audio": Nothing, "Description": Nothing, "Thumbnails": Nothing, "Video": Nothing }
 
 -- | Constructs CreatePresetRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreatePresetRequest' :: PresetContainer -> Name -> ( { "Name" :: (Name) , "Description" :: NullOrUndefined (Description) , "Container" :: (PresetContainer) , "Video" :: NullOrUndefined (VideoParameters) , "Audio" :: NullOrUndefined (AudioParameters) , "Thumbnails" :: NullOrUndefined (Thumbnails) } -> {"Name" :: (Name) , "Description" :: NullOrUndefined (Description) , "Container" :: (PresetContainer) , "Video" :: NullOrUndefined (VideoParameters) , "Audio" :: NullOrUndefined (AudioParameters) , "Thumbnails" :: NullOrUndefined (Thumbnails) } ) -> CreatePresetRequest
-newCreatePresetRequest' _Container _Name customize = (CreatePresetRequest <<< customize) { "Container": _Container, "Name": _Name, "Audio": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "Thumbnails": (NullOrUndefined Nothing), "Video": (NullOrUndefined Nothing) }
+newCreatePresetRequest' :: PresetContainer -> Name -> ( { "Name" :: (Name) , "Description" :: Maybe (Description) , "Container" :: (PresetContainer) , "Video" :: Maybe (VideoParameters) , "Audio" :: Maybe (AudioParameters) , "Thumbnails" :: Maybe (Thumbnails) } -> {"Name" :: (Name) , "Description" :: Maybe (Description) , "Container" :: (PresetContainer) , "Video" :: Maybe (VideoParameters) , "Audio" :: Maybe (AudioParameters) , "Thumbnails" :: Maybe (Thumbnails) } ) -> CreatePresetRequest
+newCreatePresetRequest' _Container _Name customize = (CreatePresetRequest <<< customize) { "Container": _Container, "Name": _Name, "Audio": Nothing, "Description": Nothing, "Thumbnails": Nothing, "Video": Nothing }
 
 
 
 -- | <p>The <code>CreatePresetResponse</code> structure.</p>
 newtype CreatePresetResponse = CreatePresetResponse 
-  { "Preset" :: NullOrUndefined (Preset)
-  , "Warning" :: NullOrUndefined (String)
+  { "Preset" :: Maybe (Preset)
+  , "Warning" :: Maybe (String)
   }
 derive instance newtypeCreatePresetResponse :: Newtype CreatePresetResponse _
 derive instance repGenericCreatePresetResponse :: Generic CreatePresetResponse _
@@ -656,12 +655,12 @@ instance encodeCreatePresetResponse :: Encode CreatePresetResponse where encode 
 
 -- | Constructs CreatePresetResponse from required parameters
 newCreatePresetResponse :: CreatePresetResponse
-newCreatePresetResponse  = CreatePresetResponse { "Preset": (NullOrUndefined Nothing), "Warning": (NullOrUndefined Nothing) }
+newCreatePresetResponse  = CreatePresetResponse { "Preset": Nothing, "Warning": Nothing }
 
 -- | Constructs CreatePresetResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreatePresetResponse' :: ( { "Preset" :: NullOrUndefined (Preset) , "Warning" :: NullOrUndefined (String) } -> {"Preset" :: NullOrUndefined (Preset) , "Warning" :: NullOrUndefined (String) } ) -> CreatePresetResponse
-newCreatePresetResponse'  customize = (CreatePresetResponse <<< customize) { "Preset": (NullOrUndefined Nothing), "Warning": (NullOrUndefined Nothing) }
+newCreatePresetResponse' :: ( { "Preset" :: Maybe (Preset) , "Warning" :: Maybe (String) } -> {"Preset" :: Maybe (Preset) , "Warning" :: Maybe (String) } ) -> CreatePresetResponse
+newCreatePresetResponse'  customize = (CreatePresetResponse <<< customize) { "Preset": Nothing, "Warning": Nothing }
 
 
 
@@ -738,11 +737,11 @@ instance encodeDescription :: Encode Description where encode = genericEncode op
 
 -- | <p>The detected properties of the input file. Elastic Transcoder identifies these values from the input file.</p>
 newtype DetectedProperties = DetectedProperties 
-  { "Width" :: NullOrUndefined (NullableInteger)
-  , "Height" :: NullOrUndefined (NullableInteger)
-  , "FrameRate" :: NullOrUndefined (FloatString)
-  , "FileSize" :: NullOrUndefined (NullableLong)
-  , "DurationMillis" :: NullOrUndefined (NullableLong)
+  { "Width" :: Maybe (NullableInteger)
+  , "Height" :: Maybe (NullableInteger)
+  , "FrameRate" :: Maybe (FloatString)
+  , "FileSize" :: Maybe (NullableLong)
+  , "DurationMillis" :: Maybe (NullableLong)
   }
 derive instance newtypeDetectedProperties :: Newtype DetectedProperties _
 derive instance repGenericDetectedProperties :: Generic DetectedProperties _
@@ -752,12 +751,12 @@ instance encodeDetectedProperties :: Encode DetectedProperties where encode = ge
 
 -- | Constructs DetectedProperties from required parameters
 newDetectedProperties :: DetectedProperties
-newDetectedProperties  = DetectedProperties { "DurationMillis": (NullOrUndefined Nothing), "FileSize": (NullOrUndefined Nothing), "FrameRate": (NullOrUndefined Nothing), "Height": (NullOrUndefined Nothing), "Width": (NullOrUndefined Nothing) }
+newDetectedProperties  = DetectedProperties { "DurationMillis": Nothing, "FileSize": Nothing, "FrameRate": Nothing, "Height": Nothing, "Width": Nothing }
 
 -- | Constructs DetectedProperties's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDetectedProperties' :: ( { "Width" :: NullOrUndefined (NullableInteger) , "Height" :: NullOrUndefined (NullableInteger) , "FrameRate" :: NullOrUndefined (FloatString) , "FileSize" :: NullOrUndefined (NullableLong) , "DurationMillis" :: NullOrUndefined (NullableLong) } -> {"Width" :: NullOrUndefined (NullableInteger) , "Height" :: NullOrUndefined (NullableInteger) , "FrameRate" :: NullOrUndefined (FloatString) , "FileSize" :: NullOrUndefined (NullableLong) , "DurationMillis" :: NullOrUndefined (NullableLong) } ) -> DetectedProperties
-newDetectedProperties'  customize = (DetectedProperties <<< customize) { "DurationMillis": (NullOrUndefined Nothing), "FileSize": (NullOrUndefined Nothing), "FrameRate": (NullOrUndefined Nothing), "Height": (NullOrUndefined Nothing), "Width": (NullOrUndefined Nothing) }
+newDetectedProperties' :: ( { "Width" :: Maybe (NullableInteger) , "Height" :: Maybe (NullableInteger) , "FrameRate" :: Maybe (FloatString) , "FileSize" :: Maybe (NullableLong) , "DurationMillis" :: Maybe (NullableLong) } -> {"Width" :: Maybe (NullableInteger) , "Height" :: Maybe (NullableInteger) , "FrameRate" :: Maybe (FloatString) , "FileSize" :: Maybe (NullableLong) , "DurationMillis" :: Maybe (NullableLong) } ) -> DetectedProperties
+newDetectedProperties'  customize = (DetectedProperties <<< customize) { "DurationMillis": Nothing, "FileSize": Nothing, "FrameRate": Nothing, "Height": Nothing, "Width": Nothing }
 
 
 
@@ -781,10 +780,10 @@ instance encodeDigitsOrAuto :: Encode DigitsOrAuto where encode = genericEncode 
 
 -- | <p>The encryption settings, if any, that are used for decrypting your input files or encrypting your output files. If your input file is encrypted, you must specify the mode that Elastic Transcoder uses to decrypt your file, otherwise you must specify the mode you want Elastic Transcoder to use to encrypt your output files.</p>
 newtype Encryption = Encryption 
-  { "Mode" :: NullOrUndefined (EncryptionMode)
-  , "Key" :: NullOrUndefined (Base64EncodedString)
-  , "KeyMd5" :: NullOrUndefined (Base64EncodedString)
-  , "InitializationVector" :: NullOrUndefined (ZeroTo255String)
+  { "Mode" :: Maybe (EncryptionMode)
+  , "Key" :: Maybe (Base64EncodedString)
+  , "KeyMd5" :: Maybe (Base64EncodedString)
+  , "InitializationVector" :: Maybe (ZeroTo255String)
   }
 derive instance newtypeEncryption :: Newtype Encryption _
 derive instance repGenericEncryption :: Generic Encryption _
@@ -794,12 +793,12 @@ instance encodeEncryption :: Encode Encryption where encode = genericEncode opti
 
 -- | Constructs Encryption from required parameters
 newEncryption :: Encryption
-newEncryption  = Encryption { "InitializationVector": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "KeyMd5": (NullOrUndefined Nothing), "Mode": (NullOrUndefined Nothing) }
+newEncryption  = Encryption { "InitializationVector": Nothing, "Key": Nothing, "KeyMd5": Nothing, "Mode": Nothing }
 
 -- | Constructs Encryption's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEncryption' :: ( { "Mode" :: NullOrUndefined (EncryptionMode) , "Key" :: NullOrUndefined (Base64EncodedString) , "KeyMd5" :: NullOrUndefined (Base64EncodedString) , "InitializationVector" :: NullOrUndefined (ZeroTo255String) } -> {"Mode" :: NullOrUndefined (EncryptionMode) , "Key" :: NullOrUndefined (Base64EncodedString) , "KeyMd5" :: NullOrUndefined (Base64EncodedString) , "InitializationVector" :: NullOrUndefined (ZeroTo255String) } ) -> Encryption
-newEncryption'  customize = (Encryption <<< customize) { "InitializationVector": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "KeyMd5": (NullOrUndefined Nothing), "Mode": (NullOrUndefined Nothing) }
+newEncryption' :: ( { "Mode" :: Maybe (EncryptionMode) , "Key" :: Maybe (Base64EncodedString) , "KeyMd5" :: Maybe (Base64EncodedString) , "InitializationVector" :: Maybe (ZeroTo255String) } -> {"Mode" :: Maybe (EncryptionMode) , "Key" :: Maybe (Base64EncodedString) , "KeyMd5" :: Maybe (Base64EncodedString) , "InitializationVector" :: Maybe (ZeroTo255String) } ) -> Encryption
+newEncryption'  customize = (Encryption <<< customize) { "InitializationVector": Nothing, "Key": Nothing, "KeyMd5": Nothing, "Mode": Nothing }
 
 
 
@@ -877,12 +876,12 @@ instance encodeGranteeType :: Encode GranteeType where encode = genericEncode op
 
 -- | <p>The HLS content protection settings, if any, that you want Elastic Transcoder to apply to your output files.</p>
 newtype HlsContentProtection = HlsContentProtection 
-  { "Method" :: NullOrUndefined (HlsContentProtectionMethod)
-  , "Key" :: NullOrUndefined (Base64EncodedString)
-  , "KeyMd5" :: NullOrUndefined (Base64EncodedString)
-  , "InitializationVector" :: NullOrUndefined (ZeroTo255String)
-  , "LicenseAcquisitionUrl" :: NullOrUndefined (ZeroTo512String)
-  , "KeyStoragePolicy" :: NullOrUndefined (KeyStoragePolicy)
+  { "Method" :: Maybe (HlsContentProtectionMethod)
+  , "Key" :: Maybe (Base64EncodedString)
+  , "KeyMd5" :: Maybe (Base64EncodedString)
+  , "InitializationVector" :: Maybe (ZeroTo255String)
+  , "LicenseAcquisitionUrl" :: Maybe (ZeroTo512String)
+  , "KeyStoragePolicy" :: Maybe (KeyStoragePolicy)
   }
 derive instance newtypeHlsContentProtection :: Newtype HlsContentProtection _
 derive instance repGenericHlsContentProtection :: Generic HlsContentProtection _
@@ -892,12 +891,12 @@ instance encodeHlsContentProtection :: Encode HlsContentProtection where encode 
 
 -- | Constructs HlsContentProtection from required parameters
 newHlsContentProtection :: HlsContentProtection
-newHlsContentProtection  = HlsContentProtection { "InitializationVector": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "KeyMd5": (NullOrUndefined Nothing), "KeyStoragePolicy": (NullOrUndefined Nothing), "LicenseAcquisitionUrl": (NullOrUndefined Nothing), "Method": (NullOrUndefined Nothing) }
+newHlsContentProtection  = HlsContentProtection { "InitializationVector": Nothing, "Key": Nothing, "KeyMd5": Nothing, "KeyStoragePolicy": Nothing, "LicenseAcquisitionUrl": Nothing, "Method": Nothing }
 
 -- | Constructs HlsContentProtection's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHlsContentProtection' :: ( { "Method" :: NullOrUndefined (HlsContentProtectionMethod) , "Key" :: NullOrUndefined (Base64EncodedString) , "KeyMd5" :: NullOrUndefined (Base64EncodedString) , "InitializationVector" :: NullOrUndefined (ZeroTo255String) , "LicenseAcquisitionUrl" :: NullOrUndefined (ZeroTo512String) , "KeyStoragePolicy" :: NullOrUndefined (KeyStoragePolicy) } -> {"Method" :: NullOrUndefined (HlsContentProtectionMethod) , "Key" :: NullOrUndefined (Base64EncodedString) , "KeyMd5" :: NullOrUndefined (Base64EncodedString) , "InitializationVector" :: NullOrUndefined (ZeroTo255String) , "LicenseAcquisitionUrl" :: NullOrUndefined (ZeroTo512String) , "KeyStoragePolicy" :: NullOrUndefined (KeyStoragePolicy) } ) -> HlsContentProtection
-newHlsContentProtection'  customize = (HlsContentProtection <<< customize) { "InitializationVector": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "KeyMd5": (NullOrUndefined Nothing), "KeyStoragePolicy": (NullOrUndefined Nothing), "LicenseAcquisitionUrl": (NullOrUndefined Nothing), "Method": (NullOrUndefined Nothing) }
+newHlsContentProtection' :: ( { "Method" :: Maybe (HlsContentProtectionMethod) , "Key" :: Maybe (Base64EncodedString) , "KeyMd5" :: Maybe (Base64EncodedString) , "InitializationVector" :: Maybe (ZeroTo255String) , "LicenseAcquisitionUrl" :: Maybe (ZeroTo512String) , "KeyStoragePolicy" :: Maybe (KeyStoragePolicy) } -> {"Method" :: Maybe (HlsContentProtectionMethod) , "Key" :: Maybe (Base64EncodedString) , "KeyMd5" :: Maybe (Base64EncodedString) , "InitializationVector" :: Maybe (ZeroTo255String) , "LicenseAcquisitionUrl" :: Maybe (ZeroTo512String) , "KeyStoragePolicy" :: Maybe (KeyStoragePolicy) } ) -> HlsContentProtection
+newHlsContentProtection'  customize = (HlsContentProtection <<< customize) { "InitializationVector": Nothing, "Key": Nothing, "KeyMd5": Nothing, "KeyStoragePolicy": Nothing, "LicenseAcquisitionUrl": Nothing, "Method": Nothing }
 
 
 
@@ -939,8 +938,8 @@ instance encodeIncompatibleVersionException :: Encode IncompatibleVersionExcepti
 
 -- | <p>The captions to be created, if any.</p>
 newtype InputCaptions = InputCaptions 
-  { "MergePolicy" :: NullOrUndefined (CaptionMergePolicy)
-  , "CaptionSources" :: NullOrUndefined (CaptionSources)
+  { "MergePolicy" :: Maybe (CaptionMergePolicy)
+  , "CaptionSources" :: Maybe (CaptionSources)
   }
 derive instance newtypeInputCaptions :: Newtype InputCaptions _
 derive instance repGenericInputCaptions :: Generic InputCaptions _
@@ -950,12 +949,12 @@ instance encodeInputCaptions :: Encode InputCaptions where encode = genericEncod
 
 -- | Constructs InputCaptions from required parameters
 newInputCaptions :: InputCaptions
-newInputCaptions  = InputCaptions { "CaptionSources": (NullOrUndefined Nothing), "MergePolicy": (NullOrUndefined Nothing) }
+newInputCaptions  = InputCaptions { "CaptionSources": Nothing, "MergePolicy": Nothing }
 
 -- | Constructs InputCaptions's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInputCaptions' :: ( { "MergePolicy" :: NullOrUndefined (CaptionMergePolicy) , "CaptionSources" :: NullOrUndefined (CaptionSources) } -> {"MergePolicy" :: NullOrUndefined (CaptionMergePolicy) , "CaptionSources" :: NullOrUndefined (CaptionSources) } ) -> InputCaptions
-newInputCaptions'  customize = (InputCaptions <<< customize) { "CaptionSources": (NullOrUndefined Nothing), "MergePolicy": (NullOrUndefined Nothing) }
+newInputCaptions' :: ( { "MergePolicy" :: Maybe (CaptionMergePolicy) , "CaptionSources" :: Maybe (CaptionSources) } -> {"MergePolicy" :: Maybe (CaptionMergePolicy) , "CaptionSources" :: Maybe (CaptionSources) } ) -> InputCaptions
+newInputCaptions'  customize = (InputCaptions <<< customize) { "CaptionSources": Nothing, "MergePolicy": Nothing }
 
 
 
@@ -980,18 +979,18 @@ instance encodeInternalServiceException :: Encode InternalServiceException where
 
 -- | <p>A section of the response body that provides information about the job that is created.</p>
 newtype Job = Job 
-  { "Id" :: NullOrUndefined (Id)
-  , "Arn" :: NullOrUndefined (String)
-  , "PipelineId" :: NullOrUndefined (Id)
-  , "Input" :: NullOrUndefined (JobInput)
-  , "Inputs" :: NullOrUndefined (JobInputs)
-  , "Output" :: NullOrUndefined (JobOutput)
-  , "Outputs" :: NullOrUndefined (JobOutputs)
-  , "OutputKeyPrefix" :: NullOrUndefined (Key)
-  , "Playlists" :: NullOrUndefined (Playlists)
-  , "Status" :: NullOrUndefined (JobStatus)
-  , "UserMetadata" :: NullOrUndefined (UserMetadata)
-  , "Timing" :: NullOrUndefined (Timing)
+  { "Id" :: Maybe (Id)
+  , "Arn" :: Maybe (String)
+  , "PipelineId" :: Maybe (Id)
+  , "Input" :: Maybe (JobInput)
+  , "Inputs" :: Maybe (JobInputs)
+  , "Output" :: Maybe (JobOutput)
+  , "Outputs" :: Maybe (JobOutputs)
+  , "OutputKeyPrefix" :: Maybe (Key)
+  , "Playlists" :: Maybe (Playlists)
+  , "Status" :: Maybe (JobStatus)
+  , "UserMetadata" :: Maybe (UserMetadata)
+  , "Timing" :: Maybe (Timing)
   }
 derive instance newtypeJob :: Newtype Job _
 derive instance repGenericJob :: Generic Job _
@@ -1001,19 +1000,19 @@ instance encodeJob :: Encode Job where encode = genericEncode options
 
 -- | Constructs Job from required parameters
 newJob :: Job
-newJob  = Job { "Arn": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "Input": (NullOrUndefined Nothing), "Inputs": (NullOrUndefined Nothing), "Output": (NullOrUndefined Nothing), "OutputKeyPrefix": (NullOrUndefined Nothing), "Outputs": (NullOrUndefined Nothing), "PipelineId": (NullOrUndefined Nothing), "Playlists": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "Timing": (NullOrUndefined Nothing), "UserMetadata": (NullOrUndefined Nothing) }
+newJob  = Job { "Arn": Nothing, "Id": Nothing, "Input": Nothing, "Inputs": Nothing, "Output": Nothing, "OutputKeyPrefix": Nothing, "Outputs": Nothing, "PipelineId": Nothing, "Playlists": Nothing, "Status": Nothing, "Timing": Nothing, "UserMetadata": Nothing }
 
 -- | Constructs Job's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newJob' :: ( { "Id" :: NullOrUndefined (Id) , "Arn" :: NullOrUndefined (String) , "PipelineId" :: NullOrUndefined (Id) , "Input" :: NullOrUndefined (JobInput) , "Inputs" :: NullOrUndefined (JobInputs) , "Output" :: NullOrUndefined (JobOutput) , "Outputs" :: NullOrUndefined (JobOutputs) , "OutputKeyPrefix" :: NullOrUndefined (Key) , "Playlists" :: NullOrUndefined (Playlists) , "Status" :: NullOrUndefined (JobStatus) , "UserMetadata" :: NullOrUndefined (UserMetadata) , "Timing" :: NullOrUndefined (Timing) } -> {"Id" :: NullOrUndefined (Id) , "Arn" :: NullOrUndefined (String) , "PipelineId" :: NullOrUndefined (Id) , "Input" :: NullOrUndefined (JobInput) , "Inputs" :: NullOrUndefined (JobInputs) , "Output" :: NullOrUndefined (JobOutput) , "Outputs" :: NullOrUndefined (JobOutputs) , "OutputKeyPrefix" :: NullOrUndefined (Key) , "Playlists" :: NullOrUndefined (Playlists) , "Status" :: NullOrUndefined (JobStatus) , "UserMetadata" :: NullOrUndefined (UserMetadata) , "Timing" :: NullOrUndefined (Timing) } ) -> Job
-newJob'  customize = (Job <<< customize) { "Arn": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "Input": (NullOrUndefined Nothing), "Inputs": (NullOrUndefined Nothing), "Output": (NullOrUndefined Nothing), "OutputKeyPrefix": (NullOrUndefined Nothing), "Outputs": (NullOrUndefined Nothing), "PipelineId": (NullOrUndefined Nothing), "Playlists": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "Timing": (NullOrUndefined Nothing), "UserMetadata": (NullOrUndefined Nothing) }
+newJob' :: ( { "Id" :: Maybe (Id) , "Arn" :: Maybe (String) , "PipelineId" :: Maybe (Id) , "Input" :: Maybe (JobInput) , "Inputs" :: Maybe (JobInputs) , "Output" :: Maybe (JobOutput) , "Outputs" :: Maybe (JobOutputs) , "OutputKeyPrefix" :: Maybe (Key) , "Playlists" :: Maybe (Playlists) , "Status" :: Maybe (JobStatus) , "UserMetadata" :: Maybe (UserMetadata) , "Timing" :: Maybe (Timing) } -> {"Id" :: Maybe (Id) , "Arn" :: Maybe (String) , "PipelineId" :: Maybe (Id) , "Input" :: Maybe (JobInput) , "Inputs" :: Maybe (JobInputs) , "Output" :: Maybe (JobOutput) , "Outputs" :: Maybe (JobOutputs) , "OutputKeyPrefix" :: Maybe (Key) , "Playlists" :: Maybe (Playlists) , "Status" :: Maybe (JobStatus) , "UserMetadata" :: Maybe (UserMetadata) , "Timing" :: Maybe (Timing) } ) -> Job
+newJob'  customize = (Job <<< customize) { "Arn": Nothing, "Id": Nothing, "Input": Nothing, "Inputs": Nothing, "Output": Nothing, "OutputKeyPrefix": Nothing, "Outputs": Nothing, "PipelineId": Nothing, "Playlists": Nothing, "Status": Nothing, "Timing": Nothing, "UserMetadata": Nothing }
 
 
 
 -- | <p>The .jpg or .png file associated with an audio file.</p>
 newtype JobAlbumArt = JobAlbumArt 
-  { "MergePolicy" :: NullOrUndefined (MergePolicy)
-  , "Artwork" :: NullOrUndefined (Artworks)
+  { "MergePolicy" :: Maybe (MergePolicy)
+  , "Artwork" :: Maybe (Artworks)
   }
 derive instance newtypeJobAlbumArt :: Newtype JobAlbumArt _
 derive instance repGenericJobAlbumArt :: Generic JobAlbumArt _
@@ -1023,12 +1022,12 @@ instance encodeJobAlbumArt :: Encode JobAlbumArt where encode = genericEncode op
 
 -- | Constructs JobAlbumArt from required parameters
 newJobAlbumArt :: JobAlbumArt
-newJobAlbumArt  = JobAlbumArt { "Artwork": (NullOrUndefined Nothing), "MergePolicy": (NullOrUndefined Nothing) }
+newJobAlbumArt  = JobAlbumArt { "Artwork": Nothing, "MergePolicy": Nothing }
 
 -- | Constructs JobAlbumArt's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newJobAlbumArt' :: ( { "MergePolicy" :: NullOrUndefined (MergePolicy) , "Artwork" :: NullOrUndefined (Artworks) } -> {"MergePolicy" :: NullOrUndefined (MergePolicy) , "Artwork" :: NullOrUndefined (Artworks) } ) -> JobAlbumArt
-newJobAlbumArt'  customize = (JobAlbumArt <<< customize) { "Artwork": (NullOrUndefined Nothing), "MergePolicy": (NullOrUndefined Nothing) }
+newJobAlbumArt' :: ( { "MergePolicy" :: Maybe (MergePolicy) , "Artwork" :: Maybe (Artworks) } -> {"MergePolicy" :: Maybe (MergePolicy) , "Artwork" :: Maybe (Artworks) } ) -> JobAlbumArt
+newJobAlbumArt'  customize = (JobAlbumArt <<< customize) { "Artwork": Nothing, "MergePolicy": Nothing }
 
 
 
@@ -1043,16 +1042,16 @@ instance encodeJobContainer :: Encode JobContainer where encode = genericEncode 
 
 -- | <p>Information about the file that you're transcoding.</p>
 newtype JobInput = JobInput 
-  { "Key" :: NullOrUndefined (LongKey)
-  , "FrameRate" :: NullOrUndefined (FrameRate)
-  , "Resolution" :: NullOrUndefined (Resolution)
-  , "AspectRatio" :: NullOrUndefined (AspectRatio)
-  , "Interlaced" :: NullOrUndefined (Interlaced)
-  , "Container" :: NullOrUndefined (JobContainer)
-  , "Encryption" :: NullOrUndefined (Encryption)
-  , "TimeSpan" :: NullOrUndefined (TimeSpan)
-  , "InputCaptions" :: NullOrUndefined (InputCaptions)
-  , "DetectedProperties" :: NullOrUndefined (DetectedProperties)
+  { "Key" :: Maybe (LongKey)
+  , "FrameRate" :: Maybe (FrameRate)
+  , "Resolution" :: Maybe (Resolution)
+  , "AspectRatio" :: Maybe (AspectRatio)
+  , "Interlaced" :: Maybe (Interlaced)
+  , "Container" :: Maybe (JobContainer)
+  , "Encryption" :: Maybe (Encryption)
+  , "TimeSpan" :: Maybe (TimeSpan)
+  , "InputCaptions" :: Maybe (InputCaptions)
+  , "DetectedProperties" :: Maybe (DetectedProperties)
   }
 derive instance newtypeJobInput :: Newtype JobInput _
 derive instance repGenericJobInput :: Generic JobInput _
@@ -1062,12 +1061,12 @@ instance encodeJobInput :: Encode JobInput where encode = genericEncode options
 
 -- | Constructs JobInput from required parameters
 newJobInput :: JobInput
-newJobInput  = JobInput { "AspectRatio": (NullOrUndefined Nothing), "Container": (NullOrUndefined Nothing), "DetectedProperties": (NullOrUndefined Nothing), "Encryption": (NullOrUndefined Nothing), "FrameRate": (NullOrUndefined Nothing), "InputCaptions": (NullOrUndefined Nothing), "Interlaced": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "Resolution": (NullOrUndefined Nothing), "TimeSpan": (NullOrUndefined Nothing) }
+newJobInput  = JobInput { "AspectRatio": Nothing, "Container": Nothing, "DetectedProperties": Nothing, "Encryption": Nothing, "FrameRate": Nothing, "InputCaptions": Nothing, "Interlaced": Nothing, "Key": Nothing, "Resolution": Nothing, "TimeSpan": Nothing }
 
 -- | Constructs JobInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newJobInput' :: ( { "Key" :: NullOrUndefined (LongKey) , "FrameRate" :: NullOrUndefined (FrameRate) , "Resolution" :: NullOrUndefined (Resolution) , "AspectRatio" :: NullOrUndefined (AspectRatio) , "Interlaced" :: NullOrUndefined (Interlaced) , "Container" :: NullOrUndefined (JobContainer) , "Encryption" :: NullOrUndefined (Encryption) , "TimeSpan" :: NullOrUndefined (TimeSpan) , "InputCaptions" :: NullOrUndefined (InputCaptions) , "DetectedProperties" :: NullOrUndefined (DetectedProperties) } -> {"Key" :: NullOrUndefined (LongKey) , "FrameRate" :: NullOrUndefined (FrameRate) , "Resolution" :: NullOrUndefined (Resolution) , "AspectRatio" :: NullOrUndefined (AspectRatio) , "Interlaced" :: NullOrUndefined (Interlaced) , "Container" :: NullOrUndefined (JobContainer) , "Encryption" :: NullOrUndefined (Encryption) , "TimeSpan" :: NullOrUndefined (TimeSpan) , "InputCaptions" :: NullOrUndefined (InputCaptions) , "DetectedProperties" :: NullOrUndefined (DetectedProperties) } ) -> JobInput
-newJobInput'  customize = (JobInput <<< customize) { "AspectRatio": (NullOrUndefined Nothing), "Container": (NullOrUndefined Nothing), "DetectedProperties": (NullOrUndefined Nothing), "Encryption": (NullOrUndefined Nothing), "FrameRate": (NullOrUndefined Nothing), "InputCaptions": (NullOrUndefined Nothing), "Interlaced": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "Resolution": (NullOrUndefined Nothing), "TimeSpan": (NullOrUndefined Nothing) }
+newJobInput' :: ( { "Key" :: Maybe (LongKey) , "FrameRate" :: Maybe (FrameRate) , "Resolution" :: Maybe (Resolution) , "AspectRatio" :: Maybe (AspectRatio) , "Interlaced" :: Maybe (Interlaced) , "Container" :: Maybe (JobContainer) , "Encryption" :: Maybe (Encryption) , "TimeSpan" :: Maybe (TimeSpan) , "InputCaptions" :: Maybe (InputCaptions) , "DetectedProperties" :: Maybe (DetectedProperties) } -> {"Key" :: Maybe (LongKey) , "FrameRate" :: Maybe (FrameRate) , "Resolution" :: Maybe (Resolution) , "AspectRatio" :: Maybe (AspectRatio) , "Interlaced" :: Maybe (Interlaced) , "Container" :: Maybe (JobContainer) , "Encryption" :: Maybe (Encryption) , "TimeSpan" :: Maybe (TimeSpan) , "InputCaptions" :: Maybe (InputCaptions) , "DetectedProperties" :: Maybe (DetectedProperties) } ) -> JobInput
+newJobInput'  customize = (JobInput <<< customize) { "AspectRatio": Nothing, "Container": Nothing, "DetectedProperties": Nothing, "Encryption": Nothing, "FrameRate": Nothing, "InputCaptions": Nothing, "Interlaced": Nothing, "Key": Nothing, "Resolution": Nothing, "TimeSpan": Nothing }
 
 
 
@@ -1082,27 +1081,27 @@ instance encodeJobInputs :: Encode JobInputs where encode = genericEncode option
 
 -- | <important> <p>Outputs recommended instead.</p> </important> <p>If you specified one output for a job, information about that output. If you specified multiple outputs for a job, the <code>Output</code> object lists information about the first output. This duplicates the information that is listed for the first output in the <code>Outputs</code> object.</p>
 newtype JobOutput = JobOutput 
-  { "Id" :: NullOrUndefined (String)
-  , "Key" :: NullOrUndefined (Key)
-  , "ThumbnailPattern" :: NullOrUndefined (ThumbnailPattern)
-  , "ThumbnailEncryption" :: NullOrUndefined (Encryption)
-  , "Rotate" :: NullOrUndefined (Rotate)
-  , "PresetId" :: NullOrUndefined (Id)
-  , "SegmentDuration" :: NullOrUndefined (FloatString)
-  , "Status" :: NullOrUndefined (JobStatus)
-  , "StatusDetail" :: NullOrUndefined (Description)
-  , "Duration" :: NullOrUndefined (NullableLong)
-  , "Width" :: NullOrUndefined (NullableInteger)
-  , "Height" :: NullOrUndefined (NullableInteger)
-  , "FrameRate" :: NullOrUndefined (FloatString)
-  , "FileSize" :: NullOrUndefined (NullableLong)
-  , "DurationMillis" :: NullOrUndefined (NullableLong)
-  , "Watermarks" :: NullOrUndefined (JobWatermarks)
-  , "AlbumArt" :: NullOrUndefined (JobAlbumArt)
-  , "Composition" :: NullOrUndefined (Composition)
-  , "Captions" :: NullOrUndefined (Captions)
-  , "Encryption" :: NullOrUndefined (Encryption)
-  , "AppliedColorSpaceConversion" :: NullOrUndefined (String)
+  { "Id" :: Maybe (String)
+  , "Key" :: Maybe (Key)
+  , "ThumbnailPattern" :: Maybe (ThumbnailPattern)
+  , "ThumbnailEncryption" :: Maybe (Encryption)
+  , "Rotate" :: Maybe (Rotate)
+  , "PresetId" :: Maybe (Id)
+  , "SegmentDuration" :: Maybe (FloatString)
+  , "Status" :: Maybe (JobStatus)
+  , "StatusDetail" :: Maybe (Description)
+  , "Duration" :: Maybe (NullableLong)
+  , "Width" :: Maybe (NullableInteger)
+  , "Height" :: Maybe (NullableInteger)
+  , "FrameRate" :: Maybe (FloatString)
+  , "FileSize" :: Maybe (NullableLong)
+  , "DurationMillis" :: Maybe (NullableLong)
+  , "Watermarks" :: Maybe (JobWatermarks)
+  , "AlbumArt" :: Maybe (JobAlbumArt)
+  , "Composition" :: Maybe (Composition)
+  , "Captions" :: Maybe (Captions)
+  , "Encryption" :: Maybe (Encryption)
+  , "AppliedColorSpaceConversion" :: Maybe (String)
   }
 derive instance newtypeJobOutput :: Newtype JobOutput _
 derive instance repGenericJobOutput :: Generic JobOutput _
@@ -1112,12 +1111,12 @@ instance encodeJobOutput :: Encode JobOutput where encode = genericEncode option
 
 -- | Constructs JobOutput from required parameters
 newJobOutput :: JobOutput
-newJobOutput  = JobOutput { "AlbumArt": (NullOrUndefined Nothing), "AppliedColorSpaceConversion": (NullOrUndefined Nothing), "Captions": (NullOrUndefined Nothing), "Composition": (NullOrUndefined Nothing), "Duration": (NullOrUndefined Nothing), "DurationMillis": (NullOrUndefined Nothing), "Encryption": (NullOrUndefined Nothing), "FileSize": (NullOrUndefined Nothing), "FrameRate": (NullOrUndefined Nothing), "Height": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "PresetId": (NullOrUndefined Nothing), "Rotate": (NullOrUndefined Nothing), "SegmentDuration": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "StatusDetail": (NullOrUndefined Nothing), "ThumbnailEncryption": (NullOrUndefined Nothing), "ThumbnailPattern": (NullOrUndefined Nothing), "Watermarks": (NullOrUndefined Nothing), "Width": (NullOrUndefined Nothing) }
+newJobOutput  = JobOutput { "AlbumArt": Nothing, "AppliedColorSpaceConversion": Nothing, "Captions": Nothing, "Composition": Nothing, "Duration": Nothing, "DurationMillis": Nothing, "Encryption": Nothing, "FileSize": Nothing, "FrameRate": Nothing, "Height": Nothing, "Id": Nothing, "Key": Nothing, "PresetId": Nothing, "Rotate": Nothing, "SegmentDuration": Nothing, "Status": Nothing, "StatusDetail": Nothing, "ThumbnailEncryption": Nothing, "ThumbnailPattern": Nothing, "Watermarks": Nothing, "Width": Nothing }
 
 -- | Constructs JobOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newJobOutput' :: ( { "Id" :: NullOrUndefined (String) , "Key" :: NullOrUndefined (Key) , "ThumbnailPattern" :: NullOrUndefined (ThumbnailPattern) , "ThumbnailEncryption" :: NullOrUndefined (Encryption) , "Rotate" :: NullOrUndefined (Rotate) , "PresetId" :: NullOrUndefined (Id) , "SegmentDuration" :: NullOrUndefined (FloatString) , "Status" :: NullOrUndefined (JobStatus) , "StatusDetail" :: NullOrUndefined (Description) , "Duration" :: NullOrUndefined (NullableLong) , "Width" :: NullOrUndefined (NullableInteger) , "Height" :: NullOrUndefined (NullableInteger) , "FrameRate" :: NullOrUndefined (FloatString) , "FileSize" :: NullOrUndefined (NullableLong) , "DurationMillis" :: NullOrUndefined (NullableLong) , "Watermarks" :: NullOrUndefined (JobWatermarks) , "AlbumArt" :: NullOrUndefined (JobAlbumArt) , "Composition" :: NullOrUndefined (Composition) , "Captions" :: NullOrUndefined (Captions) , "Encryption" :: NullOrUndefined (Encryption) , "AppliedColorSpaceConversion" :: NullOrUndefined (String) } -> {"Id" :: NullOrUndefined (String) , "Key" :: NullOrUndefined (Key) , "ThumbnailPattern" :: NullOrUndefined (ThumbnailPattern) , "ThumbnailEncryption" :: NullOrUndefined (Encryption) , "Rotate" :: NullOrUndefined (Rotate) , "PresetId" :: NullOrUndefined (Id) , "SegmentDuration" :: NullOrUndefined (FloatString) , "Status" :: NullOrUndefined (JobStatus) , "StatusDetail" :: NullOrUndefined (Description) , "Duration" :: NullOrUndefined (NullableLong) , "Width" :: NullOrUndefined (NullableInteger) , "Height" :: NullOrUndefined (NullableInteger) , "FrameRate" :: NullOrUndefined (FloatString) , "FileSize" :: NullOrUndefined (NullableLong) , "DurationMillis" :: NullOrUndefined (NullableLong) , "Watermarks" :: NullOrUndefined (JobWatermarks) , "AlbumArt" :: NullOrUndefined (JobAlbumArt) , "Composition" :: NullOrUndefined (Composition) , "Captions" :: NullOrUndefined (Captions) , "Encryption" :: NullOrUndefined (Encryption) , "AppliedColorSpaceConversion" :: NullOrUndefined (String) } ) -> JobOutput
-newJobOutput'  customize = (JobOutput <<< customize) { "AlbumArt": (NullOrUndefined Nothing), "AppliedColorSpaceConversion": (NullOrUndefined Nothing), "Captions": (NullOrUndefined Nothing), "Composition": (NullOrUndefined Nothing), "Duration": (NullOrUndefined Nothing), "DurationMillis": (NullOrUndefined Nothing), "Encryption": (NullOrUndefined Nothing), "FileSize": (NullOrUndefined Nothing), "FrameRate": (NullOrUndefined Nothing), "Height": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "PresetId": (NullOrUndefined Nothing), "Rotate": (NullOrUndefined Nothing), "SegmentDuration": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "StatusDetail": (NullOrUndefined Nothing), "ThumbnailEncryption": (NullOrUndefined Nothing), "ThumbnailPattern": (NullOrUndefined Nothing), "Watermarks": (NullOrUndefined Nothing), "Width": (NullOrUndefined Nothing) }
+newJobOutput' :: ( { "Id" :: Maybe (String) , "Key" :: Maybe (Key) , "ThumbnailPattern" :: Maybe (ThumbnailPattern) , "ThumbnailEncryption" :: Maybe (Encryption) , "Rotate" :: Maybe (Rotate) , "PresetId" :: Maybe (Id) , "SegmentDuration" :: Maybe (FloatString) , "Status" :: Maybe (JobStatus) , "StatusDetail" :: Maybe (Description) , "Duration" :: Maybe (NullableLong) , "Width" :: Maybe (NullableInteger) , "Height" :: Maybe (NullableInteger) , "FrameRate" :: Maybe (FloatString) , "FileSize" :: Maybe (NullableLong) , "DurationMillis" :: Maybe (NullableLong) , "Watermarks" :: Maybe (JobWatermarks) , "AlbumArt" :: Maybe (JobAlbumArt) , "Composition" :: Maybe (Composition) , "Captions" :: Maybe (Captions) , "Encryption" :: Maybe (Encryption) , "AppliedColorSpaceConversion" :: Maybe (String) } -> {"Id" :: Maybe (String) , "Key" :: Maybe (Key) , "ThumbnailPattern" :: Maybe (ThumbnailPattern) , "ThumbnailEncryption" :: Maybe (Encryption) , "Rotate" :: Maybe (Rotate) , "PresetId" :: Maybe (Id) , "SegmentDuration" :: Maybe (FloatString) , "Status" :: Maybe (JobStatus) , "StatusDetail" :: Maybe (Description) , "Duration" :: Maybe (NullableLong) , "Width" :: Maybe (NullableInteger) , "Height" :: Maybe (NullableInteger) , "FrameRate" :: Maybe (FloatString) , "FileSize" :: Maybe (NullableLong) , "DurationMillis" :: Maybe (NullableLong) , "Watermarks" :: Maybe (JobWatermarks) , "AlbumArt" :: Maybe (JobAlbumArt) , "Composition" :: Maybe (Composition) , "Captions" :: Maybe (Captions) , "Encryption" :: Maybe (Encryption) , "AppliedColorSpaceConversion" :: Maybe (String) } ) -> JobOutput
+newJobOutput'  customize = (JobOutput <<< customize) { "AlbumArt": Nothing, "AppliedColorSpaceConversion": Nothing, "Captions": Nothing, "Composition": Nothing, "Duration": Nothing, "DurationMillis": Nothing, "Encryption": Nothing, "FileSize": Nothing, "FrameRate": Nothing, "Height": Nothing, "Id": Nothing, "Key": Nothing, "PresetId": Nothing, "Rotate": Nothing, "SegmentDuration": Nothing, "Status": Nothing, "StatusDetail": Nothing, "ThumbnailEncryption": Nothing, "ThumbnailPattern": Nothing, "Watermarks": Nothing, "Width": Nothing }
 
 
 
@@ -1141,9 +1140,9 @@ instance encodeJobStatus :: Encode JobStatus where encode = genericEncode option
 
 -- | <p>Watermarks can be in .png or .jpg format. If you want to display a watermark that is not rectangular, use the .png format, which supports transparency.</p>
 newtype JobWatermark = JobWatermark 
-  { "PresetWatermarkId" :: NullOrUndefined (PresetWatermarkId)
-  , "InputKey" :: NullOrUndefined (WatermarkKey)
-  , "Encryption" :: NullOrUndefined (Encryption)
+  { "PresetWatermarkId" :: Maybe (PresetWatermarkId)
+  , "InputKey" :: Maybe (WatermarkKey)
+  , "Encryption" :: Maybe (Encryption)
   }
 derive instance newtypeJobWatermark :: Newtype JobWatermark _
 derive instance repGenericJobWatermark :: Generic JobWatermark _
@@ -1153,12 +1152,12 @@ instance encodeJobWatermark :: Encode JobWatermark where encode = genericEncode 
 
 -- | Constructs JobWatermark from required parameters
 newJobWatermark :: JobWatermark
-newJobWatermark  = JobWatermark { "Encryption": (NullOrUndefined Nothing), "InputKey": (NullOrUndefined Nothing), "PresetWatermarkId": (NullOrUndefined Nothing) }
+newJobWatermark  = JobWatermark { "Encryption": Nothing, "InputKey": Nothing, "PresetWatermarkId": Nothing }
 
 -- | Constructs JobWatermark's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newJobWatermark' :: ( { "PresetWatermarkId" :: NullOrUndefined (PresetWatermarkId) , "InputKey" :: NullOrUndefined (WatermarkKey) , "Encryption" :: NullOrUndefined (Encryption) } -> {"PresetWatermarkId" :: NullOrUndefined (PresetWatermarkId) , "InputKey" :: NullOrUndefined (WatermarkKey) , "Encryption" :: NullOrUndefined (Encryption) } ) -> JobWatermark
-newJobWatermark'  customize = (JobWatermark <<< customize) { "Encryption": (NullOrUndefined Nothing), "InputKey": (NullOrUndefined Nothing), "PresetWatermarkId": (NullOrUndefined Nothing) }
+newJobWatermark' :: ( { "PresetWatermarkId" :: Maybe (PresetWatermarkId) , "InputKey" :: Maybe (WatermarkKey) , "Encryption" :: Maybe (Encryption) } -> {"PresetWatermarkId" :: Maybe (PresetWatermarkId) , "InputKey" :: Maybe (WatermarkKey) , "Encryption" :: Maybe (Encryption) } ) -> JobWatermark
+newJobWatermark'  customize = (JobWatermark <<< customize) { "Encryption": Nothing, "InputKey": Nothing, "PresetWatermarkId": Nothing }
 
 
 
@@ -1247,8 +1246,8 @@ instance encodeLimitExceededException :: Encode LimitExceededException where enc
 -- | <p>The <code>ListJobsByPipelineRequest</code> structure.</p>
 newtype ListJobsByPipelineRequest = ListJobsByPipelineRequest 
   { "PipelineId" :: (Id)
-  , "Ascending" :: NullOrUndefined (Ascending)
-  , "PageToken" :: NullOrUndefined (Id)
+  , "Ascending" :: Maybe (Ascending)
+  , "PageToken" :: Maybe (Id)
   }
 derive instance newtypeListJobsByPipelineRequest :: Newtype ListJobsByPipelineRequest _
 derive instance repGenericListJobsByPipelineRequest :: Generic ListJobsByPipelineRequest _
@@ -1258,19 +1257,19 @@ instance encodeListJobsByPipelineRequest :: Encode ListJobsByPipelineRequest whe
 
 -- | Constructs ListJobsByPipelineRequest from required parameters
 newListJobsByPipelineRequest :: Id -> ListJobsByPipelineRequest
-newListJobsByPipelineRequest _PipelineId = ListJobsByPipelineRequest { "PipelineId": _PipelineId, "Ascending": (NullOrUndefined Nothing), "PageToken": (NullOrUndefined Nothing) }
+newListJobsByPipelineRequest _PipelineId = ListJobsByPipelineRequest { "PipelineId": _PipelineId, "Ascending": Nothing, "PageToken": Nothing }
 
 -- | Constructs ListJobsByPipelineRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListJobsByPipelineRequest' :: Id -> ( { "PipelineId" :: (Id) , "Ascending" :: NullOrUndefined (Ascending) , "PageToken" :: NullOrUndefined (Id) } -> {"PipelineId" :: (Id) , "Ascending" :: NullOrUndefined (Ascending) , "PageToken" :: NullOrUndefined (Id) } ) -> ListJobsByPipelineRequest
-newListJobsByPipelineRequest' _PipelineId customize = (ListJobsByPipelineRequest <<< customize) { "PipelineId": _PipelineId, "Ascending": (NullOrUndefined Nothing), "PageToken": (NullOrUndefined Nothing) }
+newListJobsByPipelineRequest' :: Id -> ( { "PipelineId" :: (Id) , "Ascending" :: Maybe (Ascending) , "PageToken" :: Maybe (Id) } -> {"PipelineId" :: (Id) , "Ascending" :: Maybe (Ascending) , "PageToken" :: Maybe (Id) } ) -> ListJobsByPipelineRequest
+newListJobsByPipelineRequest' _PipelineId customize = (ListJobsByPipelineRequest <<< customize) { "PipelineId": _PipelineId, "Ascending": Nothing, "PageToken": Nothing }
 
 
 
 -- | <p>The <code>ListJobsByPipelineResponse</code> structure.</p>
 newtype ListJobsByPipelineResponse = ListJobsByPipelineResponse 
-  { "Jobs" :: NullOrUndefined (Jobs)
-  , "NextPageToken" :: NullOrUndefined (Id)
+  { "Jobs" :: Maybe (Jobs)
+  , "NextPageToken" :: Maybe (Id)
   }
 derive instance newtypeListJobsByPipelineResponse :: Newtype ListJobsByPipelineResponse _
 derive instance repGenericListJobsByPipelineResponse :: Generic ListJobsByPipelineResponse _
@@ -1280,20 +1279,20 @@ instance encodeListJobsByPipelineResponse :: Encode ListJobsByPipelineResponse w
 
 -- | Constructs ListJobsByPipelineResponse from required parameters
 newListJobsByPipelineResponse :: ListJobsByPipelineResponse
-newListJobsByPipelineResponse  = ListJobsByPipelineResponse { "Jobs": (NullOrUndefined Nothing), "NextPageToken": (NullOrUndefined Nothing) }
+newListJobsByPipelineResponse  = ListJobsByPipelineResponse { "Jobs": Nothing, "NextPageToken": Nothing }
 
 -- | Constructs ListJobsByPipelineResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListJobsByPipelineResponse' :: ( { "Jobs" :: NullOrUndefined (Jobs) , "NextPageToken" :: NullOrUndefined (Id) } -> {"Jobs" :: NullOrUndefined (Jobs) , "NextPageToken" :: NullOrUndefined (Id) } ) -> ListJobsByPipelineResponse
-newListJobsByPipelineResponse'  customize = (ListJobsByPipelineResponse <<< customize) { "Jobs": (NullOrUndefined Nothing), "NextPageToken": (NullOrUndefined Nothing) }
+newListJobsByPipelineResponse' :: ( { "Jobs" :: Maybe (Jobs) , "NextPageToken" :: Maybe (Id) } -> {"Jobs" :: Maybe (Jobs) , "NextPageToken" :: Maybe (Id) } ) -> ListJobsByPipelineResponse
+newListJobsByPipelineResponse'  customize = (ListJobsByPipelineResponse <<< customize) { "Jobs": Nothing, "NextPageToken": Nothing }
 
 
 
 -- | <p>The <code>ListJobsByStatusRequest</code> structure.</p>
 newtype ListJobsByStatusRequest = ListJobsByStatusRequest 
   { "Status" :: (JobStatus)
-  , "Ascending" :: NullOrUndefined (Ascending)
-  , "PageToken" :: NullOrUndefined (Id)
+  , "Ascending" :: Maybe (Ascending)
+  , "PageToken" :: Maybe (Id)
   }
 derive instance newtypeListJobsByStatusRequest :: Newtype ListJobsByStatusRequest _
 derive instance repGenericListJobsByStatusRequest :: Generic ListJobsByStatusRequest _
@@ -1303,19 +1302,19 @@ instance encodeListJobsByStatusRequest :: Encode ListJobsByStatusRequest where e
 
 -- | Constructs ListJobsByStatusRequest from required parameters
 newListJobsByStatusRequest :: JobStatus -> ListJobsByStatusRequest
-newListJobsByStatusRequest _Status = ListJobsByStatusRequest { "Status": _Status, "Ascending": (NullOrUndefined Nothing), "PageToken": (NullOrUndefined Nothing) }
+newListJobsByStatusRequest _Status = ListJobsByStatusRequest { "Status": _Status, "Ascending": Nothing, "PageToken": Nothing }
 
 -- | Constructs ListJobsByStatusRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListJobsByStatusRequest' :: JobStatus -> ( { "Status" :: (JobStatus) , "Ascending" :: NullOrUndefined (Ascending) , "PageToken" :: NullOrUndefined (Id) } -> {"Status" :: (JobStatus) , "Ascending" :: NullOrUndefined (Ascending) , "PageToken" :: NullOrUndefined (Id) } ) -> ListJobsByStatusRequest
-newListJobsByStatusRequest' _Status customize = (ListJobsByStatusRequest <<< customize) { "Status": _Status, "Ascending": (NullOrUndefined Nothing), "PageToken": (NullOrUndefined Nothing) }
+newListJobsByStatusRequest' :: JobStatus -> ( { "Status" :: (JobStatus) , "Ascending" :: Maybe (Ascending) , "PageToken" :: Maybe (Id) } -> {"Status" :: (JobStatus) , "Ascending" :: Maybe (Ascending) , "PageToken" :: Maybe (Id) } ) -> ListJobsByStatusRequest
+newListJobsByStatusRequest' _Status customize = (ListJobsByStatusRequest <<< customize) { "Status": _Status, "Ascending": Nothing, "PageToken": Nothing }
 
 
 
 -- | <p> The <code>ListJobsByStatusResponse</code> structure. </p>
 newtype ListJobsByStatusResponse = ListJobsByStatusResponse 
-  { "Jobs" :: NullOrUndefined (Jobs)
-  , "NextPageToken" :: NullOrUndefined (Id)
+  { "Jobs" :: Maybe (Jobs)
+  , "NextPageToken" :: Maybe (Id)
   }
 derive instance newtypeListJobsByStatusResponse :: Newtype ListJobsByStatusResponse _
 derive instance repGenericListJobsByStatusResponse :: Generic ListJobsByStatusResponse _
@@ -1325,19 +1324,19 @@ instance encodeListJobsByStatusResponse :: Encode ListJobsByStatusResponse where
 
 -- | Constructs ListJobsByStatusResponse from required parameters
 newListJobsByStatusResponse :: ListJobsByStatusResponse
-newListJobsByStatusResponse  = ListJobsByStatusResponse { "Jobs": (NullOrUndefined Nothing), "NextPageToken": (NullOrUndefined Nothing) }
+newListJobsByStatusResponse  = ListJobsByStatusResponse { "Jobs": Nothing, "NextPageToken": Nothing }
 
 -- | Constructs ListJobsByStatusResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListJobsByStatusResponse' :: ( { "Jobs" :: NullOrUndefined (Jobs) , "NextPageToken" :: NullOrUndefined (Id) } -> {"Jobs" :: NullOrUndefined (Jobs) , "NextPageToken" :: NullOrUndefined (Id) } ) -> ListJobsByStatusResponse
-newListJobsByStatusResponse'  customize = (ListJobsByStatusResponse <<< customize) { "Jobs": (NullOrUndefined Nothing), "NextPageToken": (NullOrUndefined Nothing) }
+newListJobsByStatusResponse' :: ( { "Jobs" :: Maybe (Jobs) , "NextPageToken" :: Maybe (Id) } -> {"Jobs" :: Maybe (Jobs) , "NextPageToken" :: Maybe (Id) } ) -> ListJobsByStatusResponse
+newListJobsByStatusResponse'  customize = (ListJobsByStatusResponse <<< customize) { "Jobs": Nothing, "NextPageToken": Nothing }
 
 
 
 -- | <p>The <code>ListPipelineRequest</code> structure.</p>
 newtype ListPipelinesRequest = ListPipelinesRequest 
-  { "Ascending" :: NullOrUndefined (Ascending)
-  , "PageToken" :: NullOrUndefined (Id)
+  { "Ascending" :: Maybe (Ascending)
+  , "PageToken" :: Maybe (Id)
   }
 derive instance newtypeListPipelinesRequest :: Newtype ListPipelinesRequest _
 derive instance repGenericListPipelinesRequest :: Generic ListPipelinesRequest _
@@ -1347,19 +1346,19 @@ instance encodeListPipelinesRequest :: Encode ListPipelinesRequest where encode 
 
 -- | Constructs ListPipelinesRequest from required parameters
 newListPipelinesRequest :: ListPipelinesRequest
-newListPipelinesRequest  = ListPipelinesRequest { "Ascending": (NullOrUndefined Nothing), "PageToken": (NullOrUndefined Nothing) }
+newListPipelinesRequest  = ListPipelinesRequest { "Ascending": Nothing, "PageToken": Nothing }
 
 -- | Constructs ListPipelinesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListPipelinesRequest' :: ( { "Ascending" :: NullOrUndefined (Ascending) , "PageToken" :: NullOrUndefined (Id) } -> {"Ascending" :: NullOrUndefined (Ascending) , "PageToken" :: NullOrUndefined (Id) } ) -> ListPipelinesRequest
-newListPipelinesRequest'  customize = (ListPipelinesRequest <<< customize) { "Ascending": (NullOrUndefined Nothing), "PageToken": (NullOrUndefined Nothing) }
+newListPipelinesRequest' :: ( { "Ascending" :: Maybe (Ascending) , "PageToken" :: Maybe (Id) } -> {"Ascending" :: Maybe (Ascending) , "PageToken" :: Maybe (Id) } ) -> ListPipelinesRequest
+newListPipelinesRequest'  customize = (ListPipelinesRequest <<< customize) { "Ascending": Nothing, "PageToken": Nothing }
 
 
 
 -- | <p>A list of the pipelines associated with the current AWS account.</p>
 newtype ListPipelinesResponse = ListPipelinesResponse 
-  { "Pipelines" :: NullOrUndefined (Pipelines)
-  , "NextPageToken" :: NullOrUndefined (Id)
+  { "Pipelines" :: Maybe (Pipelines)
+  , "NextPageToken" :: Maybe (Id)
   }
 derive instance newtypeListPipelinesResponse :: Newtype ListPipelinesResponse _
 derive instance repGenericListPipelinesResponse :: Generic ListPipelinesResponse _
@@ -1369,19 +1368,19 @@ instance encodeListPipelinesResponse :: Encode ListPipelinesResponse where encod
 
 -- | Constructs ListPipelinesResponse from required parameters
 newListPipelinesResponse :: ListPipelinesResponse
-newListPipelinesResponse  = ListPipelinesResponse { "NextPageToken": (NullOrUndefined Nothing), "Pipelines": (NullOrUndefined Nothing) }
+newListPipelinesResponse  = ListPipelinesResponse { "NextPageToken": Nothing, "Pipelines": Nothing }
 
 -- | Constructs ListPipelinesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListPipelinesResponse' :: ( { "Pipelines" :: NullOrUndefined (Pipelines) , "NextPageToken" :: NullOrUndefined (Id) } -> {"Pipelines" :: NullOrUndefined (Pipelines) , "NextPageToken" :: NullOrUndefined (Id) } ) -> ListPipelinesResponse
-newListPipelinesResponse'  customize = (ListPipelinesResponse <<< customize) { "NextPageToken": (NullOrUndefined Nothing), "Pipelines": (NullOrUndefined Nothing) }
+newListPipelinesResponse' :: ( { "Pipelines" :: Maybe (Pipelines) , "NextPageToken" :: Maybe (Id) } -> {"Pipelines" :: Maybe (Pipelines) , "NextPageToken" :: Maybe (Id) } ) -> ListPipelinesResponse
+newListPipelinesResponse'  customize = (ListPipelinesResponse <<< customize) { "NextPageToken": Nothing, "Pipelines": Nothing }
 
 
 
 -- | <p>The <code>ListPresetsRequest</code> structure.</p>
 newtype ListPresetsRequest = ListPresetsRequest 
-  { "Ascending" :: NullOrUndefined (Ascending)
-  , "PageToken" :: NullOrUndefined (Id)
+  { "Ascending" :: Maybe (Ascending)
+  , "PageToken" :: Maybe (Id)
   }
 derive instance newtypeListPresetsRequest :: Newtype ListPresetsRequest _
 derive instance repGenericListPresetsRequest :: Generic ListPresetsRequest _
@@ -1391,19 +1390,19 @@ instance encodeListPresetsRequest :: Encode ListPresetsRequest where encode = ge
 
 -- | Constructs ListPresetsRequest from required parameters
 newListPresetsRequest :: ListPresetsRequest
-newListPresetsRequest  = ListPresetsRequest { "Ascending": (NullOrUndefined Nothing), "PageToken": (NullOrUndefined Nothing) }
+newListPresetsRequest  = ListPresetsRequest { "Ascending": Nothing, "PageToken": Nothing }
 
 -- | Constructs ListPresetsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListPresetsRequest' :: ( { "Ascending" :: NullOrUndefined (Ascending) , "PageToken" :: NullOrUndefined (Id) } -> {"Ascending" :: NullOrUndefined (Ascending) , "PageToken" :: NullOrUndefined (Id) } ) -> ListPresetsRequest
-newListPresetsRequest'  customize = (ListPresetsRequest <<< customize) { "Ascending": (NullOrUndefined Nothing), "PageToken": (NullOrUndefined Nothing) }
+newListPresetsRequest' :: ( { "Ascending" :: Maybe (Ascending) , "PageToken" :: Maybe (Id) } -> {"Ascending" :: Maybe (Ascending) , "PageToken" :: Maybe (Id) } ) -> ListPresetsRequest
+newListPresetsRequest'  customize = (ListPresetsRequest <<< customize) { "Ascending": Nothing, "PageToken": Nothing }
 
 
 
 -- | <p>The <code>ListPresetsResponse</code> structure.</p>
 newtype ListPresetsResponse = ListPresetsResponse 
-  { "Presets" :: NullOrUndefined (Presets)
-  , "NextPageToken" :: NullOrUndefined (Id)
+  { "Presets" :: Maybe (Presets)
+  , "NextPageToken" :: Maybe (Id)
   }
 derive instance newtypeListPresetsResponse :: Newtype ListPresetsResponse _
 derive instance repGenericListPresetsResponse :: Generic ListPresetsResponse _
@@ -1413,12 +1412,12 @@ instance encodeListPresetsResponse :: Encode ListPresetsResponse where encode = 
 
 -- | Constructs ListPresetsResponse from required parameters
 newListPresetsResponse :: ListPresetsResponse
-newListPresetsResponse  = ListPresetsResponse { "NextPageToken": (NullOrUndefined Nothing), "Presets": (NullOrUndefined Nothing) }
+newListPresetsResponse  = ListPresetsResponse { "NextPageToken": Nothing, "Presets": Nothing }
 
 -- | Constructs ListPresetsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListPresetsResponse' :: ( { "Presets" :: NullOrUndefined (Presets) , "NextPageToken" :: NullOrUndefined (Id) } -> {"Presets" :: NullOrUndefined (Presets) , "NextPageToken" :: NullOrUndefined (Id) } ) -> ListPresetsResponse
-newListPresetsResponse'  customize = (ListPresetsResponse <<< customize) { "NextPageToken": (NullOrUndefined Nothing), "Presets": (NullOrUndefined Nothing) }
+newListPresetsResponse' :: ( { "Presets" :: Maybe (Presets) , "NextPageToken" :: Maybe (Id) } -> {"Presets" :: Maybe (Presets) , "NextPageToken" :: Maybe (Id) } ) -> ListPresetsResponse
+newListPresetsResponse'  customize = (ListPresetsResponse <<< customize) { "NextPageToken": Nothing, "Presets": Nothing }
 
 
 
@@ -1469,10 +1468,10 @@ instance encodeNonEmptyBase64EncodedString :: Encode NonEmptyBase64EncodedString
 
 -- | <p>The Amazon Simple Notification Service (Amazon SNS) topic or topics to notify in order to report job status.</p> <important> <p>To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.</p> </important>
 newtype Notifications = Notifications 
-  { "Progressing" :: NullOrUndefined (SnsTopic)
-  , "Completed" :: NullOrUndefined (SnsTopic)
-  , "Warning" :: NullOrUndefined (SnsTopic)
-  , "Error" :: NullOrUndefined (SnsTopic)
+  { "Progressing" :: Maybe (SnsTopic)
+  , "Completed" :: Maybe (SnsTopic)
+  , "Warning" :: Maybe (SnsTopic)
+  , "Error" :: Maybe (SnsTopic)
   }
 derive instance newtypeNotifications :: Newtype Notifications _
 derive instance repGenericNotifications :: Generic Notifications _
@@ -1482,12 +1481,12 @@ instance encodeNotifications :: Encode Notifications where encode = genericEncod
 
 -- | Constructs Notifications from required parameters
 newNotifications :: Notifications
-newNotifications  = Notifications { "Completed": (NullOrUndefined Nothing), "Error": (NullOrUndefined Nothing), "Progressing": (NullOrUndefined Nothing), "Warning": (NullOrUndefined Nothing) }
+newNotifications  = Notifications { "Completed": Nothing, "Error": Nothing, "Progressing": Nothing, "Warning": Nothing }
 
 -- | Constructs Notifications's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNotifications' :: ( { "Progressing" :: NullOrUndefined (SnsTopic) , "Completed" :: NullOrUndefined (SnsTopic) , "Warning" :: NullOrUndefined (SnsTopic) , "Error" :: NullOrUndefined (SnsTopic) } -> {"Progressing" :: NullOrUndefined (SnsTopic) , "Completed" :: NullOrUndefined (SnsTopic) , "Warning" :: NullOrUndefined (SnsTopic) , "Error" :: NullOrUndefined (SnsTopic) } ) -> Notifications
-newNotifications'  customize = (Notifications <<< customize) { "Completed": (NullOrUndefined Nothing), "Error": (NullOrUndefined Nothing), "Progressing": (NullOrUndefined Nothing), "Warning": (NullOrUndefined Nothing) }
+newNotifications' :: ( { "Progressing" :: Maybe (SnsTopic) , "Completed" :: Maybe (SnsTopic) , "Warning" :: Maybe (SnsTopic) , "Error" :: Maybe (SnsTopic) } -> {"Progressing" :: Maybe (SnsTopic) , "Completed" :: Maybe (SnsTopic) , "Warning" :: Maybe (SnsTopic) , "Error" :: Maybe (SnsTopic) } ) -> Notifications
+newNotifications'  customize = (Notifications <<< customize) { "Completed": Nothing, "Error": Nothing, "Progressing": Nothing, "Warning": Nothing }
 
 
 
@@ -1547,9 +1546,9 @@ instance encodePaddingPolicy :: Encode PaddingPolicy where encode = genericEncod
 
 -- | <p>The <code>Permission</code> structure.</p>
 newtype Permission = Permission 
-  { "GranteeType" :: NullOrUndefined (GranteeType)
-  , "Grantee" :: NullOrUndefined (Grantee)
-  , "Access" :: NullOrUndefined (AccessControls)
+  { "GranteeType" :: Maybe (GranteeType)
+  , "Grantee" :: Maybe (Grantee)
+  , "Access" :: Maybe (AccessControls)
   }
 derive instance newtypePermission :: Newtype Permission _
 derive instance repGenericPermission :: Generic Permission _
@@ -1559,12 +1558,12 @@ instance encodePermission :: Encode Permission where encode = genericEncode opti
 
 -- | Constructs Permission from required parameters
 newPermission :: Permission
-newPermission  = Permission { "Access": (NullOrUndefined Nothing), "Grantee": (NullOrUndefined Nothing), "GranteeType": (NullOrUndefined Nothing) }
+newPermission  = Permission { "Access": Nothing, "Grantee": Nothing, "GranteeType": Nothing }
 
 -- | Constructs Permission's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPermission' :: ( { "GranteeType" :: NullOrUndefined (GranteeType) , "Grantee" :: NullOrUndefined (Grantee) , "Access" :: NullOrUndefined (AccessControls) } -> {"GranteeType" :: NullOrUndefined (GranteeType) , "Grantee" :: NullOrUndefined (Grantee) , "Access" :: NullOrUndefined (AccessControls) } ) -> Permission
-newPermission'  customize = (Permission <<< customize) { "Access": (NullOrUndefined Nothing), "Grantee": (NullOrUndefined Nothing), "GranteeType": (NullOrUndefined Nothing) }
+newPermission' :: ( { "GranteeType" :: Maybe (GranteeType) , "Grantee" :: Maybe (Grantee) , "Access" :: Maybe (AccessControls) } -> {"GranteeType" :: Maybe (GranteeType) , "Grantee" :: Maybe (Grantee) , "Access" :: Maybe (AccessControls) } ) -> Permission
+newPermission'  customize = (Permission <<< customize) { "Access": Nothing, "Grantee": Nothing, "GranteeType": Nothing }
 
 
 
@@ -1579,17 +1578,17 @@ instance encodePermissions :: Encode Permissions where encode = genericEncode op
 
 -- | <p>The pipeline (queue) that is used to manage jobs.</p>
 newtype Pipeline = Pipeline 
-  { "Id" :: NullOrUndefined (Id)
-  , "Arn" :: NullOrUndefined (String)
-  , "Name" :: NullOrUndefined (Name)
-  , "Status" :: NullOrUndefined (PipelineStatus)
-  , "InputBucket" :: NullOrUndefined (BucketName)
-  , "OutputBucket" :: NullOrUndefined (BucketName)
-  , "Role" :: NullOrUndefined (Role)
-  , "AwsKmsKeyArn" :: NullOrUndefined (KeyArn)
-  , "Notifications" :: NullOrUndefined (Notifications)
-  , "ContentConfig" :: NullOrUndefined (PipelineOutputConfig)
-  , "ThumbnailConfig" :: NullOrUndefined (PipelineOutputConfig)
+  { "Id" :: Maybe (Id)
+  , "Arn" :: Maybe (String)
+  , "Name" :: Maybe (Name)
+  , "Status" :: Maybe (PipelineStatus)
+  , "InputBucket" :: Maybe (BucketName)
+  , "OutputBucket" :: Maybe (BucketName)
+  , "Role" :: Maybe (Role)
+  , "AwsKmsKeyArn" :: Maybe (KeyArn)
+  , "Notifications" :: Maybe (Notifications)
+  , "ContentConfig" :: Maybe (PipelineOutputConfig)
+  , "ThumbnailConfig" :: Maybe (PipelineOutputConfig)
   }
 derive instance newtypePipeline :: Newtype Pipeline _
 derive instance repGenericPipeline :: Generic Pipeline _
@@ -1599,20 +1598,20 @@ instance encodePipeline :: Encode Pipeline where encode = genericEncode options
 
 -- | Constructs Pipeline from required parameters
 newPipeline :: Pipeline
-newPipeline  = Pipeline { "Arn": (NullOrUndefined Nothing), "AwsKmsKeyArn": (NullOrUndefined Nothing), "ContentConfig": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "InputBucket": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Notifications": (NullOrUndefined Nothing), "OutputBucket": (NullOrUndefined Nothing), "Role": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "ThumbnailConfig": (NullOrUndefined Nothing) }
+newPipeline  = Pipeline { "Arn": Nothing, "AwsKmsKeyArn": Nothing, "ContentConfig": Nothing, "Id": Nothing, "InputBucket": Nothing, "Name": Nothing, "Notifications": Nothing, "OutputBucket": Nothing, "Role": Nothing, "Status": Nothing, "ThumbnailConfig": Nothing }
 
 -- | Constructs Pipeline's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPipeline' :: ( { "Id" :: NullOrUndefined (Id) , "Arn" :: NullOrUndefined (String) , "Name" :: NullOrUndefined (Name) , "Status" :: NullOrUndefined (PipelineStatus) , "InputBucket" :: NullOrUndefined (BucketName) , "OutputBucket" :: NullOrUndefined (BucketName) , "Role" :: NullOrUndefined (Role) , "AwsKmsKeyArn" :: NullOrUndefined (KeyArn) , "Notifications" :: NullOrUndefined (Notifications) , "ContentConfig" :: NullOrUndefined (PipelineOutputConfig) , "ThumbnailConfig" :: NullOrUndefined (PipelineOutputConfig) } -> {"Id" :: NullOrUndefined (Id) , "Arn" :: NullOrUndefined (String) , "Name" :: NullOrUndefined (Name) , "Status" :: NullOrUndefined (PipelineStatus) , "InputBucket" :: NullOrUndefined (BucketName) , "OutputBucket" :: NullOrUndefined (BucketName) , "Role" :: NullOrUndefined (Role) , "AwsKmsKeyArn" :: NullOrUndefined (KeyArn) , "Notifications" :: NullOrUndefined (Notifications) , "ContentConfig" :: NullOrUndefined (PipelineOutputConfig) , "ThumbnailConfig" :: NullOrUndefined (PipelineOutputConfig) } ) -> Pipeline
-newPipeline'  customize = (Pipeline <<< customize) { "Arn": (NullOrUndefined Nothing), "AwsKmsKeyArn": (NullOrUndefined Nothing), "ContentConfig": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "InputBucket": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Notifications": (NullOrUndefined Nothing), "OutputBucket": (NullOrUndefined Nothing), "Role": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "ThumbnailConfig": (NullOrUndefined Nothing) }
+newPipeline' :: ( { "Id" :: Maybe (Id) , "Arn" :: Maybe (String) , "Name" :: Maybe (Name) , "Status" :: Maybe (PipelineStatus) , "InputBucket" :: Maybe (BucketName) , "OutputBucket" :: Maybe (BucketName) , "Role" :: Maybe (Role) , "AwsKmsKeyArn" :: Maybe (KeyArn) , "Notifications" :: Maybe (Notifications) , "ContentConfig" :: Maybe (PipelineOutputConfig) , "ThumbnailConfig" :: Maybe (PipelineOutputConfig) } -> {"Id" :: Maybe (Id) , "Arn" :: Maybe (String) , "Name" :: Maybe (Name) , "Status" :: Maybe (PipelineStatus) , "InputBucket" :: Maybe (BucketName) , "OutputBucket" :: Maybe (BucketName) , "Role" :: Maybe (Role) , "AwsKmsKeyArn" :: Maybe (KeyArn) , "Notifications" :: Maybe (Notifications) , "ContentConfig" :: Maybe (PipelineOutputConfig) , "ThumbnailConfig" :: Maybe (PipelineOutputConfig) } ) -> Pipeline
+newPipeline'  customize = (Pipeline <<< customize) { "Arn": Nothing, "AwsKmsKeyArn": Nothing, "ContentConfig": Nothing, "Id": Nothing, "InputBucket": Nothing, "Name": Nothing, "Notifications": Nothing, "OutputBucket": Nothing, "Role": Nothing, "Status": Nothing, "ThumbnailConfig": Nothing }
 
 
 
 -- | <p>The <code>PipelineOutputConfig</code> structure.</p>
 newtype PipelineOutputConfig = PipelineOutputConfig 
-  { "Bucket" :: NullOrUndefined (BucketName)
-  , "StorageClass" :: NullOrUndefined (StorageClass)
-  , "Permissions" :: NullOrUndefined (Permissions)
+  { "Bucket" :: Maybe (BucketName)
+  , "StorageClass" :: Maybe (StorageClass)
+  , "Permissions" :: Maybe (Permissions)
   }
 derive instance newtypePipelineOutputConfig :: Newtype PipelineOutputConfig _
 derive instance repGenericPipelineOutputConfig :: Generic PipelineOutputConfig _
@@ -1622,12 +1621,12 @@ instance encodePipelineOutputConfig :: Encode PipelineOutputConfig where encode 
 
 -- | Constructs PipelineOutputConfig from required parameters
 newPipelineOutputConfig :: PipelineOutputConfig
-newPipelineOutputConfig  = PipelineOutputConfig { "Bucket": (NullOrUndefined Nothing), "Permissions": (NullOrUndefined Nothing), "StorageClass": (NullOrUndefined Nothing) }
+newPipelineOutputConfig  = PipelineOutputConfig { "Bucket": Nothing, "Permissions": Nothing, "StorageClass": Nothing }
 
 -- | Constructs PipelineOutputConfig's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPipelineOutputConfig' :: ( { "Bucket" :: NullOrUndefined (BucketName) , "StorageClass" :: NullOrUndefined (StorageClass) , "Permissions" :: NullOrUndefined (Permissions) } -> {"Bucket" :: NullOrUndefined (BucketName) , "StorageClass" :: NullOrUndefined (StorageClass) , "Permissions" :: NullOrUndefined (Permissions) } ) -> PipelineOutputConfig
-newPipelineOutputConfig'  customize = (PipelineOutputConfig <<< customize) { "Bucket": (NullOrUndefined Nothing), "Permissions": (NullOrUndefined Nothing), "StorageClass": (NullOrUndefined Nothing) }
+newPipelineOutputConfig' :: ( { "Bucket" :: Maybe (BucketName) , "StorageClass" :: Maybe (StorageClass) , "Permissions" :: Maybe (Permissions) } -> {"Bucket" :: Maybe (BucketName) , "StorageClass" :: Maybe (StorageClass) , "Permissions" :: Maybe (Permissions) } ) -> PipelineOutputConfig
+newPipelineOutputConfig'  customize = (PipelineOutputConfig <<< customize) { "Bucket": Nothing, "Permissions": Nothing, "StorageClass": Nothing }
 
 
 
@@ -1660,12 +1659,12 @@ instance encodePixelsOrPercent :: Encode PixelsOrPercent where encode = genericE
 
 -- | <p>The PlayReady DRM settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.</p> <p>PlayReady DRM encrypts your media files using <code>AES-CTR</code> encryption.</p> <p>If you use DRM for an <code>HLSv3</code> playlist, your outputs must have a master playlist.</p>
 newtype PlayReadyDrm = PlayReadyDrm 
-  { "Format" :: NullOrUndefined (PlayReadyDrmFormatString)
-  , "Key" :: NullOrUndefined (NonEmptyBase64EncodedString)
-  , "KeyMd5" :: NullOrUndefined (NonEmptyBase64EncodedString)
-  , "KeyId" :: NullOrUndefined (KeyIdGuid)
-  , "InitializationVector" :: NullOrUndefined (ZeroTo255String)
-  , "LicenseAcquisitionUrl" :: NullOrUndefined (OneTo512String)
+  { "Format" :: Maybe (PlayReadyDrmFormatString)
+  , "Key" :: Maybe (NonEmptyBase64EncodedString)
+  , "KeyMd5" :: Maybe (NonEmptyBase64EncodedString)
+  , "KeyId" :: Maybe (KeyIdGuid)
+  , "InitializationVector" :: Maybe (ZeroTo255String)
+  , "LicenseAcquisitionUrl" :: Maybe (OneTo512String)
   }
 derive instance newtypePlayReadyDrm :: Newtype PlayReadyDrm _
 derive instance repGenericPlayReadyDrm :: Generic PlayReadyDrm _
@@ -1675,12 +1674,12 @@ instance encodePlayReadyDrm :: Encode PlayReadyDrm where encode = genericEncode 
 
 -- | Constructs PlayReadyDrm from required parameters
 newPlayReadyDrm :: PlayReadyDrm
-newPlayReadyDrm  = PlayReadyDrm { "Format": (NullOrUndefined Nothing), "InitializationVector": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing), "KeyMd5": (NullOrUndefined Nothing), "LicenseAcquisitionUrl": (NullOrUndefined Nothing) }
+newPlayReadyDrm  = PlayReadyDrm { "Format": Nothing, "InitializationVector": Nothing, "Key": Nothing, "KeyId": Nothing, "KeyMd5": Nothing, "LicenseAcquisitionUrl": Nothing }
 
 -- | Constructs PlayReadyDrm's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPlayReadyDrm' :: ( { "Format" :: NullOrUndefined (PlayReadyDrmFormatString) , "Key" :: NullOrUndefined (NonEmptyBase64EncodedString) , "KeyMd5" :: NullOrUndefined (NonEmptyBase64EncodedString) , "KeyId" :: NullOrUndefined (KeyIdGuid) , "InitializationVector" :: NullOrUndefined (ZeroTo255String) , "LicenseAcquisitionUrl" :: NullOrUndefined (OneTo512String) } -> {"Format" :: NullOrUndefined (PlayReadyDrmFormatString) , "Key" :: NullOrUndefined (NonEmptyBase64EncodedString) , "KeyMd5" :: NullOrUndefined (NonEmptyBase64EncodedString) , "KeyId" :: NullOrUndefined (KeyIdGuid) , "InitializationVector" :: NullOrUndefined (ZeroTo255String) , "LicenseAcquisitionUrl" :: NullOrUndefined (OneTo512String) } ) -> PlayReadyDrm
-newPlayReadyDrm'  customize = (PlayReadyDrm <<< customize) { "Format": (NullOrUndefined Nothing), "InitializationVector": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "KeyId": (NullOrUndefined Nothing), "KeyMd5": (NullOrUndefined Nothing), "LicenseAcquisitionUrl": (NullOrUndefined Nothing) }
+newPlayReadyDrm' :: ( { "Format" :: Maybe (PlayReadyDrmFormatString) , "Key" :: Maybe (NonEmptyBase64EncodedString) , "KeyMd5" :: Maybe (NonEmptyBase64EncodedString) , "KeyId" :: Maybe (KeyIdGuid) , "InitializationVector" :: Maybe (ZeroTo255String) , "LicenseAcquisitionUrl" :: Maybe (OneTo512String) } -> {"Format" :: Maybe (PlayReadyDrmFormatString) , "Key" :: Maybe (NonEmptyBase64EncodedString) , "KeyMd5" :: Maybe (NonEmptyBase64EncodedString) , "KeyId" :: Maybe (KeyIdGuid) , "InitializationVector" :: Maybe (ZeroTo255String) , "LicenseAcquisitionUrl" :: Maybe (OneTo512String) } ) -> PlayReadyDrm
+newPlayReadyDrm'  customize = (PlayReadyDrm <<< customize) { "Format": Nothing, "InitializationVector": Nothing, "Key": Nothing, "KeyId": Nothing, "KeyMd5": Nothing, "LicenseAcquisitionUrl": Nothing }
 
 
 
@@ -1695,13 +1694,13 @@ instance encodePlayReadyDrmFormatString :: Encode PlayReadyDrmFormatString where
 
 -- | <p> Use Only for Fragmented MP4 or MPEG-TS Outputs. If you specify a preset for which the value of Container is <code>fmp4</code> (Fragmented MP4) or <code>ts</code> (MPEG-TS), Playlists contains information about the master playlists that you want Elastic Transcoder to create. We recommend that you create only one master playlist per output format. The maximum number of master playlists in a job is 30. </p>
 newtype Playlist = Playlist 
-  { "Name" :: NullOrUndefined (Filename)
-  , "Format" :: NullOrUndefined (PlaylistFormat)
-  , "OutputKeys" :: NullOrUndefined (OutputKeys)
-  , "HlsContentProtection" :: NullOrUndefined (HlsContentProtection)
-  , "PlayReadyDrm" :: NullOrUndefined (PlayReadyDrm)
-  , "Status" :: NullOrUndefined (JobStatus)
-  , "StatusDetail" :: NullOrUndefined (Description)
+  { "Name" :: Maybe (Filename)
+  , "Format" :: Maybe (PlaylistFormat)
+  , "OutputKeys" :: Maybe (OutputKeys)
+  , "HlsContentProtection" :: Maybe (HlsContentProtection)
+  , "PlayReadyDrm" :: Maybe (PlayReadyDrm)
+  , "Status" :: Maybe (JobStatus)
+  , "StatusDetail" :: Maybe (Description)
   }
 derive instance newtypePlaylist :: Newtype Playlist _
 derive instance repGenericPlaylist :: Generic Playlist _
@@ -1711,12 +1710,12 @@ instance encodePlaylist :: Encode Playlist where encode = genericEncode options
 
 -- | Constructs Playlist from required parameters
 newPlaylist :: Playlist
-newPlaylist  = Playlist { "Format": (NullOrUndefined Nothing), "HlsContentProtection": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "OutputKeys": (NullOrUndefined Nothing), "PlayReadyDrm": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "StatusDetail": (NullOrUndefined Nothing) }
+newPlaylist  = Playlist { "Format": Nothing, "HlsContentProtection": Nothing, "Name": Nothing, "OutputKeys": Nothing, "PlayReadyDrm": Nothing, "Status": Nothing, "StatusDetail": Nothing }
 
 -- | Constructs Playlist's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPlaylist' :: ( { "Name" :: NullOrUndefined (Filename) , "Format" :: NullOrUndefined (PlaylistFormat) , "OutputKeys" :: NullOrUndefined (OutputKeys) , "HlsContentProtection" :: NullOrUndefined (HlsContentProtection) , "PlayReadyDrm" :: NullOrUndefined (PlayReadyDrm) , "Status" :: NullOrUndefined (JobStatus) , "StatusDetail" :: NullOrUndefined (Description) } -> {"Name" :: NullOrUndefined (Filename) , "Format" :: NullOrUndefined (PlaylistFormat) , "OutputKeys" :: NullOrUndefined (OutputKeys) , "HlsContentProtection" :: NullOrUndefined (HlsContentProtection) , "PlayReadyDrm" :: NullOrUndefined (PlayReadyDrm) , "Status" :: NullOrUndefined (JobStatus) , "StatusDetail" :: NullOrUndefined (Description) } ) -> Playlist
-newPlaylist'  customize = (Playlist <<< customize) { "Format": (NullOrUndefined Nothing), "HlsContentProtection": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "OutputKeys": (NullOrUndefined Nothing), "PlayReadyDrm": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "StatusDetail": (NullOrUndefined Nothing) }
+newPlaylist' :: ( { "Name" :: Maybe (Filename) , "Format" :: Maybe (PlaylistFormat) , "OutputKeys" :: Maybe (OutputKeys) , "HlsContentProtection" :: Maybe (HlsContentProtection) , "PlayReadyDrm" :: Maybe (PlayReadyDrm) , "Status" :: Maybe (JobStatus) , "StatusDetail" :: Maybe (Description) } -> {"Name" :: Maybe (Filename) , "Format" :: Maybe (PlaylistFormat) , "OutputKeys" :: Maybe (OutputKeys) , "HlsContentProtection" :: Maybe (HlsContentProtection) , "PlayReadyDrm" :: Maybe (PlayReadyDrm) , "Status" :: Maybe (JobStatus) , "StatusDetail" :: Maybe (Description) } ) -> Playlist
+newPlaylist'  customize = (Playlist <<< customize) { "Format": Nothing, "HlsContentProtection": Nothing, "Name": Nothing, "OutputKeys": Nothing, "PlayReadyDrm": Nothing, "Status": Nothing, "StatusDetail": Nothing }
 
 
 
@@ -1740,15 +1739,15 @@ instance encodePlaylists :: Encode Playlists where encode = genericEncode option
 
 -- | <p>Presets are templates that contain most of the settings for transcoding media files from one format to another. Elastic Transcoder includes some default presets for common formats, for example, several iPod and iPhone versions. You can also create your own presets for formats that aren't included among the default presets. You specify which preset you want to use when you create a job.</p>
 newtype Preset = Preset 
-  { "Id" :: NullOrUndefined (Id)
-  , "Arn" :: NullOrUndefined (String)
-  , "Name" :: NullOrUndefined (Name)
-  , "Description" :: NullOrUndefined (Description)
-  , "Container" :: NullOrUndefined (PresetContainer)
-  , "Audio" :: NullOrUndefined (AudioParameters)
-  , "Video" :: NullOrUndefined (VideoParameters)
-  , "Thumbnails" :: NullOrUndefined (Thumbnails)
-  , "Type" :: NullOrUndefined (PresetType)
+  { "Id" :: Maybe (Id)
+  , "Arn" :: Maybe (String)
+  , "Name" :: Maybe (Name)
+  , "Description" :: Maybe (Description)
+  , "Container" :: Maybe (PresetContainer)
+  , "Audio" :: Maybe (AudioParameters)
+  , "Video" :: Maybe (VideoParameters)
+  , "Thumbnails" :: Maybe (Thumbnails)
+  , "Type" :: Maybe (PresetType)
   }
 derive instance newtypePreset :: Newtype Preset _
 derive instance repGenericPreset :: Generic Preset _
@@ -1758,12 +1757,12 @@ instance encodePreset :: Encode Preset where encode = genericEncode options
 
 -- | Constructs Preset from required parameters
 newPreset :: Preset
-newPreset  = Preset { "Arn": (NullOrUndefined Nothing), "Audio": (NullOrUndefined Nothing), "Container": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Thumbnails": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing), "Video": (NullOrUndefined Nothing) }
+newPreset  = Preset { "Arn": Nothing, "Audio": Nothing, "Container": Nothing, "Description": Nothing, "Id": Nothing, "Name": Nothing, "Thumbnails": Nothing, "Type": Nothing, "Video": Nothing }
 
 -- | Constructs Preset's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPreset' :: ( { "Id" :: NullOrUndefined (Id) , "Arn" :: NullOrUndefined (String) , "Name" :: NullOrUndefined (Name) , "Description" :: NullOrUndefined (Description) , "Container" :: NullOrUndefined (PresetContainer) , "Audio" :: NullOrUndefined (AudioParameters) , "Video" :: NullOrUndefined (VideoParameters) , "Thumbnails" :: NullOrUndefined (Thumbnails) , "Type" :: NullOrUndefined (PresetType) } -> {"Id" :: NullOrUndefined (Id) , "Arn" :: NullOrUndefined (String) , "Name" :: NullOrUndefined (Name) , "Description" :: NullOrUndefined (Description) , "Container" :: NullOrUndefined (PresetContainer) , "Audio" :: NullOrUndefined (AudioParameters) , "Video" :: NullOrUndefined (VideoParameters) , "Thumbnails" :: NullOrUndefined (Thumbnails) , "Type" :: NullOrUndefined (PresetType) } ) -> Preset
-newPreset'  customize = (Preset <<< customize) { "Arn": (NullOrUndefined Nothing), "Audio": (NullOrUndefined Nothing), "Container": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Thumbnails": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing), "Video": (NullOrUndefined Nothing) }
+newPreset' :: ( { "Id" :: Maybe (Id) , "Arn" :: Maybe (String) , "Name" :: Maybe (Name) , "Description" :: Maybe (Description) , "Container" :: Maybe (PresetContainer) , "Audio" :: Maybe (AudioParameters) , "Video" :: Maybe (VideoParameters) , "Thumbnails" :: Maybe (Thumbnails) , "Type" :: Maybe (PresetType) } -> {"Id" :: Maybe (Id) , "Arn" :: Maybe (String) , "Name" :: Maybe (Name) , "Description" :: Maybe (Description) , "Container" :: Maybe (PresetContainer) , "Audio" :: Maybe (AudioParameters) , "Video" :: Maybe (VideoParameters) , "Thumbnails" :: Maybe (Thumbnails) , "Type" :: Maybe (PresetType) } ) -> Preset
+newPreset'  customize = (Preset <<< customize) { "Arn": Nothing, "Audio": Nothing, "Container": Nothing, "Description": Nothing, "Id": Nothing, "Name": Nothing, "Thumbnails": Nothing, "Type": Nothing, "Video": Nothing }
 
 
 
@@ -1787,16 +1786,16 @@ instance encodePresetType :: Encode PresetType where encode = genericEncode opti
 
 -- | <p>Settings for the size, location, and opacity of graphics that you want Elastic Transcoder to overlay over videos that are transcoded using this preset. You can specify settings for up to four watermarks. Watermarks appear in the specified size and location, and with the specified opacity for the duration of the transcoded video.</p> <p>Watermarks can be in .png or .jpg format. If you want to display a watermark that is not rectangular, use the .png format, which supports transparency.</p> <p>When you create a job that uses this preset, you specify the .png or .jpg graphics that you want Elastic Transcoder to include in the transcoded videos. You can specify fewer graphics in the job than you specify watermark settings in the preset, which allows you to use the same preset for up to four watermarks that have different dimensions.</p>
 newtype PresetWatermark = PresetWatermark 
-  { "Id" :: NullOrUndefined (PresetWatermarkId)
-  , "MaxWidth" :: NullOrUndefined (PixelsOrPercent)
-  , "MaxHeight" :: NullOrUndefined (PixelsOrPercent)
-  , "SizingPolicy" :: NullOrUndefined (WatermarkSizingPolicy)
-  , "HorizontalAlign" :: NullOrUndefined (HorizontalAlign)
-  , "HorizontalOffset" :: NullOrUndefined (PixelsOrPercent)
-  , "VerticalAlign" :: NullOrUndefined (VerticalAlign)
-  , "VerticalOffset" :: NullOrUndefined (PixelsOrPercent)
-  , "Opacity" :: NullOrUndefined (Opacity)
-  , "Target" :: NullOrUndefined (Target)
+  { "Id" :: Maybe (PresetWatermarkId)
+  , "MaxWidth" :: Maybe (PixelsOrPercent)
+  , "MaxHeight" :: Maybe (PixelsOrPercent)
+  , "SizingPolicy" :: Maybe (WatermarkSizingPolicy)
+  , "HorizontalAlign" :: Maybe (HorizontalAlign)
+  , "HorizontalOffset" :: Maybe (PixelsOrPercent)
+  , "VerticalAlign" :: Maybe (VerticalAlign)
+  , "VerticalOffset" :: Maybe (PixelsOrPercent)
+  , "Opacity" :: Maybe (Opacity)
+  , "Target" :: Maybe (Target)
   }
 derive instance newtypePresetWatermark :: Newtype PresetWatermark _
 derive instance repGenericPresetWatermark :: Generic PresetWatermark _
@@ -1806,12 +1805,12 @@ instance encodePresetWatermark :: Encode PresetWatermark where encode = genericE
 
 -- | Constructs PresetWatermark from required parameters
 newPresetWatermark :: PresetWatermark
-newPresetWatermark  = PresetWatermark { "HorizontalAlign": (NullOrUndefined Nothing), "HorizontalOffset": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "MaxHeight": (NullOrUndefined Nothing), "MaxWidth": (NullOrUndefined Nothing), "Opacity": (NullOrUndefined Nothing), "SizingPolicy": (NullOrUndefined Nothing), "Target": (NullOrUndefined Nothing), "VerticalAlign": (NullOrUndefined Nothing), "VerticalOffset": (NullOrUndefined Nothing) }
+newPresetWatermark  = PresetWatermark { "HorizontalAlign": Nothing, "HorizontalOffset": Nothing, "Id": Nothing, "MaxHeight": Nothing, "MaxWidth": Nothing, "Opacity": Nothing, "SizingPolicy": Nothing, "Target": Nothing, "VerticalAlign": Nothing, "VerticalOffset": Nothing }
 
 -- | Constructs PresetWatermark's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPresetWatermark' :: ( { "Id" :: NullOrUndefined (PresetWatermarkId) , "MaxWidth" :: NullOrUndefined (PixelsOrPercent) , "MaxHeight" :: NullOrUndefined (PixelsOrPercent) , "SizingPolicy" :: NullOrUndefined (WatermarkSizingPolicy) , "HorizontalAlign" :: NullOrUndefined (HorizontalAlign) , "HorizontalOffset" :: NullOrUndefined (PixelsOrPercent) , "VerticalAlign" :: NullOrUndefined (VerticalAlign) , "VerticalOffset" :: NullOrUndefined (PixelsOrPercent) , "Opacity" :: NullOrUndefined (Opacity) , "Target" :: NullOrUndefined (Target) } -> {"Id" :: NullOrUndefined (PresetWatermarkId) , "MaxWidth" :: NullOrUndefined (PixelsOrPercent) , "MaxHeight" :: NullOrUndefined (PixelsOrPercent) , "SizingPolicy" :: NullOrUndefined (WatermarkSizingPolicy) , "HorizontalAlign" :: NullOrUndefined (HorizontalAlign) , "HorizontalOffset" :: NullOrUndefined (PixelsOrPercent) , "VerticalAlign" :: NullOrUndefined (VerticalAlign) , "VerticalOffset" :: NullOrUndefined (PixelsOrPercent) , "Opacity" :: NullOrUndefined (Opacity) , "Target" :: NullOrUndefined (Target) } ) -> PresetWatermark
-newPresetWatermark'  customize = (PresetWatermark <<< customize) { "HorizontalAlign": (NullOrUndefined Nothing), "HorizontalOffset": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "MaxHeight": (NullOrUndefined Nothing), "MaxWidth": (NullOrUndefined Nothing), "Opacity": (NullOrUndefined Nothing), "SizingPolicy": (NullOrUndefined Nothing), "Target": (NullOrUndefined Nothing), "VerticalAlign": (NullOrUndefined Nothing), "VerticalOffset": (NullOrUndefined Nothing) }
+newPresetWatermark' :: ( { "Id" :: Maybe (PresetWatermarkId) , "MaxWidth" :: Maybe (PixelsOrPercent) , "MaxHeight" :: Maybe (PixelsOrPercent) , "SizingPolicy" :: Maybe (WatermarkSizingPolicy) , "HorizontalAlign" :: Maybe (HorizontalAlign) , "HorizontalOffset" :: Maybe (PixelsOrPercent) , "VerticalAlign" :: Maybe (VerticalAlign) , "VerticalOffset" :: Maybe (PixelsOrPercent) , "Opacity" :: Maybe (Opacity) , "Target" :: Maybe (Target) } -> {"Id" :: Maybe (PresetWatermarkId) , "MaxWidth" :: Maybe (PixelsOrPercent) , "MaxHeight" :: Maybe (PixelsOrPercent) , "SizingPolicy" :: Maybe (WatermarkSizingPolicy) , "HorizontalAlign" :: Maybe (HorizontalAlign) , "HorizontalOffset" :: Maybe (PixelsOrPercent) , "VerticalAlign" :: Maybe (VerticalAlign) , "VerticalOffset" :: Maybe (PixelsOrPercent) , "Opacity" :: Maybe (Opacity) , "Target" :: Maybe (Target) } ) -> PresetWatermark
+newPresetWatermark'  customize = (PresetWatermark <<< customize) { "HorizontalAlign": Nothing, "HorizontalOffset": Nothing, "Id": Nothing, "MaxHeight": Nothing, "MaxWidth": Nothing, "Opacity": Nothing, "SizingPolicy": Nothing, "Target": Nothing, "VerticalAlign": Nothing, "VerticalOffset": Nothing }
 
 
 
@@ -1865,7 +1864,7 @@ newReadJobRequest' _Id customize = (ReadJobRequest <<< customize) { "Id": _Id }
 
 -- | <p>The <code>ReadJobResponse</code> structure.</p>
 newtype ReadJobResponse = ReadJobResponse 
-  { "Job" :: NullOrUndefined (Job)
+  { "Job" :: Maybe (Job)
   }
 derive instance newtypeReadJobResponse :: Newtype ReadJobResponse _
 derive instance repGenericReadJobResponse :: Generic ReadJobResponse _
@@ -1875,12 +1874,12 @@ instance encodeReadJobResponse :: Encode ReadJobResponse where encode = genericE
 
 -- | Constructs ReadJobResponse from required parameters
 newReadJobResponse :: ReadJobResponse
-newReadJobResponse  = ReadJobResponse { "Job": (NullOrUndefined Nothing) }
+newReadJobResponse  = ReadJobResponse { "Job": Nothing }
 
 -- | Constructs ReadJobResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newReadJobResponse' :: ( { "Job" :: NullOrUndefined (Job) } -> {"Job" :: NullOrUndefined (Job) } ) -> ReadJobResponse
-newReadJobResponse'  customize = (ReadJobResponse <<< customize) { "Job": (NullOrUndefined Nothing) }
+newReadJobResponse' :: ( { "Job" :: Maybe (Job) } -> {"Job" :: Maybe (Job) } ) -> ReadJobResponse
+newReadJobResponse'  customize = (ReadJobResponse <<< customize) { "Job": Nothing }
 
 
 
@@ -1907,8 +1906,8 @@ newReadPipelineRequest' _Id customize = (ReadPipelineRequest <<< customize) { "I
 
 -- | <p>The <code>ReadPipelineResponse</code> structure.</p>
 newtype ReadPipelineResponse = ReadPipelineResponse 
-  { "Pipeline" :: NullOrUndefined (Pipeline)
-  , "Warnings" :: NullOrUndefined (Warnings)
+  { "Pipeline" :: Maybe (Pipeline)
+  , "Warnings" :: Maybe (Warnings)
   }
 derive instance newtypeReadPipelineResponse :: Newtype ReadPipelineResponse _
 derive instance repGenericReadPipelineResponse :: Generic ReadPipelineResponse _
@@ -1918,12 +1917,12 @@ instance encodeReadPipelineResponse :: Encode ReadPipelineResponse where encode 
 
 -- | Constructs ReadPipelineResponse from required parameters
 newReadPipelineResponse :: ReadPipelineResponse
-newReadPipelineResponse  = ReadPipelineResponse { "Pipeline": (NullOrUndefined Nothing), "Warnings": (NullOrUndefined Nothing) }
+newReadPipelineResponse  = ReadPipelineResponse { "Pipeline": Nothing, "Warnings": Nothing }
 
 -- | Constructs ReadPipelineResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newReadPipelineResponse' :: ( { "Pipeline" :: NullOrUndefined (Pipeline) , "Warnings" :: NullOrUndefined (Warnings) } -> {"Pipeline" :: NullOrUndefined (Pipeline) , "Warnings" :: NullOrUndefined (Warnings) } ) -> ReadPipelineResponse
-newReadPipelineResponse'  customize = (ReadPipelineResponse <<< customize) { "Pipeline": (NullOrUndefined Nothing), "Warnings": (NullOrUndefined Nothing) }
+newReadPipelineResponse' :: ( { "Pipeline" :: Maybe (Pipeline) , "Warnings" :: Maybe (Warnings) } -> {"Pipeline" :: Maybe (Pipeline) , "Warnings" :: Maybe (Warnings) } ) -> ReadPipelineResponse
+newReadPipelineResponse'  customize = (ReadPipelineResponse <<< customize) { "Pipeline": Nothing, "Warnings": Nothing }
 
 
 
@@ -1950,7 +1949,7 @@ newReadPresetRequest' _Id customize = (ReadPresetRequest <<< customize) { "Id": 
 
 -- | <p>The <code>ReadPresetResponse</code> structure.</p>
 newtype ReadPresetResponse = ReadPresetResponse 
-  { "Preset" :: NullOrUndefined (Preset)
+  { "Preset" :: Maybe (Preset)
   }
 derive instance newtypeReadPresetResponse :: Newtype ReadPresetResponse _
 derive instance repGenericReadPresetResponse :: Generic ReadPresetResponse _
@@ -1960,12 +1959,12 @@ instance encodeReadPresetResponse :: Encode ReadPresetResponse where encode = ge
 
 -- | Constructs ReadPresetResponse from required parameters
 newReadPresetResponse :: ReadPresetResponse
-newReadPresetResponse  = ReadPresetResponse { "Preset": (NullOrUndefined Nothing) }
+newReadPresetResponse  = ReadPresetResponse { "Preset": Nothing }
 
 -- | Constructs ReadPresetResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newReadPresetResponse' :: ( { "Preset" :: NullOrUndefined (Preset) } -> {"Preset" :: NullOrUndefined (Preset) } ) -> ReadPresetResponse
-newReadPresetResponse'  customize = (ReadPresetResponse <<< customize) { "Preset": (NullOrUndefined Nothing) }
+newReadPresetResponse' :: ( { "Preset" :: Maybe (Preset) } -> {"Preset" :: Maybe (Preset) } ) -> ReadPresetResponse
+newReadPresetResponse'  customize = (ReadPresetResponse <<< customize) { "Preset": Nothing }
 
 
 
@@ -2096,8 +2095,8 @@ newTestRoleRequest' _InputBucket _OutputBucket _Role _Topics customize = (TestRo
 
 -- | <p>The <code>TestRoleResponse</code> structure.</p>
 newtype TestRoleResponse = TestRoleResponse 
-  { "Success" :: NullOrUndefined (Success)
-  , "Messages" :: NullOrUndefined (ExceptionMessages)
+  { "Success" :: Maybe (Success)
+  , "Messages" :: Maybe (ExceptionMessages)
   }
 derive instance newtypeTestRoleResponse :: Newtype TestRoleResponse _
 derive instance repGenericTestRoleResponse :: Generic TestRoleResponse _
@@ -2107,12 +2106,12 @@ instance encodeTestRoleResponse :: Encode TestRoleResponse where encode = generi
 
 -- | Constructs TestRoleResponse from required parameters
 newTestRoleResponse :: TestRoleResponse
-newTestRoleResponse  = TestRoleResponse { "Messages": (NullOrUndefined Nothing), "Success": (NullOrUndefined Nothing) }
+newTestRoleResponse  = TestRoleResponse { "Messages": Nothing, "Success": Nothing }
 
 -- | Constructs TestRoleResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTestRoleResponse' :: ( { "Success" :: NullOrUndefined (Success) , "Messages" :: NullOrUndefined (ExceptionMessages) } -> {"Success" :: NullOrUndefined (Success) , "Messages" :: NullOrUndefined (ExceptionMessages) } ) -> TestRoleResponse
-newTestRoleResponse'  customize = (TestRoleResponse <<< customize) { "Messages": (NullOrUndefined Nothing), "Success": (NullOrUndefined Nothing) }
+newTestRoleResponse' :: ( { "Success" :: Maybe (Success) , "Messages" :: Maybe (ExceptionMessages) } -> {"Success" :: Maybe (Success) , "Messages" :: Maybe (ExceptionMessages) } ) -> TestRoleResponse
+newTestRoleResponse'  customize = (TestRoleResponse <<< customize) { "Messages": Nothing, "Success": Nothing }
 
 
 
@@ -2136,14 +2135,14 @@ instance encodeThumbnailResolution :: Encode ThumbnailResolution where encode = 
 
 -- | <p>Thumbnails for videos.</p>
 newtype Thumbnails = Thumbnails 
-  { "Format" :: NullOrUndefined (JpgOrPng)
-  , "Interval" :: NullOrUndefined (Digits)
-  , "Resolution" :: NullOrUndefined (ThumbnailResolution)
-  , "AspectRatio" :: NullOrUndefined (AspectRatio)
-  , "MaxWidth" :: NullOrUndefined (DigitsOrAuto)
-  , "MaxHeight" :: NullOrUndefined (DigitsOrAuto)
-  , "SizingPolicy" :: NullOrUndefined (SizingPolicy)
-  , "PaddingPolicy" :: NullOrUndefined (PaddingPolicy)
+  { "Format" :: Maybe (JpgOrPng)
+  , "Interval" :: Maybe (Digits)
+  , "Resolution" :: Maybe (ThumbnailResolution)
+  , "AspectRatio" :: Maybe (AspectRatio)
+  , "MaxWidth" :: Maybe (DigitsOrAuto)
+  , "MaxHeight" :: Maybe (DigitsOrAuto)
+  , "SizingPolicy" :: Maybe (SizingPolicy)
+  , "PaddingPolicy" :: Maybe (PaddingPolicy)
   }
 derive instance newtypeThumbnails :: Newtype Thumbnails _
 derive instance repGenericThumbnails :: Generic Thumbnails _
@@ -2153,12 +2152,12 @@ instance encodeThumbnails :: Encode Thumbnails where encode = genericEncode opti
 
 -- | Constructs Thumbnails from required parameters
 newThumbnails :: Thumbnails
-newThumbnails  = Thumbnails { "AspectRatio": (NullOrUndefined Nothing), "Format": (NullOrUndefined Nothing), "Interval": (NullOrUndefined Nothing), "MaxHeight": (NullOrUndefined Nothing), "MaxWidth": (NullOrUndefined Nothing), "PaddingPolicy": (NullOrUndefined Nothing), "Resolution": (NullOrUndefined Nothing), "SizingPolicy": (NullOrUndefined Nothing) }
+newThumbnails  = Thumbnails { "AspectRatio": Nothing, "Format": Nothing, "Interval": Nothing, "MaxHeight": Nothing, "MaxWidth": Nothing, "PaddingPolicy": Nothing, "Resolution": Nothing, "SizingPolicy": Nothing }
 
 -- | Constructs Thumbnails's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newThumbnails' :: ( { "Format" :: NullOrUndefined (JpgOrPng) , "Interval" :: NullOrUndefined (Digits) , "Resolution" :: NullOrUndefined (ThumbnailResolution) , "AspectRatio" :: NullOrUndefined (AspectRatio) , "MaxWidth" :: NullOrUndefined (DigitsOrAuto) , "MaxHeight" :: NullOrUndefined (DigitsOrAuto) , "SizingPolicy" :: NullOrUndefined (SizingPolicy) , "PaddingPolicy" :: NullOrUndefined (PaddingPolicy) } -> {"Format" :: NullOrUndefined (JpgOrPng) , "Interval" :: NullOrUndefined (Digits) , "Resolution" :: NullOrUndefined (ThumbnailResolution) , "AspectRatio" :: NullOrUndefined (AspectRatio) , "MaxWidth" :: NullOrUndefined (DigitsOrAuto) , "MaxHeight" :: NullOrUndefined (DigitsOrAuto) , "SizingPolicy" :: NullOrUndefined (SizingPolicy) , "PaddingPolicy" :: NullOrUndefined (PaddingPolicy) } ) -> Thumbnails
-newThumbnails'  customize = (Thumbnails <<< customize) { "AspectRatio": (NullOrUndefined Nothing), "Format": (NullOrUndefined Nothing), "Interval": (NullOrUndefined Nothing), "MaxHeight": (NullOrUndefined Nothing), "MaxWidth": (NullOrUndefined Nothing), "PaddingPolicy": (NullOrUndefined Nothing), "Resolution": (NullOrUndefined Nothing), "SizingPolicy": (NullOrUndefined Nothing) }
+newThumbnails' :: ( { "Format" :: Maybe (JpgOrPng) , "Interval" :: Maybe (Digits) , "Resolution" :: Maybe (ThumbnailResolution) , "AspectRatio" :: Maybe (AspectRatio) , "MaxWidth" :: Maybe (DigitsOrAuto) , "MaxHeight" :: Maybe (DigitsOrAuto) , "SizingPolicy" :: Maybe (SizingPolicy) , "PaddingPolicy" :: Maybe (PaddingPolicy) } -> {"Format" :: Maybe (JpgOrPng) , "Interval" :: Maybe (Digits) , "Resolution" :: Maybe (ThumbnailResolution) , "AspectRatio" :: Maybe (AspectRatio) , "MaxWidth" :: Maybe (DigitsOrAuto) , "MaxHeight" :: Maybe (DigitsOrAuto) , "SizingPolicy" :: Maybe (SizingPolicy) , "PaddingPolicy" :: Maybe (PaddingPolicy) } ) -> Thumbnails
+newThumbnails'  customize = (Thumbnails <<< customize) { "AspectRatio": Nothing, "Format": Nothing, "Interval": Nothing, "MaxHeight": Nothing, "MaxWidth": Nothing, "PaddingPolicy": Nothing, "Resolution": Nothing, "SizingPolicy": Nothing }
 
 
 
@@ -2182,8 +2181,8 @@ instance encodeTimeOffset :: Encode TimeOffset where encode = genericEncode opti
 
 -- | <p>Settings that determine when a clip begins and how long it lasts.</p>
 newtype TimeSpan = TimeSpan 
-  { "StartTime" :: NullOrUndefined (Time)
-  , "Duration" :: NullOrUndefined (Time)
+  { "StartTime" :: Maybe (Time)
+  , "Duration" :: Maybe (Time)
   }
 derive instance newtypeTimeSpan :: Newtype TimeSpan _
 derive instance repGenericTimeSpan :: Generic TimeSpan _
@@ -2193,20 +2192,20 @@ instance encodeTimeSpan :: Encode TimeSpan where encode = genericEncode options
 
 -- | Constructs TimeSpan from required parameters
 newTimeSpan :: TimeSpan
-newTimeSpan  = TimeSpan { "Duration": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing) }
+newTimeSpan  = TimeSpan { "Duration": Nothing, "StartTime": Nothing }
 
 -- | Constructs TimeSpan's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTimeSpan' :: ( { "StartTime" :: NullOrUndefined (Time) , "Duration" :: NullOrUndefined (Time) } -> {"StartTime" :: NullOrUndefined (Time) , "Duration" :: NullOrUndefined (Time) } ) -> TimeSpan
-newTimeSpan'  customize = (TimeSpan <<< customize) { "Duration": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing) }
+newTimeSpan' :: ( { "StartTime" :: Maybe (Time) , "Duration" :: Maybe (Time) } -> {"StartTime" :: Maybe (Time) , "Duration" :: Maybe (Time) } ) -> TimeSpan
+newTimeSpan'  customize = (TimeSpan <<< customize) { "Duration": Nothing, "StartTime": Nothing }
 
 
 
 -- | <p>Details about the timing of a job.</p>
 newtype Timing = Timing 
-  { "SubmitTimeMillis" :: NullOrUndefined (NullableLong)
-  , "StartTimeMillis" :: NullOrUndefined (NullableLong)
-  , "FinishTimeMillis" :: NullOrUndefined (NullableLong)
+  { "SubmitTimeMillis" :: Maybe (NullableLong)
+  , "StartTimeMillis" :: Maybe (NullableLong)
+  , "FinishTimeMillis" :: Maybe (NullableLong)
   }
 derive instance newtypeTiming :: Newtype Timing _
 derive instance repGenericTiming :: Generic Timing _
@@ -2216,12 +2215,12 @@ instance encodeTiming :: Encode Timing where encode = genericEncode options
 
 -- | Constructs Timing from required parameters
 newTiming :: Timing
-newTiming  = Timing { "FinishTimeMillis": (NullOrUndefined Nothing), "StartTimeMillis": (NullOrUndefined Nothing), "SubmitTimeMillis": (NullOrUndefined Nothing) }
+newTiming  = Timing { "FinishTimeMillis": Nothing, "StartTimeMillis": Nothing, "SubmitTimeMillis": Nothing }
 
 -- | Constructs Timing's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTiming' :: ( { "SubmitTimeMillis" :: NullOrUndefined (NullableLong) , "StartTimeMillis" :: NullOrUndefined (NullableLong) , "FinishTimeMillis" :: NullOrUndefined (NullableLong) } -> {"SubmitTimeMillis" :: NullOrUndefined (NullableLong) , "StartTimeMillis" :: NullOrUndefined (NullableLong) , "FinishTimeMillis" :: NullOrUndefined (NullableLong) } ) -> Timing
-newTiming'  customize = (Timing <<< customize) { "FinishTimeMillis": (NullOrUndefined Nothing), "StartTimeMillis": (NullOrUndefined Nothing), "SubmitTimeMillis": (NullOrUndefined Nothing) }
+newTiming' :: ( { "SubmitTimeMillis" :: Maybe (NullableLong) , "StartTimeMillis" :: Maybe (NullableLong) , "FinishTimeMillis" :: Maybe (NullableLong) } -> {"SubmitTimeMillis" :: Maybe (NullableLong) , "StartTimeMillis" :: Maybe (NullableLong) , "FinishTimeMillis" :: Maybe (NullableLong) } ) -> Timing
+newTiming'  customize = (Timing <<< customize) { "FinishTimeMillis": Nothing, "StartTimeMillis": Nothing, "SubmitTimeMillis": Nothing }
 
 
 
@@ -2249,7 +2248,7 @@ newUpdatePipelineNotificationsRequest' _Id _Notifications customize = (UpdatePip
 
 -- | <p>The <code>UpdatePipelineNotificationsResponse</code> structure.</p>
 newtype UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse 
-  { "Pipeline" :: NullOrUndefined (Pipeline)
+  { "Pipeline" :: Maybe (Pipeline)
   }
 derive instance newtypeUpdatePipelineNotificationsResponse :: Newtype UpdatePipelineNotificationsResponse _
 derive instance repGenericUpdatePipelineNotificationsResponse :: Generic UpdatePipelineNotificationsResponse _
@@ -2259,25 +2258,25 @@ instance encodeUpdatePipelineNotificationsResponse :: Encode UpdatePipelineNotif
 
 -- | Constructs UpdatePipelineNotificationsResponse from required parameters
 newUpdatePipelineNotificationsResponse :: UpdatePipelineNotificationsResponse
-newUpdatePipelineNotificationsResponse  = UpdatePipelineNotificationsResponse { "Pipeline": (NullOrUndefined Nothing) }
+newUpdatePipelineNotificationsResponse  = UpdatePipelineNotificationsResponse { "Pipeline": Nothing }
 
 -- | Constructs UpdatePipelineNotificationsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdatePipelineNotificationsResponse' :: ( { "Pipeline" :: NullOrUndefined (Pipeline) } -> {"Pipeline" :: NullOrUndefined (Pipeline) } ) -> UpdatePipelineNotificationsResponse
-newUpdatePipelineNotificationsResponse'  customize = (UpdatePipelineNotificationsResponse <<< customize) { "Pipeline": (NullOrUndefined Nothing) }
+newUpdatePipelineNotificationsResponse' :: ( { "Pipeline" :: Maybe (Pipeline) } -> {"Pipeline" :: Maybe (Pipeline) } ) -> UpdatePipelineNotificationsResponse
+newUpdatePipelineNotificationsResponse'  customize = (UpdatePipelineNotificationsResponse <<< customize) { "Pipeline": Nothing }
 
 
 
 -- | <p>The <code>UpdatePipelineRequest</code> structure.</p>
 newtype UpdatePipelineRequest = UpdatePipelineRequest 
   { "Id" :: (Id)
-  , "Name" :: NullOrUndefined (Name)
-  , "InputBucket" :: NullOrUndefined (BucketName)
-  , "Role" :: NullOrUndefined (Role)
-  , "AwsKmsKeyArn" :: NullOrUndefined (KeyArn)
-  , "Notifications" :: NullOrUndefined (Notifications)
-  , "ContentConfig" :: NullOrUndefined (PipelineOutputConfig)
-  , "ThumbnailConfig" :: NullOrUndefined (PipelineOutputConfig)
+  , "Name" :: Maybe (Name)
+  , "InputBucket" :: Maybe (BucketName)
+  , "Role" :: Maybe (Role)
+  , "AwsKmsKeyArn" :: Maybe (KeyArn)
+  , "Notifications" :: Maybe (Notifications)
+  , "ContentConfig" :: Maybe (PipelineOutputConfig)
+  , "ThumbnailConfig" :: Maybe (PipelineOutputConfig)
   }
 derive instance newtypeUpdatePipelineRequest :: Newtype UpdatePipelineRequest _
 derive instance repGenericUpdatePipelineRequest :: Generic UpdatePipelineRequest _
@@ -2287,19 +2286,19 @@ instance encodeUpdatePipelineRequest :: Encode UpdatePipelineRequest where encod
 
 -- | Constructs UpdatePipelineRequest from required parameters
 newUpdatePipelineRequest :: Id -> UpdatePipelineRequest
-newUpdatePipelineRequest _Id = UpdatePipelineRequest { "Id": _Id, "AwsKmsKeyArn": (NullOrUndefined Nothing), "ContentConfig": (NullOrUndefined Nothing), "InputBucket": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Notifications": (NullOrUndefined Nothing), "Role": (NullOrUndefined Nothing), "ThumbnailConfig": (NullOrUndefined Nothing) }
+newUpdatePipelineRequest _Id = UpdatePipelineRequest { "Id": _Id, "AwsKmsKeyArn": Nothing, "ContentConfig": Nothing, "InputBucket": Nothing, "Name": Nothing, "Notifications": Nothing, "Role": Nothing, "ThumbnailConfig": Nothing }
 
 -- | Constructs UpdatePipelineRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdatePipelineRequest' :: Id -> ( { "Id" :: (Id) , "Name" :: NullOrUndefined (Name) , "InputBucket" :: NullOrUndefined (BucketName) , "Role" :: NullOrUndefined (Role) , "AwsKmsKeyArn" :: NullOrUndefined (KeyArn) , "Notifications" :: NullOrUndefined (Notifications) , "ContentConfig" :: NullOrUndefined (PipelineOutputConfig) , "ThumbnailConfig" :: NullOrUndefined (PipelineOutputConfig) } -> {"Id" :: (Id) , "Name" :: NullOrUndefined (Name) , "InputBucket" :: NullOrUndefined (BucketName) , "Role" :: NullOrUndefined (Role) , "AwsKmsKeyArn" :: NullOrUndefined (KeyArn) , "Notifications" :: NullOrUndefined (Notifications) , "ContentConfig" :: NullOrUndefined (PipelineOutputConfig) , "ThumbnailConfig" :: NullOrUndefined (PipelineOutputConfig) } ) -> UpdatePipelineRequest
-newUpdatePipelineRequest' _Id customize = (UpdatePipelineRequest <<< customize) { "Id": _Id, "AwsKmsKeyArn": (NullOrUndefined Nothing), "ContentConfig": (NullOrUndefined Nothing), "InputBucket": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Notifications": (NullOrUndefined Nothing), "Role": (NullOrUndefined Nothing), "ThumbnailConfig": (NullOrUndefined Nothing) }
+newUpdatePipelineRequest' :: Id -> ( { "Id" :: (Id) , "Name" :: Maybe (Name) , "InputBucket" :: Maybe (BucketName) , "Role" :: Maybe (Role) , "AwsKmsKeyArn" :: Maybe (KeyArn) , "Notifications" :: Maybe (Notifications) , "ContentConfig" :: Maybe (PipelineOutputConfig) , "ThumbnailConfig" :: Maybe (PipelineOutputConfig) } -> {"Id" :: (Id) , "Name" :: Maybe (Name) , "InputBucket" :: Maybe (BucketName) , "Role" :: Maybe (Role) , "AwsKmsKeyArn" :: Maybe (KeyArn) , "Notifications" :: Maybe (Notifications) , "ContentConfig" :: Maybe (PipelineOutputConfig) , "ThumbnailConfig" :: Maybe (PipelineOutputConfig) } ) -> UpdatePipelineRequest
+newUpdatePipelineRequest' _Id customize = (UpdatePipelineRequest <<< customize) { "Id": _Id, "AwsKmsKeyArn": Nothing, "ContentConfig": Nothing, "InputBucket": Nothing, "Name": Nothing, "Notifications": Nothing, "Role": Nothing, "ThumbnailConfig": Nothing }
 
 
 
 -- | <p>When you update a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
 newtype UpdatePipelineResponse = UpdatePipelineResponse 
-  { "Pipeline" :: NullOrUndefined (Pipeline)
-  , "Warnings" :: NullOrUndefined (Warnings)
+  { "Pipeline" :: Maybe (Pipeline)
+  , "Warnings" :: Maybe (Warnings)
   }
 derive instance newtypeUpdatePipelineResponse :: Newtype UpdatePipelineResponse _
 derive instance repGenericUpdatePipelineResponse :: Generic UpdatePipelineResponse _
@@ -2309,12 +2308,12 @@ instance encodeUpdatePipelineResponse :: Encode UpdatePipelineResponse where enc
 
 -- | Constructs UpdatePipelineResponse from required parameters
 newUpdatePipelineResponse :: UpdatePipelineResponse
-newUpdatePipelineResponse  = UpdatePipelineResponse { "Pipeline": (NullOrUndefined Nothing), "Warnings": (NullOrUndefined Nothing) }
+newUpdatePipelineResponse  = UpdatePipelineResponse { "Pipeline": Nothing, "Warnings": Nothing }
 
 -- | Constructs UpdatePipelineResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdatePipelineResponse' :: ( { "Pipeline" :: NullOrUndefined (Pipeline) , "Warnings" :: NullOrUndefined (Warnings) } -> {"Pipeline" :: NullOrUndefined (Pipeline) , "Warnings" :: NullOrUndefined (Warnings) } ) -> UpdatePipelineResponse
-newUpdatePipelineResponse'  customize = (UpdatePipelineResponse <<< customize) { "Pipeline": (NullOrUndefined Nothing), "Warnings": (NullOrUndefined Nothing) }
+newUpdatePipelineResponse' :: ( { "Pipeline" :: Maybe (Pipeline) , "Warnings" :: Maybe (Warnings) } -> {"Pipeline" :: Maybe (Pipeline) , "Warnings" :: Maybe (Warnings) } ) -> UpdatePipelineResponse
+newUpdatePipelineResponse'  customize = (UpdatePipelineResponse <<< customize) { "Pipeline": Nothing, "Warnings": Nothing }
 
 
 
@@ -2342,7 +2341,7 @@ newUpdatePipelineStatusRequest' _Id _Status customize = (UpdatePipelineStatusReq
 
 -- | <p>When you update status for a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
 newtype UpdatePipelineStatusResponse = UpdatePipelineStatusResponse 
-  { "Pipeline" :: NullOrUndefined (Pipeline)
+  { "Pipeline" :: Maybe (Pipeline)
   }
 derive instance newtypeUpdatePipelineStatusResponse :: Newtype UpdatePipelineStatusResponse _
 derive instance repGenericUpdatePipelineStatusResponse :: Generic UpdatePipelineStatusResponse _
@@ -2352,12 +2351,12 @@ instance encodeUpdatePipelineStatusResponse :: Encode UpdatePipelineStatusRespon
 
 -- | Constructs UpdatePipelineStatusResponse from required parameters
 newUpdatePipelineStatusResponse :: UpdatePipelineStatusResponse
-newUpdatePipelineStatusResponse  = UpdatePipelineStatusResponse { "Pipeline": (NullOrUndefined Nothing) }
+newUpdatePipelineStatusResponse  = UpdatePipelineStatusResponse { "Pipeline": Nothing }
 
 -- | Constructs UpdatePipelineStatusResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdatePipelineStatusResponse' :: ( { "Pipeline" :: NullOrUndefined (Pipeline) } -> {"Pipeline" :: NullOrUndefined (Pipeline) } ) -> UpdatePipelineStatusResponse
-newUpdatePipelineStatusResponse'  customize = (UpdatePipelineStatusResponse <<< customize) { "Pipeline": (NullOrUndefined Nothing) }
+newUpdatePipelineStatusResponse' :: ( { "Pipeline" :: Maybe (Pipeline) } -> {"Pipeline" :: Maybe (Pipeline) } ) -> UpdatePipelineStatusResponse
+newUpdatePipelineStatusResponse'  customize = (UpdatePipelineStatusResponse <<< customize) { "Pipeline": Nothing }
 
 
 
@@ -2409,21 +2408,21 @@ instance encodeVideoCodec :: Encode VideoCodec where encode = genericEncode opti
 
 -- | <p>The <code>VideoParameters</code> structure.</p>
 newtype VideoParameters = VideoParameters 
-  { "Codec" :: NullOrUndefined (VideoCodec)
-  , "CodecOptions" :: NullOrUndefined (CodecOptions)
-  , "KeyframesMaxDist" :: NullOrUndefined (KeyframesMaxDist)
-  , "FixedGOP" :: NullOrUndefined (FixedGOP)
-  , "BitRate" :: NullOrUndefined (VideoBitRate)
-  , "FrameRate" :: NullOrUndefined (FrameRate)
-  , "MaxFrameRate" :: NullOrUndefined (MaxFrameRate)
-  , "Resolution" :: NullOrUndefined (Resolution)
-  , "AspectRatio" :: NullOrUndefined (AspectRatio)
-  , "MaxWidth" :: NullOrUndefined (DigitsOrAuto)
-  , "MaxHeight" :: NullOrUndefined (DigitsOrAuto)
-  , "DisplayAspectRatio" :: NullOrUndefined (AspectRatio)
-  , "SizingPolicy" :: NullOrUndefined (SizingPolicy)
-  , "PaddingPolicy" :: NullOrUndefined (PaddingPolicy)
-  , "Watermarks" :: NullOrUndefined (PresetWatermarks)
+  { "Codec" :: Maybe (VideoCodec)
+  , "CodecOptions" :: Maybe (CodecOptions)
+  , "KeyframesMaxDist" :: Maybe (KeyframesMaxDist)
+  , "FixedGOP" :: Maybe (FixedGOP)
+  , "BitRate" :: Maybe (VideoBitRate)
+  , "FrameRate" :: Maybe (FrameRate)
+  , "MaxFrameRate" :: Maybe (MaxFrameRate)
+  , "Resolution" :: Maybe (Resolution)
+  , "AspectRatio" :: Maybe (AspectRatio)
+  , "MaxWidth" :: Maybe (DigitsOrAuto)
+  , "MaxHeight" :: Maybe (DigitsOrAuto)
+  , "DisplayAspectRatio" :: Maybe (AspectRatio)
+  , "SizingPolicy" :: Maybe (SizingPolicy)
+  , "PaddingPolicy" :: Maybe (PaddingPolicy)
+  , "Watermarks" :: Maybe (PresetWatermarks)
   }
 derive instance newtypeVideoParameters :: Newtype VideoParameters _
 derive instance repGenericVideoParameters :: Generic VideoParameters _
@@ -2433,19 +2432,19 @@ instance encodeVideoParameters :: Encode VideoParameters where encode = genericE
 
 -- | Constructs VideoParameters from required parameters
 newVideoParameters :: VideoParameters
-newVideoParameters  = VideoParameters { "AspectRatio": (NullOrUndefined Nothing), "BitRate": (NullOrUndefined Nothing), "Codec": (NullOrUndefined Nothing), "CodecOptions": (NullOrUndefined Nothing), "DisplayAspectRatio": (NullOrUndefined Nothing), "FixedGOP": (NullOrUndefined Nothing), "FrameRate": (NullOrUndefined Nothing), "KeyframesMaxDist": (NullOrUndefined Nothing), "MaxFrameRate": (NullOrUndefined Nothing), "MaxHeight": (NullOrUndefined Nothing), "MaxWidth": (NullOrUndefined Nothing), "PaddingPolicy": (NullOrUndefined Nothing), "Resolution": (NullOrUndefined Nothing), "SizingPolicy": (NullOrUndefined Nothing), "Watermarks": (NullOrUndefined Nothing) }
+newVideoParameters  = VideoParameters { "AspectRatio": Nothing, "BitRate": Nothing, "Codec": Nothing, "CodecOptions": Nothing, "DisplayAspectRatio": Nothing, "FixedGOP": Nothing, "FrameRate": Nothing, "KeyframesMaxDist": Nothing, "MaxFrameRate": Nothing, "MaxHeight": Nothing, "MaxWidth": Nothing, "PaddingPolicy": Nothing, "Resolution": Nothing, "SizingPolicy": Nothing, "Watermarks": Nothing }
 
 -- | Constructs VideoParameters's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVideoParameters' :: ( { "Codec" :: NullOrUndefined (VideoCodec) , "CodecOptions" :: NullOrUndefined (CodecOptions) , "KeyframesMaxDist" :: NullOrUndefined (KeyframesMaxDist) , "FixedGOP" :: NullOrUndefined (FixedGOP) , "BitRate" :: NullOrUndefined (VideoBitRate) , "FrameRate" :: NullOrUndefined (FrameRate) , "MaxFrameRate" :: NullOrUndefined (MaxFrameRate) , "Resolution" :: NullOrUndefined (Resolution) , "AspectRatio" :: NullOrUndefined (AspectRatio) , "MaxWidth" :: NullOrUndefined (DigitsOrAuto) , "MaxHeight" :: NullOrUndefined (DigitsOrAuto) , "DisplayAspectRatio" :: NullOrUndefined (AspectRatio) , "SizingPolicy" :: NullOrUndefined (SizingPolicy) , "PaddingPolicy" :: NullOrUndefined (PaddingPolicy) , "Watermarks" :: NullOrUndefined (PresetWatermarks) } -> {"Codec" :: NullOrUndefined (VideoCodec) , "CodecOptions" :: NullOrUndefined (CodecOptions) , "KeyframesMaxDist" :: NullOrUndefined (KeyframesMaxDist) , "FixedGOP" :: NullOrUndefined (FixedGOP) , "BitRate" :: NullOrUndefined (VideoBitRate) , "FrameRate" :: NullOrUndefined (FrameRate) , "MaxFrameRate" :: NullOrUndefined (MaxFrameRate) , "Resolution" :: NullOrUndefined (Resolution) , "AspectRatio" :: NullOrUndefined (AspectRatio) , "MaxWidth" :: NullOrUndefined (DigitsOrAuto) , "MaxHeight" :: NullOrUndefined (DigitsOrAuto) , "DisplayAspectRatio" :: NullOrUndefined (AspectRatio) , "SizingPolicy" :: NullOrUndefined (SizingPolicy) , "PaddingPolicy" :: NullOrUndefined (PaddingPolicy) , "Watermarks" :: NullOrUndefined (PresetWatermarks) } ) -> VideoParameters
-newVideoParameters'  customize = (VideoParameters <<< customize) { "AspectRatio": (NullOrUndefined Nothing), "BitRate": (NullOrUndefined Nothing), "Codec": (NullOrUndefined Nothing), "CodecOptions": (NullOrUndefined Nothing), "DisplayAspectRatio": (NullOrUndefined Nothing), "FixedGOP": (NullOrUndefined Nothing), "FrameRate": (NullOrUndefined Nothing), "KeyframesMaxDist": (NullOrUndefined Nothing), "MaxFrameRate": (NullOrUndefined Nothing), "MaxHeight": (NullOrUndefined Nothing), "MaxWidth": (NullOrUndefined Nothing), "PaddingPolicy": (NullOrUndefined Nothing), "Resolution": (NullOrUndefined Nothing), "SizingPolicy": (NullOrUndefined Nothing), "Watermarks": (NullOrUndefined Nothing) }
+newVideoParameters' :: ( { "Codec" :: Maybe (VideoCodec) , "CodecOptions" :: Maybe (CodecOptions) , "KeyframesMaxDist" :: Maybe (KeyframesMaxDist) , "FixedGOP" :: Maybe (FixedGOP) , "BitRate" :: Maybe (VideoBitRate) , "FrameRate" :: Maybe (FrameRate) , "MaxFrameRate" :: Maybe (MaxFrameRate) , "Resolution" :: Maybe (Resolution) , "AspectRatio" :: Maybe (AspectRatio) , "MaxWidth" :: Maybe (DigitsOrAuto) , "MaxHeight" :: Maybe (DigitsOrAuto) , "DisplayAspectRatio" :: Maybe (AspectRatio) , "SizingPolicy" :: Maybe (SizingPolicy) , "PaddingPolicy" :: Maybe (PaddingPolicy) , "Watermarks" :: Maybe (PresetWatermarks) } -> {"Codec" :: Maybe (VideoCodec) , "CodecOptions" :: Maybe (CodecOptions) , "KeyframesMaxDist" :: Maybe (KeyframesMaxDist) , "FixedGOP" :: Maybe (FixedGOP) , "BitRate" :: Maybe (VideoBitRate) , "FrameRate" :: Maybe (FrameRate) , "MaxFrameRate" :: Maybe (MaxFrameRate) , "Resolution" :: Maybe (Resolution) , "AspectRatio" :: Maybe (AspectRatio) , "MaxWidth" :: Maybe (DigitsOrAuto) , "MaxHeight" :: Maybe (DigitsOrAuto) , "DisplayAspectRatio" :: Maybe (AspectRatio) , "SizingPolicy" :: Maybe (SizingPolicy) , "PaddingPolicy" :: Maybe (PaddingPolicy) , "Watermarks" :: Maybe (PresetWatermarks) } ) -> VideoParameters
+newVideoParameters'  customize = (VideoParameters <<< customize) { "AspectRatio": Nothing, "BitRate": Nothing, "Codec": Nothing, "CodecOptions": Nothing, "DisplayAspectRatio": Nothing, "FixedGOP": Nothing, "FrameRate": Nothing, "KeyframesMaxDist": Nothing, "MaxFrameRate": Nothing, "MaxHeight": Nothing, "MaxWidth": Nothing, "PaddingPolicy": Nothing, "Resolution": Nothing, "SizingPolicy": Nothing, "Watermarks": Nothing }
 
 
 
 -- | <p>Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.</p> <p>Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.</p>
 newtype Warning = Warning 
-  { "Code" :: NullOrUndefined (String)
-  , "Message" :: NullOrUndefined (String)
+  { "Code" :: Maybe (String)
+  , "Message" :: Maybe (String)
   }
 derive instance newtypeWarning :: Newtype Warning _
 derive instance repGenericWarning :: Generic Warning _
@@ -2455,12 +2454,12 @@ instance encodeWarning :: Encode Warning where encode = genericEncode options
 
 -- | Constructs Warning from required parameters
 newWarning :: Warning
-newWarning  = Warning { "Code": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newWarning  = Warning { "Code": Nothing, "Message": Nothing }
 
 -- | Constructs Warning's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newWarning' :: ( { "Code" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } -> {"Code" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } ) -> Warning
-newWarning'  customize = (Warning <<< customize) { "Code": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newWarning' :: ( { "Code" :: Maybe (String) , "Message" :: Maybe (String) } -> {"Code" :: Maybe (String) , "Message" :: Maybe (String) } ) -> Warning
+newWarning'  customize = (Warning <<< customize) { "Code": Nothing, "Message": Nothing }
 
 
 
